@@ -410,7 +410,7 @@ input {
   width: calc(100% - 200px);
   padding: 15px;
   border-radius: 10px;
-  background-color: #fff;
+  background-color: rgba(255,255,255,0.749);
   box-shadow: 0 0 5px #333;
   margin-bottom: 15px;
 }
@@ -659,7 +659,7 @@ div.code-toolbar{position:relative}div.code-toolbar>.toolbar{position:absolute;z
 }
 .categories {
   padding: 10px;
-  background-color: #fff;
+  background-color: rgba(255,255,255,0.761);
   box-shadow: 0 0 5px #333;
   border-radius: 5px;
 }

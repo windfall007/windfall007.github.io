@@ -1,71 +1,158 @@
+// 创建Universe类
 function Universe(el='universe'){
-    window.requestAnimationFrame = window.requestAnimationFrame || window.mozRequestAnimationFrame ||
-    window.webkitRequestAnimationFrame || window.msRequestAnimationFrame;
 
+  // 获取requestAnimationFrame方法
+  window.requestAnimationFrame = window.requestAnimationFrame || window.mozRequestAnimationFrame ||
+                                window.webkitRequestAnimationFrame || window.msRequestAnimationFrame;
+
+  
+  // 星星密度
   var starDensity = .216;
+
+  // 星星速度系数
   var speedCoeff = .05;
-  var width;
+
+  // 宽度
+  var width;  
+
+  // 高度
   var height;
+
+  // 星星数量
   var starCount;
+
+  // 圆半径
   var circleRadius;
+
+  // 圆中心
   var circleCenter;
+
+  // 首次运行标志
   var first = true;
+
+  // 巨星颜色 
   var giantColor = '180,184,240';
+
+  // 普通星颜色
   var starColor = '226,225,142';
+
+  // 彗星颜色
   var cometColor = '226,225,224';
+
+  // 获取canvas元素
   var canva = document.getElementById(el);
+
+  // 存储所有星星
   var stars = [];
+
+  // 上下文
   var universe;
 
-  windowResizeHandler();
-  window.addEventListener('resize', windowResizeHandler, false);
 
+  // 窗口大小改变处理
+  windowResizeHandler();
+
+  // 绑定窗口改变事件
+  window.addEventListener('resize', windowResizeHandler, false);
+  
+
+  // 创建星空
   createUniverse();
 
+  // 绘制星空
   function createUniverse() {
+
+    // 获取上下文
     universe = canva.getContext('2d');
 
+    // 初始化所有星星
     for (var i = 0; i < starCount; i++) {
       stars[i] = new Star();
       stars[i].reset();
     }
 
+    // 开始绘制
     draw();
   }
 
+  // 每帧绘制
   function draw() {
+    
+    // 清除画布
     universe.clearRect(0, 0, width, height);
 
+    // 星星数量
     var starsLength = stars.length;
 
+    // 绘制每颗星星  
     for (var i = 0; i < starsLength; i++) {
+
+      // 当前星星
       var star = stars[i];
+
+      // 移动星星
       star.move();
+
+      // 渐现星星 
       star.fadeIn();
+
+      // 渐隐星星
       star.fadeOut();
+
+      // 绘制星星
       star.draw();
     }
 
+    // 请求再次绘制
     window.requestAnimationFrame(draw);
   }
 
+  // Star类
   function Star() {
 
+    // 重置星星状态
     this.reset = function() {
+      
+      // 是否为巨星
       this.giant = getProbability(3);
+
+      // 是否为彗星 
       this.comet = this.giant || first ? false : getProbability(10);
+
+      // x坐标
       this.x = getRandInterval(0, width - 10);
+
+      // y坐标
       this.y = getRandInterval(0, height);
+
+      // 半径
       this.r = getRandInterval(1.1, 2.6);
-      this.dx = getRandInterval(speedCoeff, 6 * speedCoeff) + (this.comet + 1 - 1) * speedCoeff * getRandInterval(50, 120) + speedCoeff * 2;
-      this.dy = -getRandInterval(speedCoeff, 6 * speedCoeff) - (this.comet + 1 - 1) * speedCoeff * getRandInterval(50, 120);
+
+      // x方向速度 
+      this.dx = -getRandInterval(speedCoeff, 6 * speedCoeff) - (this.comet + 1 - 1) * speedCoeff * getRandInterval(50, 120) - speedCoeff * 2;
+
+
+      // y方向速度
+      this.dy = getRandInterval(speedCoeff, 6 * speedCoeff) + (this.comet + 1 - 1) * speedCoeff * getRandInterval(50, 120);
+
+
+      // 是否渐隐
       this.fadingOut = null;
+
+      // 是否渐现
       this.fadingIn = true;
+
+      // 不透明度
       this.opacity = 0;
+
+      // 透明度阈值
       this.opacityTresh = getRandInterval(.2, 1 - (this.comet + 1 - 1) * .4);
+
+      // 不透明度变化量
       this.do = getRandInterval(0.0005, 0.002) + (this.comet + 1 - 1) * .001;
     };
 
+    // 渐现
     this.fadeIn = function() {
       if (this.fadingIn) {
         this.fadingIn = this.opacity > this.opacityTresh ? false : true;
@@ -73,17 +160,21 @@ function Universe(el='universe'){
       }
     };
 
+    // 渐隐
     this.fadeOut = function() {
       if (this.fadingOut) {
         this.fadingOut = this.opacity < 0 ? false : true;
         this.opacity -= this.do / 2;
-        if (this.x > width || this.y < 0) {
+
+        // if (this.x > width || this.y < 0) {
+        if (this.x < 0 || this.y > height) {
           this.fadingOut = false;
           this.reset();
         }
       }
     };
 
+    // 绘制
     this.draw = function() {
       universe.beginPath();
 
@@ -94,7 +185,7 @@ function Universe(el='universe'){
         universe.fillStyle = 'rgba(' + cometColor + ',' + this.opacity + ')';
         universe.arc(this.x, this.y, 1.5, 0, 2 * Math.PI, false);
 
-        //comet tail
+        //绘制彗星尾巴
         for (var i = 0; i < 30; i++) {
           universe.fillStyle = 'rgba(' + cometColor + ',' + (this.opacity - (this.opacity / 20) * i) + ')';
           universe.rect(this.x - this.dx / 4 * i, this.y - this.dy / 4 * i - 2, 2, 2);
@@ -109,17 +200,20 @@ function Universe(el='universe'){
       universe.fill();
     };
 
+    // 移动
     this.move = function() {
       this.x += this.dx;
       this.y += this.dy;
       if (this.fadingOut === false) {
         this.reset();
       }
-      if (this.x > width - (width / 4) || this.y < 0) {
+      // if (this.x > width - (width / 4) || this.y < 0) {
+      if (this.x < width / 4 || this.y > height - (height / 4)) {
         this.fadingOut = true;
       }
     };
 
+    // 首次运行后设置first为false
     (function() {
       setTimeout(function() {
         first = false;
@@ -127,19 +221,21 @@ function Universe(el='universe'){
     })()
   }
 
+  // 获取概率
   function getProbability(percents) {
     return ((Math.floor(Math.random() * 1000) + 1) < percents * 10);
   }
 
+  // 获取随机区间值
   function getRandInterval(min, max) {
     return (Math.random() * (max - min) + min);
   }
 
+  // 窗口改变处理
   function windowResizeHandler() {
     width = window.innerWidth;
     height = window.innerHeight;
     starCount = width * starDensity;
-    // console.log(starCount)
     circleRadius = (width > height ? height / 2 : width / 2);
     circleCenter = {
       x: width / 2,
@@ -149,5 +245,5 @@ function Universe(el='universe'){
     canva.setAttribute('width', width);
     canva.setAttribute('height', height);
   }
-}
 
+}
