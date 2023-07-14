@@ -539,3 +539,16 @@
   z-index: -1;
   pointer-events: none;
 }
+#universe {
+  position: fixed;
+  top: 0px;
+  left: 0px;
+  z-index: 0;
+}
+#footer {
+  position: fixed;
+  width: 100%;
+  height: 300px;
+  left: 5%;
+  bottom: 0px;
+}
