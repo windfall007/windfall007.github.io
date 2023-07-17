@@ -9,8 +9,8 @@
   <link rel="stylesheet" href="/css/public.css" />
   <link rel="stylesheet" href="/css/layout.css" />
   <link rel="stylesheet" href="/css/iconfont.css" />
-  <link rel="stylesheet" href="/css/APlayer.min.css" />
-  <script src="/js/APlayer.min.js"></script>
+  <!-- <link rel="stylesheet" href="/css/APlayer.min.css" />
+  <script src="/js/APlayer.min.js"></script> -->
   <script src="/js/jquery.min.js"></script>
   <script src="/js/jquery.pjax.min.js"></script>
   <script src="/js/universe.js"></script>
@@ -127,7 +127,7 @@
     to { transform: translateY(0) ; opacity: 1; }
   }
 </style>
-<body>
+<body class="dark">
   <div id="load" class="load">
     <div class="load-circle">
       <div class="load-circle-inner"></div>
@@ -332,11 +332,11 @@
       </p>
       <p class="main-left--subtitle">
         <span>最近动态：</span>
-        <span>今天</span>
+        <span>2天前</span>
       </p>
       <p class="main-left--subtitle">
         <span>上线时间：</span>
-        <span>2天</span>
+        <span>5天</span>
       </p>
       <p class="main-left--subtitle">
         <span>当前版本：</span>
@@ -470,7 +470,7 @@ pre:active {
     </div>
   </div>
 
-  <div id="aplayer" class="main-right--music"></div>
+  <!-- <div id="aplayer" class="main-right--music"></div> -->
 
   <div class="operate-items">
     <div class="operate-item backtop">
@@ -515,11 +515,6 @@ pre:active {
   }
 
   setOperateItem()
-  const musics = JSON.parse(`[{"name":"安河桥","artist":"宋冬野","url":"http://ting6.yymp3.net:82/new25/songdongye/11.mp3","cover":"https://img2.baidu.com/it/u=1260056724,1076343118&fm=253&fmt=auto&app=138&f=JPEG?w=500&h=500"},{"name":"卡布达","artist":"暂无","url":"music/kabuda.mp3","cover":"https://img2.baidu.com/it/u=705831265,2862720033&fm=253&fmt=auto&app=138&f=JPEG?w=500&h=500"}]`)
-  const ap = new APlayer({
-    container: document.querySelector('#aplayer'),
-    audio: musics,
-  })
 
   $(document).on('pjax:complete', function() {
     setOperateItem()
