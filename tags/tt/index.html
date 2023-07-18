@@ -145,6 +145,7 @@
   </div>
   <div id="container" class="container w-100 vh-100" style="display: none;">
     <header class="header">
+  <canvas id="rotating_stars"></canvas>
   <div class="header-wrapper">
     <div class="header-left">
       <div class="header-search">
@@ -195,7 +196,7 @@
   const ipt = document.querySelector('#search-input')
   const btn = document.querySelector('#search-btn')
   const layer = document.querySelector('#search-layer')
-  const posts = JSON.parse(`[{"title":"Hello World","path":"2023/07/12/hello-world/"},{"title":"qwer","cover":"./images/bg.jpeg","path":"2023/07/17/qwer/"},{"title":"tttt","path":"2023/05/17/tttt/"},{"title":"使用安卓手机安装termux 入门使用笔记","cover":"./images/default-cover.jpg","path":"2023/07/13/termux/"}]`)
+  const posts = JSON.parse(`[{"title":"Hello World","path":"2023/07/12/hello-world/"},{"title":"qwer","cover":"./images/bg.jpeg","path":"2023/07/17/qwer/"},{"title":"使用安卓手机安装termux 入门使用笔记","cover":"./images/default-cover.jpg","path":"2023/07/13/termux/"},{"title":"tttt","path":"2023/05/17/tttt/"}]`)
   ipt.addEventListener('keyup', e => {
     if (e.key === 'Enter') {
       handleSearch()
@@ -231,7 +232,19 @@
     layer.querySelector('ul').innerHTML = html
     layer.classList.remove('hidden')
   }
-</script> 
+</script>
+
+<style>
+#rotating_stars{
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100px;
+  z-index: 0;
+}
+
+</style> 
     <section id="main" class="main">
       <div class="main-left-wrapper">
 <div class="main-left">
@@ -594,6 +607,7 @@
           initScroll();
           window.loadImageFn();
           Universe();
+          Rotating_stars('rotating_stars',window.innerWidth,100);
         }, 500)
       }, 500)
     }
