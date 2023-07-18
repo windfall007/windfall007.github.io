@@ -1196,6 +1196,12 @@ div.code-toolbar{position:relative}div.code-toolbar>.toolbar{position:absolute;z
   .main .tools li {
     width: 100% !important;
   }
+  .main .index-left {
+    column-count: 1;
+  }
+  .main .index-left .index-article {
+    width: 100%;
+  }
 }
 .archive-title,
 .tags-title,
