@@ -348,61 +348,98 @@
 </div></div>
       <div id="main-container" class="main-container">
 
-    <div class="archive">
-        <h1 class="archive-title">我的博客归档记录</h1>
-        <ul class="archive-list">
+    
+
+<div class="index">
+  <div class="index-left">
+    
+      <div class="index-article">
+        <!-- <img class="index-article--cover" src="/imgs/default-cover.webp" alt=""> -->
+        <div class="index-article--box">
+          <img class="index-article--cover" data-cover="/imgs/default-cover.jpeg" alt="">
+        </div>
+        <div class="index-article--content">
+          <a href="/2023/05/17/tttt/">tttt </a>
+          <div>
             
-                <li class="archive-list__year">
-                    <h2>2023年</h2>
-                    <ul>
-                        
-                            <li class="archive-list__month">
-                                <h3>第07的月</h3>
-                                <ul>
-                                    
-                                        <li class="archive-list__post">
-                                            <div>
-                                                <a href="/2023/07/12/hello-world/">Hello World</a>
-                                                <span>07月12日</span>
-                                            </div>
-                                        </li>
-                                    
-                                        <li class="archive-list__post">
-                                            <div>
-                                                <a href="/2023/07/17/qwer/">qwer</a>
-                                                <span>07月17日</span>
-                                            </div>
-                                        </li>
-                                    
-                                        <li class="archive-list__post">
-                                            <div>
-                                                <a href="/2023/07/13/termux/">使用安卓手机安装termux 入门使用笔记</a>
-                                                <span>07月13日</span>
-                                            </div>
-                                        </li>
-                                    
-                                </ul>
-                            </li>
-                        
-                            <li class="archive-list__month">
-                                <h3>第05的月</h3>
-                                <ul>
-                                    
-                                        <li class="archive-list__post">
-                                            <div>
-                                                <a href="/2023/05/17/tttt/">tttt</a>
-                                                <span>05月17日</span>
-                                            </div>
-                                        </li>
-                                    
-                                </ul>
-                            </li>
-                        
-                    </ul>
-                </li>
+              <p>
+                <a class="post-category-link" href="/categories/tt/">Tt</a>
+              </p>
             
-        </ul>
-    </div>
+            
+              <p>
+                <a class="-link" href="/tags/tt/" rel="tag">tt</a>
+              </p>
+            
+          </div>
+          <div class="bg"></div>
+        </div>
+      </div>
+    
+  </div>
+
+</div>
+
+
+<script>
+  var allImgBoxs = document.querySelectorAll('.index-article--box');
+  var windowHeight = window.innerHeight;
+  var boxs = Array.from(allImgBoxs);
+  var timer = null;
+  boxs.forEach((box, idx) => {
+    if (!window.loadImageSet || !window.loadImageSet.includes(idx)) {
+      box.classList.add('img-loading');
+    } else {
+      const imgDom = box.querySelector('img');
+      imgDom.src = imgDom.dataset.cover;
+    }
+  });
+
+  function scrollFn() {
+    if (timer) {
+      return;
+    }
+    timer = setTimeout(() => {
+      loadImage();
+      timer = null;
+    }, 100)
+  }
+
+  if (!window.loadedImage) {
+    document.addEventListener('scroll', scrollFn);
+  }
+
+  function loadImage() {
+    const doc = document.documentElement;
+    const scrollTop = doc.scrollTop;
+    if (boxs.every(box => box.loadedImage)) {
+      document.removeEventListener('scroll', scrollFn);
+      window.loadedImage = 1;
+      return;
+    }
+    boxs.forEach((box, idx) => {
+      if (box.loadedImage) {
+        return;
+      }
+      if (box.getBoundingClientRect().top < windowHeight) {
+        const imgDom = box.querySelector('img');
+        imgDom.src = imgDom.dataset.cover;
+        imgDom.onload = () => {
+          box.classList.remove('img-loading')
+          box.loadedImage = true;
+          if (window.loadImageSet) {
+            window.loadImageSet.push(idx);
+          } else {
+            window.loadImageSet = [];
+            window.loadImageSet.push(idx);
+          }
+        }
+      }
+    });
+  }
+
+  window.loadImageFn = loadImage;
+</script> 
 </div>
       <div class="main-right-wrapper"><div class="main-right">
   <div class="main-right--board">

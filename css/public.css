@@ -27,16 +27,14 @@ input {
   border: 1px solid #eee;
   font-size: 13px;
 }
+:root {
+  --page-width: 1360px;
+  --darkbg: rgba(0,0,0,0.522);
+  --lightbg: rgba(255,255,255,0.522);
+}
 .index {
   display: flex;
   padding-bottom: 15px;
-}
-.index-right {
-  flex: 1;
-}
-.index-left,
-.index-center {
-  flex: 2;
 }
 .index-center {
   margin: 0 8px;
@@ -44,15 +42,11 @@ input {
 .index-right {
   position: relative;
 }
-.index-right-wrapper {
-  position: fixed;
-  width: 140px;
-}
 .index-right-wrapper > ul {
   width: 100%;
   box-shadow: 0 0 5px #333;
-  border-radius: 10px;
-  background: #fff;
+  border-radius: 5px;
+  background: rgba(255,255,255,0.522);
   margin-top: 15px;
   padding: 7px;
 }
@@ -168,31 +162,25 @@ input {
   z-index: 2;
   transition: all 0.3s;
 }
-.index-center .index-article:nth-child(3n) {
-  height: 300px;
+.index-left {
+  column-count: 3;
+  column-gap: 10px;
 }
-.index-center .index-article:nth-child(3n + 1) {
-  height: 270px;
-}
-.index-center .index-article:nth-child(3n + 2) {
-  height: 230px;
-}
-.index-left .index-article:nth-child(3n) {
-  height: 260px;
-}
-.index-left .index-article:nth-child(3n + 1) {
-  height: 220px;
-}
-.index-left .index-article:nth-child(3n + 2) {
-  height: 300px;
+.index-left .index-article {
+  min-height: 200px;
+  width: 310px;
 }
 .index-article {
+  opacity: 0.8;
   width: 100%;
   box-shadow: 0 0 5px #333;
   border-radius: 5px;
   position: relative;
   overflow: hidden;
-  margin-top: 10px;
+  margin-bottom: 10px;
+}
+.index-article:hover {
+  opacity: 1;
 }
 .index-article:hover .index-article--cover {
   transform: scale(1.2);
@@ -213,7 +201,6 @@ input {
 .index-article--box {
   width: 100%;
   height: 100%;
-  position: absolute;
   background-color: #ddd;
 }
 .index-article--box.img-loading::before {
@@ -243,8 +230,8 @@ input {
   width: 100%;
   height: 100%;
   object-fit: cover;
-  position: absolute;
   transition: all 0.3s;
+  vertical-align: top;
 }
 .index-article--content {
   position: absolute;
@@ -1209,10 +1196,6 @@ div.code-toolbar{position:relative}div.code-toolbar>.toolbar{position:absolute;z
   .main .tools li {
     width: 100% !important;
   }
-}
-:root {
-  --darkbg: rgba(0,0,0,0.522);
-  --lightbg: rgba(255,255,255,0.522);
 }
 .archive-title,
 .tags-title,
