@@ -195,7 +195,7 @@
   const ipt = document.querySelector('#search-input')
   const btn = document.querySelector('#search-btn')
   const layer = document.querySelector('#search-layer')
-  const posts = JSON.parse(`[{"title":"Hello World","path":"2023/07/12/hello-world/"},{"title":"tttt","path":"2023/05/17/tttt/"},{"title":"qwer","cover":"./images/bg.jpeg","path":"2023/07/17/qwer/"},{"title":"使用安卓手机安装termux 入门使用笔记","cover":"./images/default-cover.jpg","path":"2023/07/13/termux/"}]`)
+  const posts = JSON.parse(`[{"title":"Hello World","path":"2023/07/12/hello-world/"},{"title":"qwer","cover":"./images/bg.jpeg","path":"2023/07/17/qwer/"},{"title":"tttt","path":"2023/05/17/tttt/"},{"title":"使用安卓手机安装termux 入门使用笔记","cover":"./images/default-cover.jpg","path":"2023/07/13/termux/"}]`)
   ipt.addEventListener('keyup', e => {
     if (e.key === 'Enter') {
       handleSearch()
@@ -564,10 +564,13 @@
         commentDom.classList.add('hidden')
       }
     }else{
-      const newDom = operateDom.cloneNode(true);
-      const _backtopDom = newDom.querySelector('.backtop');
-      _backtopDom.addEventListener('click', () => backTopEvent());
-      cateloguDom.appendChild(newDom);
+      if (reg.test(path) || path.match(/\/log\/.+/)) {
+        const newDom = operateDom.cloneNode(true);
+        const _backtopDom = newDom.querySelector('.backtop');
+        _backtopDom.addEventListener('click', () => backTopEvent());
+        cateloguDom.appendChild(newDom);
+      }
+   
 
     }
   }
