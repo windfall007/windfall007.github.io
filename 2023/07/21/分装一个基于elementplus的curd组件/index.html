@@ -196,7 +196,7 @@
   const ipt = document.querySelector('#search-input')
   const btn = document.querySelector('#search-btn')
   const layer = document.querySelector('#search-layer')
-  const posts = JSON.parse(`[{"title":"qwer","cover":"./images/bg.jpeg","path":"2023/07/17/qwer/"},{"title":"使用安卓手机安装termux 入门使用笔记","cover":"./images/default-cover.jpg","path":"2023/07/13/termux/"},{"title":"tttt","path":"2023/05/17/tttt/"},{"title":"Hello World","path":"2023/07/12/hello-world/"}]`)
+  const posts = JSON.parse(`[{"title":"","path":"2023/07/12/hello-world/"},{"title":"","path":"2023/07/21/分装一个基于elementplus的curd组件/"},{"title":"","path":"2023/07/13/termux/"}]`)
   ipt.addEventListener('keyup', e => {
     if (e.key === 'Enter') {
       handleSearch()
@@ -273,19 +273,19 @@
       <div class="main-left--statics">
         <a href="/categories">
           <div>
-            <span>2</span>
+            <span>0</span>
             <span>分类</span>
           </div>
         </a>
         <a href="/tags">
           <div>
-            <span>3</span>
+            <span>0</span>
             <span>标签</span>
           </div>
         </a>
         <a href="/archives">
           <div>
-            <span>2 </span>
+            <span>1 </span>
             <span>归档</span>
           </div>
         </a>
@@ -342,15 +342,15 @@
       </h5>
       <p class="main-left--subtitle">
         <span>文章数目：</span>
-        <span>4 篇</span>
+        <span>3 篇</span>
       </p>
       <p class="main-left--subtitle">
         <span>最近动态：</span>
-        <span>昨天</span>
+        <span>今天</span>
       </p>
       <p class="main-left--subtitle">
         <span>上线时间：</span>
-        <span>7天</span>
+        <span>9天</span>
       </p>
       <p class="main-left--subtitle">
         <span>当前版本：</span>
@@ -361,96 +361,110 @@
 </div></div>
       <div id="main-container" class="main-container">
 
-<div class="index">
-  <div class="index-left">
-    
-      <div class="index-article">
-        <!-- <img class="index-article--cover" src="/./images/bg.jpeg" alt=""> -->
-        <div class="index-article--box">
-          <img class="index-article--cover" data-cover="./images/bg.jpeg" alt="">
-        </div>
-        <div class="index-article--content">
-          <a href="/2023/07/17/qwer/">qwer </a>
-          <div>
-            
-              <p>
-                <a class="post-category-link" href="/categories/Linux/">Linux</a>
-              </p>
-            
-            
-              <p>
-                <a class="-link" href="/tags/qwr/" rel="tag">qwr</a>
-              </p>
+
+  <style>
+pre::-webkit-scrollbar {
+  width: 5px;
+  height: 10px;
+  background-color:#F5F5F5;
+}
+/*定义滚动条轨道
+内阴影+圆角*/
+pre::-webkit-scrollbar-track {
+  background-color:#F5F5F5;
+}
+/*定义滑块
+内阴影+圆角*/
+pre::-webkit-scrollbar-thumb {
+  background-color: rgb(69, 83, 100);
+}
+
+pre:active {
+  background-color: rgb(81, 95, 116);
+}
+</style>
+
+<div class="article-container">
+  <div class="article">
+    <h1 class="article-title"></h1>
+    <div class="article-info">
+      <div class="article-info--item">
+        <div class="article-info--info">
+          
+          <div class="article-info--categories">
+            <span>分类：</span>
             
           </div>
-          <div class="bg"></div>
+          
+          
+          <div class="article-info--tags">
+            <span>标签：</span>
+            
+          </div>
+          
+          <p class="article-info--date">日期：2023-07-21 15:20:54</p>
         </div>
+        <img src="/images/default-cover.jpg" alt="" class="article-cover">
       </div>
+    </div>
+    <article class="article-content">
+      <p>  	  	     		 <br>���Ǹ������ļ�                                                                                                                                                                                                                                                                                                                                                                                                                  �H�d    ob  o                  AYEGT_CQVWTSEVVE      �      u “�f�A����EPk��^x��\Z����lnĀ��v��?AP����!���A���&#x2F;s���(�P����<br>�&lt;��X��؁tk8������Z�؁tk9����H�:��)                                                                                                                                                                                                                                                                    �        �      �    <em>oؕ�      �      �����        E  ”      E  �      ��������-          z  �  �  ���������  �����  .���|+�)�&lt;Ry�$i’���A�<br>�p���w쯷������cn�<em>ɡ2n����n���$i�L���[�&#x3D;���,��<del>“j���A�-���j���Ef:Χ�Q�(���w��’���t%s��&#96;p�&#x3D;$X�Mx�o�I<br>w�ݕ�1��by.�l�^g�y}J��	&gt;�6�&lt;W�&#x3D;z%���L&#x2F;q��^s�’z���Sx�n�^E�xyL�ޤ��?wyʖ���&amp;�0�&lt;Ry�$i’���Zq�</del>����’G&amp;���{r�5�LB�)�+���F3q��NS�,~���Ty.�n�rG�yf�܏! �”�&gt;jd�’w-���}r�<br>�<code>@�(%Z���|&#123;7�e�To�x&#125;&#125;��� ��1r|�O&amp;���o$q��c\���We(ؽr�5�LB�(%Z�L�F&quot;q�&quot;�cn�**^���zt7�m�vW�t</code>G</em>n����m���z�������R�%&lt;Q\�$I%���g1y�k������Zu&#x3D;�y-�n�R<br>p�z_n�Ɖ )��&lt;Ry�$H%���g1s�%�[W�%Hѡ�s{<br>�n�U|�ym{�܏	�%�;j{P���We+���m�\B�{gx������,��[B�ɢ&amp;c���k�!���&gt;���Tfy���C�h���5���VL+۽�A�&#x3D;���7�|{���\�m���x���Tf+۽�[�|���x袠#O���C�&#x3D;���z���N){���� ���.���d۽�A�&#x3D;�ʹ(��’}����j���?���Tf+۽�A�o���&#x2F;짣 #6����m���?���Tf+۽�A�o���&gt;���V4d���<br>����z���Ty����u���;�Idy����u���4���<del>f+۽�A�&#x3D;���;Y%c����?���(���’e���k�&#x3D;���P���Tf+۽��p���.���2j���\�n���?���Tf+۽�A�&#x3D;���f��� ’l��� ���5��)|��� �h���g��� ?{����</del>���)��’���A”�N�q���&#x3D;���Tf+۽�A�&#x3D;���?��!+���<br>�x���g���6n����n���&#x2F;���Iw)���� ���4���Vx�]&amp;q�5!���w袥JL+۽�A�&#x3D;���.���’���A�&#x3D;���z���+{����&gt;���3�Idx����#���z���Tf7ڰ��<br>�&#x3D;Dc�%J$���F�L����z���Tzn����i���.峧Id{��� �d�ʊ3��V+b���A�t���g���-n��_b�~zߠ�ki����#���z���Tf7����q���d���Tf7����#Ҋ�:�ɨ��Sx�}���)���5����y���z�� #���k�{���.���T!n����h���5�#M��H�f���z��� y����t���(���]h���I�x���d���Tf+۽�A�q���!���#’����1���&#x3D;��%h���A�&#x3D;�ʋ?���Tf+۽�A�o���;��’g���\�y���P���T;”���k�r���z�)e���A�x���z���L+۽�A�&#x3D;���.���|+���A�&#x3D;���z���Tf$Խ~� �vp�&amp;Jԯ�</em>{�m�b��z���Tf+۽�A�&#x3D;���?���#gܱ��e���}tda���ܱ��s���7��<del>f+۽�A�&#x3D;���z�’l���Fl�wi�teC��&amp;�7�&#x3D;ct�!R’���Gy��I�<br>&amp;R���wu9�m�I|�{xS���$�&#x3D;N</del>�,E%���b9�M�&#x3D;���z���Tf+����t���&#x2F;跭n��A�:���z���Tfv��A�o���?��Xf,����o���}�3ܱ�F�h���9a’ۺ� �t���3��Xf,����u���}���Tf+۽�A�<del>���7���&#x2F;L+۽�A�&#x3D;���z���Tf+۽�A�&#x3D;���z���S6y���[�:���?�a’�A�&#x3D;���z���Tf+ۺ� �x���z�$V뢱\tɭ1���z���Tf+۽�A�&#x3D;�͔3�2cܧ�P�-���z���Tf+۽�A�&#x3D;���)���;0n����I���.���Nf���M�&#x3D;���z���Tf+۽�A�:���?�r���[�:���?���XL+۽�A�&#x3D;���z���Tfd����’���z���L+۽�A�&#x3D;���z���Tf+۽��i���z챭3h����o���,���L+۽�A�&#x3D;���z���Tfvח�A�&#x3D;���z���Tf+۽�<br>�z���}� a’�A�&#x3D;���z���Tf+����x���?���#۽�A�&#x3D;���z��XL+۽�A�&#x3D;���z���Tf+۽�A�&#x3D;���z���S6y���[�:���&gt;頶)e����1���z���Tf+۽�A�&#x3D;�͕;���S|+�u+�c�li�{drSj۽�A�&#x3D;���z���Tf+����t���}���Av’�A�&#x3D;���z���Tf+ۺ�	�j���(���d����:�ʍ(��</del>f+۽�A�&#x3D;���z���Tay����’���z&#x2F;y���A�o���z�’l���Fb�oG�yFg���<br>“��?MI}��&#x2F;l���[�:���(��)j۽�A�&#x3D;���z���Tf+��� �<del>���z豷L+۽�A�&#x3D;���z���</del>f+۽�A�&#x3D;���z���Tf+۽�A�&#x3D;���z���4d���A�p���3�+nܱ�A�&#x3D;���z���Tf+۽�F�|���}����9��?MI}���Tf+۽�A�&#x3D;���z���.d����{���� &#x2F;{ܧ��h���z���Tf+۽�A�&#x3D;���}念%cܧ��h���z���Tf+۽�A�1���z���Tf+۽��&#x3D;���z���Tf+۽�A�:���<em>���S</em>j����x���z���Tf+۽�A�&#x3D;���}�*,�����?z�&amp;o’��,ח�A�&#x3D;���z���Tf+۽��r���?1_����m���.XL+۽�A�&#x3D;���z���Tf,����s���.峧S|+����x���z���Tf+۽�A�<code>���z���Tf+۽�A����z���Tf+۽�A�=���5���Tag����h���v���Tf+۽�A�=���z��$n���A��DZ�$y���]��k�=���z���Tf+۽�A�n���ꦰ*d����i���</code>���#’�A�&#x3D;���z���Tf+ۺ�<br>�p���&#x2F;���#,����p���}���Tf+۽�A�&#x3D;���P���Tf+۽�A�&#x3D;���z���Tf+۽�A�&#x3D;�͉(��Nf,����n���z���Tf+۽�A�&#x3D;���}�*,����7�&#x3D;oJ�u$��,ח�A�&#x3D;���z���Tf+۽��s���.���Tw&gt;˱�A�&#x3D;���z���Tf+۽�F�u���,���)|���<br>�t���z豷j۽�A�&#x3D;���z���Tf+����:���9鰶+H��M�&#x3D;���z���Tf+۽�A�:���&gt;���Nf���k�&#x3D;���z���Tf+���A�&#x3D;���z���Tfp�A�&#x3D;���z���Tf+ۺ��m���}���2n����1���z���Tf+۽�A�&#x3D;�͕;���S|+�x�o�bC���Tf+۽�A�&#x3D;���z���S5c����o���-Ȭ�2b���A�o���P���Tf+۽�A�&#x3D;���z���”b���A�o���z���Tf+۽�A�<code>���z���Tf+۽�A����z���Tf+۽�A�=���5���Tah����I���&#125;���Tf+۽�A�=���z���&#39;i��[�:=bb�&#39;y$���l)�M�=���z���Tf+۽�A�:���-ӵ� g����q���&#125;��3nח�A�=���z���Tf+۽��x���.骶 6nܧ�F�|���3��~f+۽�A�=���z���Tf+۽�A����z���]LԲs��y_�%W�Lh����m���z�� #���A�=���;���Ev;˱�A�=���( j���A�1���z���#X���[�,���s���[2j����&gt;gWP���2+��� �Y���z�� #���k�|���9���%���A�x���)苣&quot;n��� �|���z���Tf+���A�|���z��Th%����p���t���T%~����&#39;���=���*~����o��� ���Xfx���[�m���tꢮ#%����t���&#39;���~f+۽��h���;뢫 fl��� �u������\6j���H�i���rT&#123;5��A�=���z��� fp����1���.���5l׽��~���z���T4n���A�=���z袠#O���O�|���z��2j����o���z���Tf+����3���/���2j���A�|���.�L۽�A�4җ�P���8/x����x���P���2+����r���z�� #��� ����/�)e����|���(���T=۽�A�r���6���!#���H�</code>���&#x2F;�)e����m���?���o+���A�&#x3D;���)�Z*d����4җ�P���2b���j���rXfo���H�f���P���%���A�x���)�(l����1���4���L+۽��i���.Ԣ�#gӴ��x�¦z���L۽�A�&#x3D;�ʝ5��]L+۽�����&lt;魡 &#x2F;d����o���2���ny��A�r���z���Tf+����k���?���4n��� �x���k���Tfl����i���&gt;���#xҳ�	�s��g��<del>f+۽�A�&#x3D;���?���Tf+��k�<code>���:���We(����t���?�ɾT��e&#123;�o�Uʅztlv�ޅ�ᶆ;�=trz��&#39;���&#123;s�6=���+lУ�G��k�=���w���f&amp;ְ�L�=���w���Yfw۰�L�0�ʅz���Yk&amp;���r���5��f�Z5s��]g�2*cͣ�yu��m���4uFO������w���z���T:+ֽ�k�=���;���޵9,��&gt;I�m�fj����a���&amp;���f���L�r���</code>좥fw�x�c�mv�uDM�ɉ1�z�v�zVrT:+����i���w���Yfwۗ�k�&gt;���zٵ�2x��An�SB�ySOT:+2”����ٿ]*���tp�:&#x3D;���z���Yk&amp;��L�0���z���Yk&amp;ְ��a�ʋ5��0n�ᶇ�&#x3D;Hg�	s$���kq�3�_Q�2&amp;l]x�b�}C�xxt}fw����y���z���f�</del>+r��yf�&amp;�&amp;G¢�mu7��a�|�xxT����k�&#x3D;&#x3D;oO�’U*��+��s�&lt;�c|��T��My-�b�Tʅz���ý&amp; �+���ٿu&amp;���Z���]\�<br>+c�fwۗ�k�&gt;���z�)e�</p>
+
+    </article>
     
+  </div>
+  <div class="article-catelogue">
+    <div class="article-catelogue--wrapper">
+      <div class="catelogue catelogue-1">
+        <h3>目录</h3>
+        
+      </div>
+      
+        <div class="catelogue catelogue-2">
+           
+          
+            <p>
+              <span>下一篇</span>
+              <a href="/2023/07/13/termux/"></a>
+            </p>
+          
+        </div>
+      
+      <div class="catelogue">
+        <span id="busuanzi_container_page_pv">
+          本文总阅读量<span id="busuanzi_value_page_pv"></span>次
+        </span>
+      </div>
+    </div>
   </div>
 
 </div>
 
+<!-- <script src="http://cdn.yangxiang.cc/prism.js"></script> -->
+
 
 <script>
-  var allImgBoxs = document.querySelectorAll('.index-article--box');
-  var windowHeight = window.innerHeight;
-  var boxs = Array.from(allImgBoxs);
-  var timer = null;
-  boxs.forEach((box, idx) => {
-    if (!window.loadImageSet || !window.loadImageSet.includes(idx)) {
-      box.classList.add('img-loading');
-    } else {
-      const imgDom = box.querySelector('img');
-      imgDom.src = imgDom.dataset.cover.replace(/^(\.+)/, "");
-    }
-  });
+  $(document).on('pjax:complete', function() {
+    const tocs = document.querySelector('.toc')
+    const links = tocs ? tocs.querySelectorAll('a') : []
+    links.forEach(link => {
+      link.addEventListener('click', e => {
+        const href = decodeURIComponent(e.href)
+        href.search(/#(.*)/)
+        const id = RegExp.$1
+        const target = document.querySelector('#' + id)
+        const top = target.offsetTop
+        document.documentElement.scrollTo({
+          top: top - 100,
+          behavior: 'smooth'
+        })
+        e.preventDefault()
+      })
+    })
+  })
+</script> 
 
-  function scrollFn() {
-    if (timer) {
-      return;
-    }
-    timer = setTimeout(() => {
-      loadImage();
-      timer = null;
-    }, 100)
-  }
-
-  if (!window.loadedImage) {
-    document.addEventListener('scroll', scrollFn);
-  }
-
-  function loadImage() {
-    const doc = document.documentElement;
-    const scrollTop = doc.scrollTop;
-    if (boxs.every(box => box.loadedImage)) {
-      document.removeEventListener('scroll', scrollFn);
-      window.loadedImage = 1;
-      return;
-    }
-    boxs.forEach((box, idx) => {
-      if (box.loadedImage) {
-        return;
-      }
-      if (box.getBoundingClientRect().top < windowHeight) {
-        const imgDom = box.querySelector('img');
-        imgDom.src = imgDom.dataset.cover.replace(/^(\.+)/, "");
-        imgDom.onload = () => {
-          box.classList.remove('img-loading')
-          box.loadedImage = true;
-          if (window.loadImageSet) {
-            window.loadImageSet.push(idx);
-          } else {
-            window.loadImageSet = [];
-            window.loadImageSet.push(idx);
-          }
-        }
-      }
-    });
-  }
-
-  window.loadImageFn = loadImage;
-</script> </div>
+</div>
       <div class="main-right-wrapper"><div class="main-right">
   <div class="main-right--board">
     <div class="main-right--title">
@@ -458,14 +472,14 @@
       <i class="iconfont icon-gonggao"></i>
     </div>
     <div class="main-right--content">
-      【欢迎来到我的个人博客，一起探索编程的无限可能！希望能帮到你找到自己想要的知识。】 
+      【欢迎来到我的个人博客，记录一些学习笔记和有趣的东西。】 
     </div>
   </div>
   <div style="margin-top: 15px;">
     <div class="index-right-wrapper">
-      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/Linux/">Linux</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/tt/">Tt</a></li></ul>
-      <ul class="tags" itemprop="keywords"><li class="tag-list-item"><a class="tag-list-link" href="/tags/tt/" rel="tag">tt</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/termux/" rel="tag">termux</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/qwr/" rel="tag">qwr</a></li></ul>
-      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2023/07/">2023年07月</a><span class="archive-list-count">3</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2023/05/">2023年05月</a><span class="archive-list-count">1</span></li></ul>
+      
+      
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2023/07/">2023年07月</a><span class="archive-list-count">3</span></li></ul>
     </div>
   </div>
 

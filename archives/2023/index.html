@@ -196,7 +196,7 @@
   const ipt = document.querySelector('#search-input')
   const btn = document.querySelector('#search-btn')
   const layer = document.querySelector('#search-layer')
-  const posts = JSON.parse(`[{"title":"qwer","cover":"./images/bg.jpeg","path":"2023/07/17/qwer/"},{"title":"使用安卓手机安装termux 入门使用笔记","cover":"./images/default-cover.jpg","path":"2023/07/13/termux/"},{"title":"tttt","path":"2023/05/17/tttt/"},{"title":"Hello World","path":"2023/07/12/hello-world/"}]`)
+  const posts = JSON.parse(`[{"title":"","path":"2023/07/12/hello-world/"},{"title":"","path":"2023/07/21/分装一个基于elementplus的curd组件/"},{"title":"","path":"2023/07/13/termux/"}]`)
   ipt.addEventListener('keyup', e => {
     if (e.key === 'Enter') {
       handleSearch()
@@ -273,19 +273,19 @@
       <div class="main-left--statics">
         <a href="/categories">
           <div>
-            <span>2</span>
+            <span>0</span>
             <span>分类</span>
           </div>
         </a>
         <a href="/tags">
           <div>
-            <span>3</span>
+            <span>0</span>
             <span>标签</span>
           </div>
         </a>
         <a href="/archives">
           <div>
-            <span>2 </span>
+            <span>1 </span>
             <span>归档</span>
           </div>
         </a>
@@ -342,15 +342,15 @@
       </h5>
       <p class="main-left--subtitle">
         <span>文章数目：</span>
-        <span>4 篇</span>
+        <span>3 篇</span>
       </p>
       <p class="main-left--subtitle">
         <span>最近动态：</span>
-        <span>昨天</span>
+        <span>今天</span>
       </p>
       <p class="main-left--subtitle">
         <span>上线时间：</span>
-        <span>7天</span>
+        <span>9天</span>
       </p>
       <p class="main-left--subtitle">
         <span>当前版本：</span>
@@ -367,58 +367,12 @@
   <div class="index-left">
     
       <div class="index-article">
-        <!-- <img class="index-article--cover" src="/./images/bg.jpeg" alt=""> -->
-        <div class="index-article--box">
-          <img class="index-article--cover" data-cover="./images/bg.jpeg" alt="">
-        </div>
-        <div class="index-article--content">
-          <a href="/2023/07/17/qwer/">qwer </a>
-          <div>
-            
-              <p>
-                <a class="post-category-link" href="/categories/Linux/">Linux</a>
-              </p>
-            
-            
-              <p>
-                <a class="-link" href="/tags/qwr/" rel="tag">qwr</a>
-              </p>
-            
-          </div>
-          <div class="bg"></div>
-        </div>
-      </div>
-    
-      <div class="index-article">
-        <!-- <img class="index-article--cover" src="/./images/default-cover.jpg" alt=""> -->
-        <div class="index-article--box">
-          <img class="index-article--cover" data-cover="./images/default-cover.jpg" alt="">
-        </div>
-        <div class="index-article--content">
-          <a href="/2023/07/13/termux/">使用安卓手机安装termux 入门使用笔记 </a>
-          <div>
-            
-              <p>
-                <a class="post-category-link" href="/categories/Linux/">Linux</a>
-              </p>
-            
-            
-              <p>
-                <a class="-link" href="/tags/termux/" rel="tag">termux</a>
-              </p>
-            
-          </div>
-          <div class="bg"></div>
-        </div>
-      </div>
-    
-      <div class="index-article">
         <!-- <img class="index-article--cover" src="/imgs/default-cover.webp" alt=""> -->
         <div class="index-article--box">
           <img class="index-article--cover" data-cover="/images/default-cover.jpg" alt="">
         </div>
         <div class="index-article--content">
-          <a href="/2023/07/12/hello-world/">Hello World </a>
+          <a href="/2023/07/21/%E5%88%86%E8%A3%85%E4%B8%80%E4%B8%AA%E5%9F%BA%E4%BA%8Eelementplus%E7%9A%84curd%E7%BB%84%E4%BB%B6/"> </a>
           <div>
             
             
@@ -433,17 +387,24 @@
           <img class="index-article--cover" data-cover="/images/default-cover.jpg" alt="">
         </div>
         <div class="index-article--content">
-          <a href="/2023/05/17/tttt/">tttt </a>
+          <a href="/2023/07/13/termux/"> </a>
           <div>
             
-              <p>
-                <a class="post-category-link" href="/categories/tt/">Tt</a>
-              </p>
             
+          </div>
+          <div class="bg"></div>
+        </div>
+      </div>
+    
+      <div class="index-article">
+        <!-- <img class="index-article--cover" src="/imgs/default-cover.webp" alt=""> -->
+        <div class="index-article--box">
+          <img class="index-article--cover" data-cover="/images/default-cover.jpg" alt="">
+        </div>
+        <div class="index-article--content">
+          <a href="/2023/07/12/hello-world/"> </a>
+          <div>
             
-              <p>
-                <a class="-link" href="/tags/tt/" rel="tag">tt</a>
-              </p>
             
           </div>
           <div class="bg"></div>
@@ -522,14 +483,14 @@
       <i class="iconfont icon-gonggao"></i>
     </div>
     <div class="main-right--content">
-      【欢迎来到我的个人博客，一起探索编程的无限可能！希望能帮到你找到自己想要的知识。】 
+      【欢迎来到我的个人博客，记录一些学习笔记和有趣的东西。】 
     </div>
   </div>
   <div style="margin-top: 15px;">
     <div class="index-right-wrapper">
-      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/Linux/">Linux</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/tt/">Tt</a></li></ul>
-      <ul class="tags" itemprop="keywords"><li class="tag-list-item"><a class="tag-list-link" href="/tags/tt/" rel="tag">tt</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/termux/" rel="tag">termux</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/qwr/" rel="tag">qwr</a></li></ul>
-      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2023/07/">2023年07月</a><span class="archive-list-count">3</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2023/05/">2023年05月</a><span class="archive-list-count">1</span></li></ul>
+      
+      
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2023/07/">2023年07月</a><span class="archive-list-count">3</span></li></ul>
     </div>
   </div>
 
