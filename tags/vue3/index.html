@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8">
   
-  <title>使用安卓手机安装termux 入门使用笔记 | JQ的个人技术博客</title>
+  <title>JQ的个人技术博客 | JQ的个人技术博客</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
   <link rel="shortcut icon" href="/imgs/shortcut-icon.ico" type="image/x-icon">
   <link rel="stylesheet" href="/css/public.css" />
@@ -18,7 +18,7 @@
   <script src='//unpkg.com/valine/dist/Valine.min.js'></script>
   <script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
   <script>
-    document.title = `使用安卓手机安装termux 入门使用笔记`
+    document.title = `JQ的个人技术博客`
   </script>
 <meta name="generator" content="Hexo 6.3.0"></head>
 
@@ -361,129 +361,96 @@
 </div></div>
       <div id="main-container" class="main-container">
 
-
-  <style>
-pre::-webkit-scrollbar {
-  width: 5px;
-  height: 10px;
-  background-color:#F5F5F5;
-}
-/*定义滚动条轨道
-内阴影+圆角*/
-pre::-webkit-scrollbar-track {
-  background-color:#F5F5F5;
-}
-/*定义滑块
-内阴影+圆角*/
-pre::-webkit-scrollbar-thumb {
-  background-color: rgb(69, 83, 100);
-}
-
-pre:active {
-  background-color: rgb(81, 95, 116);
-}
-</style>
-
-<div class="article-container">
-  <div class="article">
-    <h1 class="article-title">使用安卓手机安装termux 入门使用笔记</h1>
-    <div class="article-info">
-      <div class="article-info--item">
-        <div class="article-info--info">
-          
-          <div class="article-info--categories">
-            <span>分类：</span>
-            <a class="category-link" href="/categories/Linux/">Linux</a>
-          </div>
-          
-          
-          <div class="article-info--tags">
-            <span>标签：</span>
-            <a class="tag-link" href="/tags/termux/" rel="tag">termux</a>
-          </div>
-          
-          <p class="article-info--date">日期：2023-07-13 23:32:04</p>
-        </div>
-        <img src="/./images/default-cover.jpg" alt="" class="article-cover">
-      </div>
-    </div>
-    <article class="article-content">
-      <p>###这几篇文章照着做可以很快就搭建起来<br><a target="_blank" rel="noopener" href="https://blog.csdn.net/chen462488588/article/details/112237950">https://blog.csdn.net/chen462488588/article/details/112237950</a><br><a target="_blank" rel="noopener" href="https://blog.csdn.net/phaste/article/details/123616645">https://blog.csdn.net/phaste/article/details/123616645</a><br><a target="_blank" rel="noopener" href="https://blog.csdn.net/qdhugo/article/details/120721535">https://blog.csdn.net/qdhugo/article/details/120721535</a></p>
-<p>pkg install openssh  #安装ssh服务器，应该自动生成密钥<br>whoami               #查看用户名，比如u0_a400 <br>passwd               #设置一个密码，注意输入的时候啥也看不见，尽管输入就行。123456</p>
-<h3 id="开启ssh"><a href="#开启ssh" class="headerlink" title="开启ssh"></a>开启ssh</h3><p>输入命令 sshd</p>
-<p>然后键入proot-distro list来显示可安装包<br>proot-distro list</p>
-<p>进入Ubuntu系统<br>proot-distro login ubuntu<br>proot-distro login debian<br>proot-distro login archlinux</p>
-<p>使用vns服务启动远程桌面<br>vncserver :1 -localhost no -geometry 1920x1080<br>tigervncserver :1 -localhost no -geometry 1920x1080<br>tigervncserver :1 -localhost no -geometry 1920x1080  -xstartup   &#x2F;usr&#x2F;bin&#x2F;xterm</p>
-<p>可以看到上边的报错，Can’t exec “&#x2F;usr&#x2F;bin&#x2F;xterm”: No such file or directory at &#x2F;usr&#x2F;bin&#x2F;tigervncserver line 901。<br>然后看到这个xterm不存在，到&#x2F;usr&#x2F;bin目录下确认了一下真的不存在。百度到安装方法<br>sudo apt install xterm</p>
-<h3 id="查看当前运行的vnc进程"><a href="#查看当前运行的vnc进程" class="headerlink" title="查看当前运行的vnc进程"></a>查看当前运行的vnc进程</h3><p>&#x2F;&#x2F; 关于搭建VNC，我用的安卓大于9的版本，9以上限制了应用的进程数量，开启vnc后termux就会杀进程闪退，导致我安装上后用不了桌面的，后面就没有尝试了。以后有安卓9以下版本的再尝试安装。</p>
-<p>tigervncserver -list</p>
-<h3 id="删除进程"><a href="#删除进程" class="headerlink" title="删除进程"></a>删除进程</h3><p>vncserver -kill :1</p>
-<p>遇到这个情况时需要删除文件<br>root@localhost:~# vncserver :1 -localhost no -geometry 1920x1080<br>Cleaning stale pidfile ‘&#x2F;root&#x2F;.vnc&#x2F;localhost.localdomain:5901.pid’!<br>Cleaning stale X11 lock ‘&#x2F;tmp&#x2F;.X1-lock’!<br>Cleaning stale X11 lock ‘&#x2F;tmp&#x2F;.X11-unix&#x2F;X1’!</p>
-<h3 id="删除文件"><a href="#删除文件" class="headerlink" title="删除文件"></a>删除文件</h3><p>rm -rf &#x2F;root&#x2F;.vnc&#x2F;localhost.localdomain:5901.pid<br>rm -rf  &#x2F;tmp&#x2F;.X1-lock<br>rm -rf  &#x2F;tmp&#x2F;.X11-unix&#x2F;X1</p>
-<h3 id="开机自启"><a href="#开机自启" class="headerlink" title="开机自启"></a>开机自启</h3><p>使用nano 创建 ~&#x2F;.profile 文件<br>写入<br>nohup mysqld &amp;<br>sshd<br>proot-distro login ubuntu<br>保存这样以后打开软件自动开启ssh和进入Ubuntu<br>需要退出Ubuntu时 输入 exit 回车 就可以回到 Termux</p>
-<p>宝塔安装命令： curl -sSO <a target="_blank" rel="noopener" href="http://download.bt.cn/install/install_panel.sh">http://download.bt.cn/install/install_panel.sh</a> &amp;&amp; bash install_panel.sh</p>
-<p>数据库密码 password<br>Android Termux安装MySQL，并使用cpolar实现公网安全远程连接[内网穿透] - 知乎 (<a target="_blank" rel="noopener" href="https://zhuanlan.zhihu.com/p/633075370">https://zhuanlan.zhihu.com/p/633075370</a>)</p>
-
-    </article>
+<div class="index">
+  <div class="index-left">
     
-  </div>
-  <div class="article-catelogue">
-    <div class="article-catelogue--wrapper">
-      <div class="catelogue catelogue-1">
-        <h3>目录</h3>
-        <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%BC%80%E5%90%AFssh"><span class="toc-number">1.</span> <span class="toc-text">开启ssh</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%9F%A5%E7%9C%8B%E5%BD%93%E5%89%8D%E8%BF%90%E8%A1%8C%E7%9A%84vnc%E8%BF%9B%E7%A8%8B"><span class="toc-number">2.</span> <span class="toc-text">查看当前运行的vnc进程</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%88%A0%E9%99%A4%E8%BF%9B%E7%A8%8B"><span class="toc-number">3.</span> <span class="toc-text">删除进程</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%88%A0%E9%99%A4%E6%96%87%E4%BB%B6"><span class="toc-number">4.</span> <span class="toc-text">删除文件</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%BC%80%E6%9C%BA%E8%87%AA%E5%90%AF"><span class="toc-number">5.</span> <span class="toc-text">开机自启</span></a></li></ol>
-      </div>
-      
-        <div class="catelogue catelogue-2">
-          
-            <p>
-              <span>上一篇：</span>
-              <a href="/2023/07/21/分装一个基于elementplus的curd组件/">分装一个基于element-plus的curd组件</a>
-            </p>
-           
-          
-            <p>
-              <span>下一篇</span>
-              <a href="/2023/07/12/hello-world/">Hello World</a>
-            </p>
-          
+      <div class="index-article">
+        <!-- <img class="index-article--cover" src="/imgs/default-cover.webp" alt=""> -->
+        <div class="index-article--box">
+          <img class="index-article--cover" data-cover="/images/default-cover.jpg" alt="">
         </div>
-      
-      <div class="catelogue">
-        <span id="busuanzi_container_page_pv">
-          本文总阅读量<span id="busuanzi_value_page_pv"></span>次
-        </span>
+        <div class="index-article--content">
+          <a href="/2023/07/21/%E5%88%86%E8%A3%85%E4%B8%80%E4%B8%AA%E5%9F%BA%E4%BA%8Eelementplus%E7%9A%84curd%E7%BB%84%E4%BB%B6/">分装一个基于element-plus的curd组件 </a>
+          <div>
+            
+              <p>
+                <a class="post-category-link" href="/categories/%E5%89%8D%E7%AB%AF/">前端</a>
+              </p>
+            
+            
+              <p>
+                <a class="-link" href="/tags/vue3/" rel="tag">vue3</a>
+              </p>
+            
+          </div>
+          <div class="bg"></div>
+        </div>
       </div>
-    </div>
+    
   </div>
 
 </div>
-
-<!-- <script src="http://cdn.yangxiang.cc/prism.js"></script> -->
 
 
 <script>
-  $(document).on('pjax:complete', function() {
-    const tocs = document.querySelector('.toc')
-    const links = tocs ? tocs.querySelectorAll('a') : []
-    links.forEach(link => {
-      link.addEventListener('click', e => {
-        const href = decodeURIComponent(e.href)
-        href.search(/#(.*)/)
-        const id = RegExp.$1
-        const target = document.querySelector('#' + id)
-        const top = target.offsetTop
-        document.documentElement.scrollTo({
-          top: top - 100,
-          behavior: 'smooth'
-        })
-        e.preventDefault()
-      })
-    })
-  })
-</script> 
+  var allImgBoxs = document.querySelectorAll('.index-article--box');
+  var windowHeight = window.innerHeight;
+  var boxs = Array.from(allImgBoxs);
+  var timer = null;
+  boxs.forEach((box, idx) => {
+    if (!window.loadImageSet || !window.loadImageSet.includes(idx)) {
+      box.classList.add('img-loading');
+    } else {
+      const imgDom = box.querySelector('img');
+      imgDom.src = imgDom.dataset.cover.replace(/^(\.+)/, "");
+    }
+  });
 
-</div>
+  function scrollFn() {
+    if (timer) {
+      return;
+    }
+    timer = setTimeout(() => {
+      loadImage();
+      timer = null;
+    }, 100)
+  }
+
+  if (!window.loadedImage) {
+    document.addEventListener('scroll', scrollFn);
+  }
+
+  function loadImage() {
+    const doc = document.documentElement;
+    const scrollTop = doc.scrollTop;
+    if (boxs.every(box => box.loadedImage)) {
+      document.removeEventListener('scroll', scrollFn);
+      window.loadedImage = 1;
+      return;
+    }
+    boxs.forEach((box, idx) => {
+      if (box.loadedImage) {
+        return;
+      }
+      if (box.getBoundingClientRect().top < windowHeight) {
+        const imgDom = box.querySelector('img');
+        imgDom.src = imgDom.dataset.cover.replace(/^(\.+)/, "");
+        imgDom.onload = () => {
+          box.classList.remove('img-loading')
+          box.loadedImage = true;
+          if (window.loadImageSet) {
+            window.loadImageSet.push(idx);
+          } else {
+            window.loadImageSet = [];
+            window.loadImageSet.push(idx);
+          }
+        }
+      }
+    });
+  }
+
+  window.loadImageFn = loadImage;
+</script> </div>
       <div class="main-right-wrapper"><div class="main-right">
   <div class="main-right--board">
     <div class="main-right--title">
