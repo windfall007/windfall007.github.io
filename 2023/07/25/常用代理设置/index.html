@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8">
   
-  <title>Hello World | JQ的个人技术博客</title>
+  <title>常用代理设置 | JQ的个人技术博客</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
   <link rel="shortcut icon" href="/imgs/shortcut-icon.ico" type="image/x-icon">
   <link rel="stylesheet" href="/css/public.css" />
@@ -18,7 +18,7 @@
   <script src='//unpkg.com/valine/dist/Valine.min.js'></script>
   <script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
   <script>
-    document.title = `Hello World`
+    document.title = `常用代理设置`
   </script>
 <meta name="generator" content="Hexo 6.3.0"></head>
 
@@ -386,7 +386,7 @@ pre:active {
 
 <div class="article-container">
   <div class="article">
-    <h1 class="article-title">Hello World</h1>
+    <h1 class="article-title">常用代理设置</h1>
     <div class="article-info">
       <div class="article-info--item">
         <div class="article-info--info">
@@ -402,25 +402,105 @@ pre:active {
             
           </div>
           
-          <p class="article-info--date">日期：2023-07-12 11:19:52</p>
+          <p class="article-info--date">日期：2023-07-25 13:59:00</p>
         </div>
-        <img src="/images/default-cover.jpg" alt="" class="article-cover">
+        <img src="/./images/bg.jpeg" alt="" class="article-cover">
       </div>
     </div>
     <article class="article-content">
-      <p>Welcome to <a target="_blank" rel="noopener" href="https://hexo.io/">Hexo</a>! This is your very first post. Check <a target="_blank" rel="noopener" href="https://hexo.io/docs/">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a target="_blank" rel="noopener" href="https://hexo.io/docs/troubleshooting.html">troubleshooting</a> or you can ask me on <a target="_blank" rel="noopener" href="https://github.com/hexojs/hexo/issues">GitHub</a>.</p>
-<h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">$ hexo new <span class="token string">"My New Post"</span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+      <p>常用代理设置<br>以本机安装clash为例，代理地址 <a target="_blank" rel="noopener" href="http://127.0.0.1:7890/">http://127.0.0.1:7890</a></p>
+<h4 id="GIT"><a href="#GIT" class="headerlink" title="GIT"></a>GIT</h4><p>设置代理</p>
+<pre class="line-numbers language-javascript" data-language="javascript"><code class="language-javascript"># http代理
+git config <span class="token operator">--</span>global http<span class="token punctuation">.</span>proxy http<span class="token operator">:</span><span class="token operator">/</span><span class="token operator">/</span><span class="token number">127.0</span><span class="token number">.0</span><span class="token number">.1</span><span class="token operator">:</span><span class="token number">7890</span>
+git config <span class="token operator">--</span>global https<span class="token punctuation">.</span>proxy http<span class="token operator">:</span><span class="token operator">/</span><span class="token operator">/</span><span class="token number">127.0</span><span class="token number">.0</span><span class="token number">.1</span><span class="token operator">:</span><span class="token number">7890</span>
 
-<p>More info: <a target="_blank" rel="noopener" href="https://hexo.io/docs/writing.html">Writing</a></p>
-<h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">$ hexo server<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+# <span class="token function">socks5代理</span><span class="token punctuation">(</span>可选<span class="token punctuation">)</span>
+git config <span class="token operator">--</span>global http<span class="token punctuation">.</span>proxy <span class="token string">"socks5://127.0.0.1:7890"</span>
+git config <span class="token operator">--</span>global https<span class="token punctuation">.</span>proxy <span class="token string">"socks5://127.0.0.1:7890"</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
-<p>More info: <a target="_blank" rel="noopener" href="https://hexo.io/docs/server.html">Server</a></p>
-<h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">$ hexo generate<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+<p>取消代理</p>
+<pre class="line-numbers language-javascript" data-language="javascript"><code class="language-javascript">git config <span class="token operator">--</span>global <span class="token operator">--</span>unset http<span class="token punctuation">.</span>proxy
+git config <span class="token operator">--</span>global <span class="token operator">--</span>unset https<span class="token punctuation">.</span>proxy<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
 
-<p>More info: <a target="_blank" rel="noopener" href="https://hexo.io/docs/generating.html">Generating</a></p>
-<h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">$ hexo deploy<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+<p>查看代理</p>
+<pre class="line-numbers language-javascript" data-language="javascript"><code class="language-javascript">git config <span class="token operator">--</span>global <span class="token operator">--</span><span class="token keyword">get</span> http<span class="token punctuation">.</span>proxy
+git config <span class="token operator">--</span>global <span class="token operator">--</span><span class="token keyword">get</span> https<span class="token punctuation">.</span>proxy<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
+<p>使用代理</p>
+<pre class="line-numbers language-javascript" data-language="javascript"><code class="language-javascript">git clone xxx <span class="token operator">-</span>c http_proxy<span class="token operator">=</span>http<span class="token operator">:</span><span class="token operator">/</span><span class="token regex"><span class="token regex-delimiter">/</span><span class="token regex-source language-regex">proxy.com:8080</span><span class="token regex-delimiter">/</span></span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
 
-<p>More info: <a target="_blank" rel="noopener" href="https://hexo.io/docs/one-command-deployment.html">Deployment</a></p>
+<p>拓展知识</p>
+<pre class="line-numbers language-javascript" data-language="javascript"><code class="language-javascript">git helper <span class="token operator">-</span>a <span class="token comment">// 查看全部git子命令</span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+
+<h4 id="BASH"><a href="#BASH" class="headerlink" title="BASH"></a>BASH</h4><p>设置代理</p>
+<pre class="line-numbers language-javascript" data-language="javascript"><code class="language-javascript"># http代理
+<span class="token keyword">export</span> http_proxy<span class="token operator">=</span><span class="token string">"http://127.0.0.1:7890"</span>
+<span class="token keyword">export</span> https_proxy<span class="token operator">=</span><span class="token string">"http://127.0.0.1:7890"</span>
+
+# socks5代理
+<span class="token keyword">export</span> http_proxy<span class="token operator">=</span><span class="token string">"socks5://127.0.0.1:7890"</span>
+<span class="token keyword">export</span> https_proxy<span class="token operator">=</span><span class="token string">"socks5://127.0.0.1:7890"</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<p>取消代理</p>
+<pre class="line-numbers language-javascript" data-language="javascript"><code class="language-javascript">unset http_proxy
+unset https_proxy<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
+
+<h4 id="CMD"><a href="#CMD" class="headerlink" title="CMD"></a>CMD</h4><pre class="line-numbers language-javascript" data-language="javascript"><code class="language-javascript"># http代理
+<span class="token keyword">set</span> http_proxy<span class="token operator">=</span>http<span class="token operator">:</span><span class="token operator">/</span><span class="token operator">/</span><span class="token number">127.0</span><span class="token number">.0</span><span class="token number">.1</span><span class="token operator">:</span><span class="token number">7890</span>
+<span class="token keyword">set</span> https_proxy<span class="token operator">=</span>http<span class="token operator">:</span><span class="token operator">/</span><span class="token operator">/</span><span class="token number">127.0</span><span class="token number">.0</span><span class="token number">.1</span><span class="token operator">:</span><span class="token number">7890</span>
+
+# socks5代理
+<span class="token keyword">set</span> http_proxy<span class="token operator">=</span>socks5<span class="token operator">:</span><span class="token operator">/</span><span class="token operator">/</span><span class="token number">127.0</span><span class="token number">.0</span><span class="token number">.1</span><span class="token operator">:</span><span class="token number">7890</span>
+<span class="token keyword">set</span> https_proxy<span class="token operator">=</span>socks5<span class="token operator">:</span><span class="token operator">/</span><span class="token operator">/</span><span class="token number">127.0</span><span class="token number">.0</span><span class="token number">.1</span><span class="token operator">:</span><span class="token number">7890</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<p>取消代理</p>
+<pre class="line-numbers language-javascript" data-language="javascript"><code class="language-javascript"><span class="token keyword">set</span> http_proxy<span class="token operator">=</span>
+<span class="token keyword">set</span> https_proxy<span class="token operator">=</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
+
+<h4 id="PowerShell"><a href="#PowerShell" class="headerlink" title="PowerShell"></a>PowerShell</h4><pre class="line-numbers language-javascript" data-language="javascript"><code class="language-javascript"><span class="token literal-property property">$Env</span><span class="token operator">:</span>http_proxy<span class="token operator">=</span><span class="token string">"http://127.0.0.1:7890"</span><span class="token punctuation">;</span>
+<span class="token literal-property property">$Env</span><span class="token operator">:</span>https_proxy<span class="token operator">=</span><span class="token string">"http://127.0.0.1:7890"</span><span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
+
+<p>上方列出的关于终端的代理大多都是临时命令，重启终端就会失效，如果想要永久设置代理，可以使用使用自定义配置<br>在 PowerShell 窗口中运行如下指令：</p>
+<pre class="line-numbers language-javascript" data-language="javascript"><code class="language-javascript"><span class="token keyword">if</span> <span class="token punctuation">(</span><span class="token operator">!</span><span class="token punctuation">(</span>Test<span class="token operator">-</span>Path <span class="token operator">-</span>Path $<span class="token constant">PROFILE</span> <span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span> New<span class="token operator">-</span>Item <span class="token operator">-</span>Type File <span class="token operator">-</span>Path $<span class="token constant">PROFILE</span> <span class="token operator">-</span>Force <span class="token punctuation">&#125;</span>
+notepad $<span class="token constant">PROFILE</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
+
+<p>默认会使用记事本打开一个文件，在文件中加入上面设置代理的命令，保存关闭即可。</p>
+<h4 id="NPM"><a href="#NPM" class="headerlink" title="NPM"></a>NPM</h4><p>设置代理</p>
+<pre class="line-numbers language-javascript" data-language="javascript"><code class="language-javascript"># http代理
+npm config <span class="token keyword">set</span> proxy http<span class="token operator">:</span><span class="token operator">/</span><span class="token operator">/</span><span class="token number">127.0</span><span class="token number">.0</span><span class="token number">.1</span><span class="token operator">:</span><span class="token number">7890</span>
+npm config <span class="token keyword">set</span> https<span class="token operator">-</span>proxy http<span class="token operator">:</span><span class="token operator">/</span><span class="token operator">/</span><span class="token number">127.0</span><span class="token number">.0</span><span class="token number">.1</span><span class="token operator">:</span><span class="token number">7890</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
+<p>取消代理</p>
+<pre class="line-numbers language-javascript" data-language="javascript"><code class="language-javascript">npm config <span class="token keyword">delete</span> proxy
+npm config <span class="token keyword">delete</span> https<span class="token operator">-</span>proxy<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
+<p>查看当前代理</p>
+<pre class="line-numbers language-javascript" data-language="javascript"><code class="language-javascript">npm config <span class="token keyword">get</span> proxy
+npm config <span class="token keyword">get</span> https<span class="token operator">-</span>proxy<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
+
+<p>查看当前镜像源</p>
+<pre class="line-numbers language-javascript" data-language="javascript"><code class="language-javascript">npm <span class="token keyword">get</span> registry<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+
+<p>设置CNPM</p>
+<pre class="line-numbers language-javascript" data-language="javascript"><code class="language-javascript"><span class="token number">1.</span>通过npm全局安装cnpm：
+	npm install <span class="token operator">-</span>g cnpm
+
+<span class="token number">2.</span>将npm<span class="token operator">/</span>cnpm设置为淘宝镜像：
+	 npm config <span class="token keyword">set</span> registry https<span class="token operator">:</span><span class="token operator">/</span><span class="token operator">/</span>registry<span class="token punctuation">.</span>npm<span class="token punctuation">.</span>taobao<span class="token punctuation">.</span>org
+ 	cnpm config <span class="token keyword">set</span> registry https<span class="token operator">:</span><span class="token operator">/</span><span class="token operator">/</span>registry<span class="token punctuation">.</span>npm<span class="token punctuation">.</span>taobao<span class="token punctuation">.</span>org
+
+<span class="token number">3.</span> 查看npm<span class="token operator">/</span>cnpm<span class="token operator">/</span>镜像地址：
+	npm config <span class="token keyword">get</span> registry
+	cnpm config <span class="token keyword">get</span> registry<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<h4 id="YARN"><a href="#YARN" class="headerlink" title="YARN"></a>YARN</h4><p>设置代理</p>
+<pre class="line-numbers language-javascript" data-language="javascript"><code class="language-javascript"># http代理
+yarn config <span class="token keyword">set</span> proxy http<span class="token operator">:</span><span class="token operator">/</span><span class="token operator">/</span><span class="token number">127.0</span><span class="token number">.0</span><span class="token number">.1</span><span class="token operator">:</span><span class="token number">7890</span>
+yarn config <span class="token keyword">set</span> https<span class="token operator">-</span>proxy http<span class="token operator">:</span><span class="token operator">/</span><span class="token operator">/</span><span class="token number">127.0</span><span class="token number">.0</span><span class="token number">.1</span><span class="token operator">:</span><span class="token number">7890</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
+
+<p>取消代理</p>
+<pre class="line-numbers language-javascript" data-language="javascript"><code class="language-javascript">yarn config <span class="token keyword">delete</span> proxy
+yarn config <span class="token keyword">delete</span> https<span class="token operator">-</span>proxy<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
+<p>查看镜像地址</p>
+<pre class="line-numbers language-javascript" data-language="javascript"><code class="language-javascript">yarn config <span class="token keyword">get</span> registry<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+
+
 
     </article>
     
@@ -429,16 +509,16 @@ pre:active {
     <div class="article-catelogue--wrapper">
       <div class="catelogue catelogue-1">
         <h3>目录</h3>
-        <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#Quick-Start"><span class="toc-number">1.</span> <span class="toc-text">Quick Start</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Create-a-new-post"><span class="toc-number">1.1.</span> <span class="toc-text">Create a new post</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Run-server"><span class="toc-number">1.2.</span> <span class="toc-text">Run server</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Generate-static-files"><span class="toc-number">1.3.</span> <span class="toc-text">Generate static files</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Deploy-to-remote-sites"><span class="toc-number">1.4.</span> <span class="toc-text">Deploy to remote sites</span></a></li></ol></li></ol>
+        <ol class="toc"><li class="toc-item toc-level-4"><a class="toc-link" href="#GIT"><span class="toc-number">1.</span> <span class="toc-text">GIT</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#BASH"><span class="toc-number">2.</span> <span class="toc-text">BASH</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#CMD"><span class="toc-number">3.</span> <span class="toc-text">CMD</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#PowerShell"><span class="toc-number">4.</span> <span class="toc-text">PowerShell</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#NPM"><span class="toc-number">5.</span> <span class="toc-text">NPM</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#YARN"><span class="toc-number">6.</span> <span class="toc-text">YARN</span></a></li></ol>
       </div>
       
         <div class="catelogue catelogue-2">
+           
           
             <p>
-              <span>上一篇：</span>
-              <a href="/2023/07/13/termux/">使用安卓手机安装termux 入门使用笔记</a>
+              <span>下一篇</span>
+              <a href="/2023/07/21/分装一个基于elementplus的curd组件/">分装一个基于element-plus的curd组件</a>
             </p>
-           
           
         </div>
       
