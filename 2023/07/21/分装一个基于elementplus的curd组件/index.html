@@ -196,7 +196,7 @@
   const ipt = document.querySelector('#search-input')
   const btn = document.querySelector('#search-btn')
   const layer = document.querySelector('#search-layer')
-  const posts = JSON.parse(`[{"title":"Hello World","path":"2023/07/12/hello-world/"},{"title":"分装一个基于element-plus的curd组件","path":"2023/07/21/分装一个基于elementplus的curd组件/"},{"title":"使用安卓手机安装termux 入门使用笔记","cover":"./images/default-cover.jpg","path":"2023/07/13/termux/"}]`)
+  const posts = JSON.parse(`[{"title":"Hello World","path":"2023/07/12/hello-world/"},{"title":"使用安卓手机安装termux 入门使用笔记","cover":"./images/default-cover.jpg","path":"2023/07/13/termux/"},{"title":"分装一个基于element-plus的curd组件","path":"2023/07/21/分装一个基于elementplus的curd组件/"}]`)
   ipt.addEventListener('keyup', e => {
     if (e.key === 'Enter') {
       handleSearch()
@@ -346,11 +346,11 @@
       </p>
       <p class="main-left--subtitle">
         <span>最近动态：</span>
-        <span>2天前</span>
+        <span>今天</span>
       </p>
       <p class="main-left--subtitle">
         <span>上线时间：</span>
-        <span>12天</span>
+        <span>13天</span>
       </p>
       <p class="main-left--subtitle">
         <span>当前版本：</span>
@@ -609,25 +609,160 @@ pre:active {
 <tbody><tr>
 <td>row-save</td>
 <td>新增数据后点击确定触发该事件</td>
-<td>row,done</td>
+<td>res,done</td>
 </tr>
 <tr>
-<td>其他行</td>
-<td>其他行</td>
-<td>其他行</td>
+<td>row-update</td>
+<td>数据更新触发事件</td>
+<td>res,done</td>
 </tr>
 <tr>
-<td>其他行</td>
-<td>其他行</td>
-<td>其他行</td>
+<td>row-del</td>
+<td>数据删除触发事件</td>
+<td>res,done</td>
 </tr>
 <tr>
-<td>其他行</td>
-<td>其他行</td>
-<td>其他行</td>
+<td>refresh-change</td>
+<td>数据刷新触发事件</td>
+<td>res,done</td>
+</tr>
+<tr>
+<td>search-change</td>
+<td>搜索按钮触发</td>
+<td>res,done</td>
 </tr>
 </tbody></table>
-<h4 id="options"><a href="#options" class="headerlink" title="options"></a>options</h4>
+<p>res 返回当前数据，done完成触发</p>
+<h4 id="options"><a href="#options" class="headerlink" title="options"></a>options</h4><p>| 参数 | 说明 | 类型 | 可选值 | 默认值 |<br>| —— | —— | —— |<br>| actions| curd组件增删改查操作	 | Array | edit&#x2F;del&#x2F;add&#x2F;refresh&#x2F;filter&#x2F;layout&#x2F;fullScreen&#x2F;pagination | - |<br>| column | table column字段 | Array | - | - |</p>
+<h4 id="options-actions"><a href="#options-actions" class="headerlink" title="options-actions"></a>options-actions</h4><table>
+<thead>
+<tr>
+<th>参数</th>
+<th>说明</th>
+<th>类型</th>
+<th>可选值</th>
+<th>默认值</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>del</td>
+<td>数据删除</td>
+<td>String&#x2F;Object</td>
+<td>-</td>
+<td>del</td>
+</tr>
+<tr>
+<td>add</td>
+<td>数据增加按钮</td>
+<td>String&#x2F;Object</td>
+<td>-</td>
+<td>add</td>
+</tr>
+<tr>
+<td>edit</td>
+<td>数据编辑按钮</td>
+<td>String&#x2F;Object</td>
+<td>-</td>
+<td>add</td>
+</tr>
+<tr>
+<td>refresh</td>
+<td>刷新按钮</td>
+<td>String</td>
+<td>-</td>
+<td>refresh</td>
+</tr>
+<tr>
+<td>filter</td>
+<td>过滤按钮</td>
+<td>String</td>
+<td>-</td>
+<td>filter</td>
+</tr>
+<tr>
+<td>layout</td>
+<td>布局按钮</td>
+<td>String</td>
+<td>-</td>
+<td>layout</td>
+</tr>
+<tr>
+<td>fullScreen</td>
+<td>全屏按钮</td>
+<td>String</td>
+<td>-</td>
+<td>fullScreen</td>
+</tr>
+<tr>
+<td>pagination</td>
+<td>分页组件</td>
+<td>String</td>
+<td>-</td>
+<td>pagination</td>
+</tr>
+</tbody></table>
+<p>del 参数的自定义模式</p>
+<pre class="line-numbers language-json" data-language="json"><code class="language-json"><span class="token punctuation">&#123;</span> 
+	name<span class="token operator">:</span> 'del'<span class="token punctuation">,</span>
+	text<span class="token operator">:</span> '解绑'<span class="token punctuation">,</span> <span class="token comment">//定义按钮名称</span>
+    icon<span class="token operator">:</span>''<span class="token comment">//按钮图标</span>
+    size<span class="token operator">:</span>'large/small/default'<span class="token comment">//按钮大小</span>
+    plain<span class="token operator">:</span>
+   confirm<span class="token operator">:</span> <span class="token punctuation">&#123;</span>
+   	  <span class="token comment">//参数提示</span>
+     message<span class="token operator">:</span> '是否要解绑当前网关？，解绑后和该网关绑定的设备将移除'<span class="token punctuation">,</span>
+     <span class="token comment">//删除按钮文字</span>
+     confirmButtonText<span class="token operator">:</span> ''
+   <span class="token punctuation">&#125;</span>
+<span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<h4 id="options-column"><a href="#options-column" class="headerlink" title="options-column"></a>options-column</h4><table>
+<thead>
+<tr>
+<th>参数</th>
+<th>说明</th>
+<th>类型</th>
+<th>可选值</th>
+<th>默认值</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>prop</td>
+<td>列标题的内容属性名称</td>
+<td>string</td>
+<td>-</td>
+<td>-</td>
+</tr>
+<tr>
+<td>minWidth</td>
+<td>对应列的最小宽度</td>
+<td>Number</td>
+<td>-</td>
+<td>-</td>
+</tr>
+<tr>
+<td>label</td>
+<td>列标题</td>
+<td>string</td>
+<td>-</td>
+<td>-</td>
+</tr>
+<tr>
+<td>showOverflowTooltip</td>
+<td>溢出宽度文字隐藏</td>
+<td>true</td>
+<td>false&#x2F;true</td>
+<td>false</td>
+</tr>
+<tr>
+<td>align</td>
+<td>文字对齐</td>
+<td>String</td>
+<td>left&#x2F;right</td>
+<td>left</td>
+</tr>
+</tbody></table>
+
     </article>
     
   </div>
@@ -635,7 +770,7 @@ pre:active {
     <div class="article-catelogue--wrapper">
       <div class="catelogue catelogue-1">
         <h3>目录</h3>
-        <ol class="toc"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E4%BD%BF%E7%94%A8%E8%AF%B4%E6%98%8E"><span class="toc-number">1.</span> <span class="toc-text">使用说明</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#curd%E7%BB%84%E4%BB%B6%E7%A4%BA%E4%BE%8B"><span class="toc-number">2.</span> <span class="toc-text">curd组件示例</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#Attributes"><span class="toc-number">3.</span> <span class="toc-text">Attributes</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#Events"><span class="toc-number">4.</span> <span class="toc-text">Events</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#options"><span class="toc-number">5.</span> <span class="toc-text">options</span></a></li></ol>
+        <ol class="toc"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E4%BD%BF%E7%94%A8%E8%AF%B4%E6%98%8E"><span class="toc-number">1.</span> <span class="toc-text">使用说明</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#curd%E7%BB%84%E4%BB%B6%E7%A4%BA%E4%BE%8B"><span class="toc-number">2.</span> <span class="toc-text">curd组件示例</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#Attributes"><span class="toc-number">3.</span> <span class="toc-text">Attributes</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#Events"><span class="toc-number">4.</span> <span class="toc-text">Events</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#options"><span class="toc-number">5.</span> <span class="toc-text">options</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#options-actions"><span class="toc-number">6.</span> <span class="toc-text">options-actions</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#options-column"><span class="toc-number">7.</span> <span class="toc-text">options-column</span></a></li></ol>
       </div>
       
         <div class="catelogue catelogue-2">
