@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8">
   
-  <title>分装一个基于element-plus的curd组件 | JQ的个人技术博客</title>
+  <title>JQ的个人技术博客 | JQ的个人技术博客</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
   <link rel="shortcut icon" href="/imgs/shortcut-icon.ico" type="image/x-icon">
   <link rel="stylesheet" href="/css/public.css" />
@@ -14,11 +14,12 @@
   <script src="/js/jquery.min.js"></script>
   <script src="/js/jquery.pjax.min.js"></script>
   <script src="/js/universe.js"></script>
+  <script src="/js/line.js"></script>
 
   <script src='//unpkg.com/valine/dist/Valine.min.js'></script>
   <script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
   <script>
-    document.title = `分装一个基于element-plus的curd组件`
+    document.title = `JQ的个人技术博客`
   </script>
 <meta name="generator" content="Hexo 6.3.0"></head>
 
@@ -196,7 +197,7 @@
   const ipt = document.querySelector('#search-input')
   const btn = document.querySelector('#search-btn')
   const layer = document.querySelector('#search-layer')
-  const posts = JSON.parse(`[{"title":"Hello World","path":"2023/07/12/hello-world/"},{"title":"分装一个基于element-plus的curd组件","path":"2023/07/21/分装一个基于elementplus的curd组件/"},{"title":"使用安卓手机安装termux 入门使用笔记","cover":"./images/default-cover.jpg","path":"2023/07/13/termux/"},{"title":"常用代理设置","cover":"./images/bg.jpeg","path":"2023/07/25/常用代理设置/"}]`)
+  const posts = JSON.parse(`[{"title":"","path":"2023/07/12/hello-world/"},{"title":"","path":"2023/07/13/termux/"},{"title":"","path":"2023/07/21/分装一个基于elementplus的curd组件/"},{"title":"","path":"2023/07/25/常用代理设置/"}]`)
   ipt.addEventListener('keyup', e => {
     if (e.key === 'Enter') {
       handleSearch()
@@ -273,13 +274,13 @@
       <div class="main-left--statics">
         <a href="/categories">
           <div>
-            <span>2</span>
+            <span>0</span>
             <span>分类</span>
           </div>
         </a>
         <a href="/tags">
           <div>
-            <span>2</span>
+            <span>0</span>
             <span>标签</span>
           </div>
         </a>
@@ -346,7 +347,7 @@
       </p>
       <p class="main-left--subtitle">
         <span>最近动态：</span>
-        <span>1周前</span>
+        <span>今天</span>
       </p>
       <p class="main-left--subtitle">
         <span>上线时间：</span>
@@ -386,20 +387,20 @@ pre:active {
 
 <div class="article-container">
   <div class="article">
-    <h1 class="article-title">分装一个基于element-plus的curd组件</h1>
+    <h1 class="article-title"></h1>
     <div class="article-info">
       <div class="article-info--item">
         <div class="article-info--info">
           
           <div class="article-info--categories">
             <span>分类：</span>
-            <a class="category-link" href="/categories/%E5%89%8D%E7%AB%AF/">前端</a>
+            
           </div>
           
           
           <div class="article-info--tags">
             <span>标签：</span>
-            <a class="tag-link" href="/tags/vue3/" rel="tag">vue3</a>
+            
           </div>
           
           <p class="article-info--date">日期：2023-07-21 15:20:54</p>
@@ -408,367 +409,7 @@ pre:active {
       </div>
     </div>
     <article class="article-content">
-      <p>公司写业务的时候发现AVUE这个框架很好用，但项目已经写了一部分了，于是参照着AVUE实现了一个基础的curd组件。使用json配置的方式，是一个很好的编程思维，写一个说明文档，方便以后查阅和修改组件。</p>
-<h4 id="使用说明"><a href="#使用说明" class="headerlink" title="使用说明"></a>使用说明</h4><p>使用组件需要项目安装element-plus ui 库^2.3.8以上版本，vue ^3.2.36 以上版本。使用一下版本可能会报版本不兼容的错误。</p>
-<h4 id="curd组件示例"><a href="#curd组件示例" class="headerlink" title="curd组件示例"></a>curd组件示例</h4><p>HTML部分</p>
-<pre class="line-numbers language-markup" data-language="markup"><code class="language-markup"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>curd</span>
-   <span class="token attr-name">ref</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>curdModel<span class="token punctuation">"</span></span>
-       <span class="token attr-name"><span class="token namespace">v-model:</span>page</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>page<span class="token punctuation">"</span></span>
-       <span class="token attr-name">:data</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>tableData<span class="token punctuation">"</span></span>
-       <span class="token attr-name">:options</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>options<span class="token punctuation">"</span></span>
-       <span class="token attr-name">@row-save</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>rowSave<span class="token punctuation">"</span></span>
-       <span class="token attr-name">@row-update</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>rowUpdate<span class="token punctuation">"</span></span>
-       <span class="token attr-name">@row-del</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>rowDel<span class="token punctuation">"</span></span>
-       <span class="token attr-name">@refresh-change</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>refreshChange<span class="token punctuation">"</span></span>
-       <span class="token attr-name">@search-change</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>searchChange<span class="token punctuation">"</span></span>
-   <span class="token punctuation">></span></span>
-       <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>template</span> <span class="token attr-name">#status</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>scope<span class="token punctuation">"</span></span><span class="token punctuation">></span></span>
-           <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>el-tag</span> <span class="token attr-name">v-if</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>scope.row.status ==2<span class="token punctuation">"</span></span> <span class="token attr-name">type</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>success<span class="token punctuation">"</span></span><span class="token punctuation">></span></span>在线<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>el-tag</span><span class="token punctuation">></span></span>
-           <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>el-tag</span> <span class="token attr-name">v-else-if</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>scope.row.status ==1<span class="token punctuation">"</span></span> <span class="token attr-name">type</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>danger<span class="token punctuation">"</span></span><span class="token punctuation">></span></span>离线<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>el-tag</span><span class="token punctuation">></span></span>
-       <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>template</span><span class="token punctuation">></span></span>
-       <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>template</span> <span class="token attr-name">#actions</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>scope<span class="token punctuation">"</span></span><span class="token punctuation">></span></span>
-       <span class="token comment">&lt;!--自定义操作--></span>
-       <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>el-button</span> <span class="token attr-name">type</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>primary<span class="token punctuation">"</span></span> <span class="token attr-name">size</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>mini<span class="token punctuation">"</span></span> <span class="token attr-name">:icon</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>Tickets<span class="token punctuation">"</span></span><span class="token punctuation">></span></span>详情<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>el-button</span><span class="token punctuation">></span></span>
-       <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>template</span><span class="token punctuation">></span></span>
-   <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>curd</span><span class="token punctuation">></span></span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-
-<p>js部分</p>
-<pre class="line-numbers language-javascript" data-language="javascript"><code class="language-javascript"><span class="token keyword">const</span> treedata <span class="token operator">=</span> <span class="token function">ref</span><span class="token punctuation">(</span><span class="token punctuation">[</span><span class="token punctuation">]</span><span class="token punctuation">)</span>
-
-<span class="token keyword">function</span> <span class="token function">getProductionTreeFun</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
-    <span class="token function">getProductionTree</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">then</span><span class="token punctuation">(</span><span class="token parameter">res</span> <span class="token operator">=></span> <span class="token punctuation">&#123;</span>
-        <span class="token keyword">let</span> <span class="token punctuation">&#123;</span> code<span class="token punctuation">,</span> data<span class="token punctuation">,</span> msg<span class="token punctuation">,</span> success <span class="token punctuation">&#125;</span> <span class="token operator">=</span> res
-        treedata<span class="token punctuation">.</span>value <span class="token operator">=</span> data
-    <span class="token punctuation">&#125;</span><span class="token punctuation">)</span>
-<span class="token punctuation">&#125;</span>
-
-<span class="token keyword">const</span> options <span class="token operator">=</span> <span class="token function">ref</span><span class="token punctuation">(</span>
-    <span class="token punctuation">&#123;</span>
-        <span class="token literal-property property">actions</span><span class="token operator">:</span> <span class="token punctuation">[</span> 
-            <span class="token comment">// 自定义删除提示</span>
-            <span class="token punctuation">&#123;</span> <span class="token literal-property property">name</span><span class="token operator">:</span> <span class="token string">'del'</span><span class="token punctuation">,</span> <span class="token literal-property property">text</span><span class="token operator">:</span> <span class="token string">'解绑'</span><span class="token punctuation">,</span> <span class="token literal-property property">confirm</span><span class="token operator">:</span> <span class="token punctuation">&#123;</span>
-            <span class="token literal-property property">message</span><span class="token operator">:</span> <span class="token string">'是否要解绑当前网关？，解绑后和该网关绑定的设备将移除'</span><span class="token punctuation">,</span>
-            <span class="token literal-property property">confirmButtonText</span><span class="token operator">:</span> <span class="token string">''</span>
-        <span class="token punctuation">&#125;</span> <span class="token punctuation">&#125;</span><span class="token punctuation">,</span> <span class="token string">'refresh'</span><span class="token punctuation">,</span> <span class="token string">'filter'</span><span class="token punctuation">,</span> <span class="token string">'layout'</span><span class="token punctuation">,</span> <span class="token string">'fullScreen'</span><span class="token punctuation">,</span> <span class="token string">'pagination'</span><span class="token punctuation">,</span> <span class="token string">'searchbar'</span><span class="token punctuation">]</span><span class="token punctuation">,</span>
-        <span class="token literal-property property">column</span><span class="token operator">:</span> <span class="token punctuation">[</span>
-            <span class="token punctuation">&#123;</span>
-                <span class="token string-property property">'prop'</span><span class="token operator">:</span> <span class="token string">'parentId'</span><span class="token punctuation">,</span>
-                <span class="token string-property property">'label'</span><span class="token operator">:</span> <span class="token string">'生产部'</span><span class="token punctuation">,</span>
-                <span class="token string-property property">'minWidth'</span><span class="token operator">:</span> <span class="token number">150</span><span class="token punctuation">,</span>
-                <span class="token string-property property">'showOverflowTooltip'</span><span class="token operator">:</span> <span class="token boolean">true</span><span class="token punctuation">,</span>
-                <span class="token string-property property">'elmentuiType'</span><span class="token operator">:</span> <span class="token string">'select'</span><span class="token punctuation">,</span>
-                <span class="token function-variable function">option</span><span class="token operator">:</span> <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">=></span> <span class="token punctuation">&#123;</span>
-                    <span class="token keyword">return</span> productionTree<span class="token punctuation">.</span>value
-                <span class="token punctuation">&#125;</span><span class="token punctuation">,</span>
-                <span class="token literal-property property">align</span><span class="token operator">:</span> <span class="token string">'left'</span><span class="token punctuation">,</span>
-                <span class="token literal-property property">tableHide</span><span class="token operator">:</span><span class="token boolean">true</span>
-            <span class="token punctuation">&#125;</span><span class="token punctuation">,</span>
-            <span class="token punctuation">&#123;</span>
-                <span class="token string-property property">'prop'</span><span class="token operator">:</span> <span class="token string">'productionName'</span><span class="token punctuation">,</span>
-                <span class="token string-property property">'label'</span><span class="token operator">:</span> <span class="token string">'车间名称'</span><span class="token punctuation">,</span>
-                <span class="token string-property property">'minWidth'</span><span class="token operator">:</span> <span class="token number">150</span><span class="token punctuation">,</span>
-                <span class="token string-property property">'showOverflowTooltip'</span><span class="token operator">:</span> <span class="token boolean">true</span><span class="token punctuation">,</span>
-                <span class="token string-property property">'rules'</span><span class="token operator">:</span> <span class="token punctuation">[</span><span class="token punctuation">&#123;</span> <span class="token literal-property property">required</span><span class="token operator">:</span> <span class="token boolean">true</span><span class="token punctuation">,</span> <span class="token literal-property property">message</span><span class="token operator">:</span> <span class="token string">'请输入车间名称'</span><span class="token punctuation">,</span> <span class="token literal-property property">trigger</span><span class="token operator">:</span> <span class="token string">'blur'</span> <span class="token punctuation">&#125;</span><span class="token punctuation">]</span><span class="token punctuation">,</span>
-                <span class="token string-property property">'search'</span><span class="token operator">:</span> <span class="token boolean">true</span>
-            <span class="token punctuation">&#125;</span><span class="token punctuation">,</span>
-            <span class="token punctuation">&#123;</span>
-                <span class="token string-property property">'prop'</span><span class="token operator">:</span> <span class="token string">'machineName'</span><span class="token punctuation">,</span>
-                <span class="token string-property property">'label'</span><span class="token operator">:</span> <span class="token string">'设备名称'</span><span class="token punctuation">,</span>
-                <span class="token string-property property">'showOverflowTooltip'</span><span class="token operator">:</span> <span class="token boolean">true</span><span class="token punctuation">,</span>
-                <span class="token string-property property">'search'</span><span class="token operator">:</span> <span class="token boolean">true</span>
-            <span class="token punctuation">&#125;</span><span class="token punctuation">,</span>
-            <span class="token punctuation">&#123;</span>
-                <span class="token string-property property">'prop'</span><span class="token operator">:</span> <span class="token string">'latitude'</span><span class="token punctuation">,</span>
-                <span class="token string-property property">'label'</span><span class="token operator">:</span> <span class="token string">'地理纬度'</span><span class="token punctuation">,</span>
-                <span class="token string-property property">'showOverflowTooltip'</span><span class="token operator">:</span> <span class="token boolean">true</span><span class="token punctuation">,</span>
-                <span class="token string-property property">'elementuitype'</span><span class="token operator">:</span> <span class="token string">'number'</span>
-            <span class="token punctuation">&#125;</span><span class="token punctuation">,</span>
-            <span class="token punctuation">&#123;</span>
-                <span class="token string-property property">'prop'</span><span class="token operator">:</span> <span class="token string">'longitude'</span><span class="token punctuation">,</span>
-                <span class="token string-property property">'label'</span><span class="token operator">:</span> <span class="token string">'地理经度'</span><span class="token punctuation">,</span>
-                <span class="token string-property property">'showOverflowTooltip'</span><span class="token operator">:</span> <span class="token boolean">true</span><span class="token punctuation">,</span>
-                <span class="token string-property property">'elementuitype'</span><span class="token operator">:</span> <span class="token string">'number'</span>
-            <span class="token punctuation">&#125;</span><span class="token punctuation">,</span>
-            <span class="token punctuation">&#123;</span>
-               <span class="token string-property property">'prop'</span><span class="token operator">:</span> <span class="token string">'status'</span><span class="token punctuation">,</span>
-                <span class="token string-property property">'label'</span><span class="token operator">:</span> <span class="token string">'网关状态'</span><span class="token punctuation">,</span>
-                <span class="token string-property property">'minWidth'</span><span class="token operator">:</span> <span class="token number">150</span><span class="token punctuation">,</span>
-                <span class="token string-property property">'showOverflowTooltip'</span><span class="token operator">:</span> <span class="token boolean">true</span><span class="token punctuation">,</span>
-                <span class="token string-property property">'type'</span><span class="token operator">:</span> <span class="token string">'customCol'</span><span class="token punctuation">,</span>
-                <span class="token string-property property">'unedit'</span><span class="token operator">:</span> <span class="token boolean">true</span>
-            <span class="token punctuation">&#125;</span><span class="token punctuation">,</span>
-            <span class="token punctuation">&#123;</span>
-                <span class="token string-property property">'prop'</span><span class="token operator">:</span> <span class="token string">'createUser'</span><span class="token punctuation">,</span>
-                <span class="token string-property property">'label'</span><span class="token operator">:</span> <span class="token string">'创建人'</span><span class="token punctuation">,</span>
-                <span class="token string-property property">'showOverflowTooltip'</span><span class="token operator">:</span> <span class="token boolean">true</span><span class="token punctuation">,</span>
-                <span class="token string-property property">'unedit'</span><span class="token operator">:</span> <span class="token boolean">true</span>
-            <span class="token punctuation">&#125;</span><span class="token punctuation">,</span>
-            <span class="token punctuation">&#123;</span>
-                <span class="token string-property property">'prop'</span><span class="token operator">:</span> <span class="token string">'createTime'</span><span class="token punctuation">,</span>
-                <span class="token string-property property">'label'</span><span class="token operator">:</span> <span class="token string">'创建时间'</span><span class="token punctuation">,</span>
-                <span class="token string-property property">'showOverflowTooltip'</span><span class="token operator">:</span> <span class="token boolean">true</span><span class="token punctuation">,</span>
-                <span class="token string-property property">'elementuitype'</span><span class="token operator">:</span> <span class="token string">'datetime'</span>
-            <span class="token punctuation">&#125;</span>
-        <span class="token punctuation">]</span>
-    <span class="token punctuation">&#125;</span>
-
-<span class="token punctuation">)</span>
-
-<span class="token comment">//分页参数</span>
-<span class="token keyword">const</span> page <span class="token operator">=</span> <span class="token function">ref</span><span class="token punctuation">(</span><span class="token punctuation">&#123;</span>
-    <span class="token literal-property property">total</span><span class="token operator">:</span> <span class="token number">1000</span><span class="token punctuation">,</span>
-    <span class="token literal-property property">currentPage</span><span class="token operator">:</span> <span class="token number">1</span><span class="token punctuation">,</span>
-    <span class="token literal-property property">pageSize</span><span class="token operator">:</span> <span class="token number">10</span>
-<span class="token punctuation">&#125;</span><span class="token punctuation">)</span>
-
-<span class="token comment">//table数据</span>
-<span class="token keyword">const</span> tableData <span class="token operator">=</span> <span class="token function">ref</span><span class="token punctuation">(</span><span class="token punctuation">[</span><span class="token punctuation">]</span><span class="token punctuation">)</span>
-
-<span class="token keyword">async</span> <span class="token keyword">function</span> <span class="token function">getListHandel</span><span class="token punctuation">(</span><span class="token parameter">params</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
-    <span class="token keyword">let</span> param <span class="token operator">=</span> <span class="token punctuation">&#123;</span> <span class="token operator">...</span>params<span class="token punctuation">,</span> <span class="token operator">...</span><span class="token punctuation">&#123;</span> <span class="token literal-property property">current</span><span class="token operator">:</span> page<span class="token punctuation">.</span>value<span class="token punctuation">.</span>currentPage<span class="token punctuation">,</span> <span class="token literal-property property">size</span><span class="token operator">:</span> page<span class="token punctuation">.</span>value<span class="token punctuation">.</span>pageSize <span class="token punctuation">&#125;</span> <span class="token punctuation">&#125;</span>
-
-    <span class="token keyword">return</span> <span class="token keyword">await</span> <span class="token function">getMachineList</span><span class="token punctuation">(</span>param<span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">then</span><span class="token punctuation">(</span><span class="token parameter">res</span> <span class="token operator">=></span> <span class="token punctuation">&#123;</span>
-        <span class="token keyword">let</span> <span class="token punctuation">&#123;</span> code<span class="token punctuation">,</span> data<span class="token punctuation">,</span> msg<span class="token punctuation">,</span> success <span class="token punctuation">&#125;</span> <span class="token operator">=</span> res
-        tableData<span class="token punctuation">.</span>value <span class="token operator">=</span> data<span class="token punctuation">.</span>records
-        page<span class="token punctuation">.</span>value<span class="token punctuation">.</span>total <span class="token operator">=</span> data<span class="token punctuation">.</span>total
-
-    <span class="token punctuation">&#125;</span><span class="token punctuation">)</span>
-<span class="token punctuation">&#125;</span>
-
-<span class="token function">getListHandel</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
-<span class="token keyword">const</span> curdModel <span class="token operator">=</span> <span class="token function">ref</span><span class="token punctuation">(</span><span class="token keyword">null</span><span class="token punctuation">)</span>
-
-
-<span class="token keyword">function</span> <span class="token function">rowSave</span><span class="token punctuation">(</span><span class="token parameter">res</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
-    console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>res<span class="token punctuation">)</span>
-<span class="token punctuation">&#125;</span>
-
-<span class="token keyword">function</span> <span class="token function">rowUpdate</span><span class="token punctuation">(</span><span class="token parameter">res</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
-    console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>res<span class="token punctuation">)</span>
-<span class="token punctuation">&#125;</span>
-
-<span class="token keyword">function</span> <span class="token function">rowDel</span><span class="token punctuation">(</span><span class="token parameter">row<span class="token punctuation">,</span> done</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
-
-<span class="token punctuation">&#125;</span>
-
-<span class="token keyword">function</span> <span class="token function">refreshChange</span><span class="token punctuation">(</span><span class="token parameter">res<span class="token punctuation">,</span> done</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
-    <span class="token function">getListHandel</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">then</span><span class="token punctuation">(</span><span class="token parameter">_</span> <span class="token operator">=></span> <span class="token punctuation">&#123;</span>
-
-        <span class="token function">done</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
-    <span class="token punctuation">&#125;</span><span class="token punctuation">)</span>
-<span class="token punctuation">&#125;</span>
-
-<span class="token keyword">function</span> <span class="token function">searchChange</span><span class="token punctuation">(</span><span class="token parameter">res<span class="token punctuation">,</span> done</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
-    page<span class="token punctuation">.</span>value<span class="token punctuation">.</span>currentPage <span class="token operator">=</span> <span class="token number">1</span>
-    <span class="token function">getListHandel</span><span class="token punctuation">(</span>res<span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">then</span><span class="token punctuation">(</span><span class="token parameter">_</span> <span class="token operator">=></span> <span class="token punctuation">&#123;</span>
-        <span class="token function">done</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
-    <span class="token punctuation">&#125;</span><span class="token punctuation">)</span>
-
-<span class="token punctuation">&#125;</span>
-<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-<h4 id="Attributes"><a href="#Attributes" class="headerlink" title="Attributes"></a>Attributes</h4><table>
-<thead>
-<tr>
-<th>属性名</th>
-<th>说明</th>
-<th>类型</th>
-<th>可选值</th>
-<th>默认值</th>
-</tr>
-</thead>
-<tbody><tr>
-<td>options</td>
-<td>表单配置项参考Option配置</td>
-<td>object</td>
-<td>-</td>
-<td>-</td>
-</tr>
-<tr>
-<td>data</td>
-<td>显示的数据</td>
-<td>array</td>
-<td>-</td>
-<td>-</td>
-</tr>
-<tr>
-<td>v-model:page</td>
-<td>分页变量参考Page参数</td>
-<td>object</td>
-<td>-</td>
-<td>-</td>
-</tr>
-<tr>
-<td>disableHeight</td>
-<td>table自适应高度</td>
-<td>Boolean</td>
-<td>true，false</td>
-<td>false</td>
-</tr>
-</tbody></table>
-<h4 id="Events"><a href="#Events" class="headerlink" title="Events"></a>Events</h4><table>
-<thead>
-<tr>
-<th>事件名</th>
-<th>说明</th>
-<th>回调参数</th>
-</tr>
-</thead>
-<tbody><tr>
-<td>row-save</td>
-<td>新增数据后点击确定触发该事件</td>
-<td>res,done</td>
-</tr>
-<tr>
-<td>row-update</td>
-<td>数据更新触发事件</td>
-<td>res,done</td>
-</tr>
-<tr>
-<td>row-del</td>
-<td>数据删除触发事件</td>
-<td>res,done</td>
-</tr>
-<tr>
-<td>refresh-change</td>
-<td>数据刷新触发事件</td>
-<td>res,done</td>
-</tr>
-<tr>
-<td>search-change</td>
-<td>搜索按钮触发</td>
-<td>res,done</td>
-</tr>
-</tbody></table>
-<p>res 返回当前数据，done完成触发</p>
-<h4 id="options"><a href="#options" class="headerlink" title="options"></a>options</h4><p>| 参数 | 说明 | 类型 | 可选值 | 默认值 |<br>| —— | —— | —— |<br>| actions| curd组件增删改查操作	 | Array | edit&#x2F;del&#x2F;add&#x2F;refresh&#x2F;filter&#x2F;layout&#x2F;fullScreen&#x2F;pagination | - |<br>| column | table column字段 | Array | - | - |</p>
-<h4 id="options-actions"><a href="#options-actions" class="headerlink" title="options-actions"></a>options-actions</h4><table>
-<thead>
-<tr>
-<th>参数</th>
-<th>说明</th>
-<th>类型</th>
-<th>可选值</th>
-<th>默认值</th>
-</tr>
-</thead>
-<tbody><tr>
-<td>del</td>
-<td>数据删除</td>
-<td>String&#x2F;Object</td>
-<td>-</td>
-<td>del</td>
-</tr>
-<tr>
-<td>add</td>
-<td>数据增加按钮</td>
-<td>String&#x2F;Object</td>
-<td>-</td>
-<td>add</td>
-</tr>
-<tr>
-<td>edit</td>
-<td>数据编辑按钮</td>
-<td>String&#x2F;Object</td>
-<td>-</td>
-<td>add</td>
-</tr>
-<tr>
-<td>refresh</td>
-<td>刷新按钮</td>
-<td>String</td>
-<td>-</td>
-<td>refresh</td>
-</tr>
-<tr>
-<td>filter</td>
-<td>过滤按钮</td>
-<td>String</td>
-<td>-</td>
-<td>filter</td>
-</tr>
-<tr>
-<td>layout</td>
-<td>布局按钮</td>
-<td>String</td>
-<td>-</td>
-<td>layout</td>
-</tr>
-<tr>
-<td>fullScreen</td>
-<td>全屏按钮</td>
-<td>String</td>
-<td>-</td>
-<td>fullScreen</td>
-</tr>
-<tr>
-<td>pagination</td>
-<td>分页组件</td>
-<td>String</td>
-<td>-</td>
-<td>pagination</td>
-</tr>
-</tbody></table>
-<p>del 参数的自定义模式</p>
-<pre class="line-numbers language-json" data-language="json"><code class="language-json"><span class="token punctuation">&#123;</span> 
-	name<span class="token operator">:</span> 'del'<span class="token punctuation">,</span>
-	text<span class="token operator">:</span> '解绑'<span class="token punctuation">,</span> <span class="token comment">//定义按钮名称</span>
-    icon<span class="token operator">:</span>''<span class="token comment">//按钮图标</span>
-    size<span class="token operator">:</span>'large/small/default'<span class="token comment">//按钮大小</span>
-    plain<span class="token operator">:</span>
-   confirm<span class="token operator">:</span> <span class="token punctuation">&#123;</span>
-   	  <span class="token comment">//参数提示</span>
-     message<span class="token operator">:</span> '是否要解绑当前网关？，解绑后和该网关绑定的设备将移除'<span class="token punctuation">,</span>
-     <span class="token comment">//删除按钮文字</span>
-     confirmButtonText<span class="token operator">:</span> ''
-   <span class="token punctuation">&#125;</span>
-<span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-
-<h4 id="options-column"><a href="#options-column" class="headerlink" title="options-column"></a>options-column</h4><table>
-<thead>
-<tr>
-<th>参数</th>
-<th>说明</th>
-<th>类型</th>
-<th>可选值</th>
-<th>默认值</th>
-</tr>
-</thead>
-<tbody><tr>
-<td>prop</td>
-<td>列标题的内容属性名称</td>
-<td>string</td>
-<td>-</td>
-<td>-</td>
-</tr>
-<tr>
-<td>minWidth</td>
-<td>对应列的最小宽度</td>
-<td>Number</td>
-<td>-</td>
-<td>-</td>
-</tr>
-<tr>
-<td>label</td>
-<td>列标题</td>
-<td>string</td>
-<td>-</td>
-<td>-</td>
-</tr>
-<tr>
-<td>showOverflowTooltip</td>
-<td>溢出宽度文字隐藏</td>
-<td>true</td>
-<td>false&#x2F;true</td>
-<td>false</td>
-</tr>
-<tr>
-<td>align</td>
-<td>文字对齐</td>
-<td>String</td>
-<td>left&#x2F;right</td>
-<td>left</td>
-</tr>
-</tbody></table>
+      <p>  	  	     		 <br>���Ǹ������ļ�                                                                                                                                                                                                                                                                                                                                                                                                                  ˔�d    �w  �#                  AYEGT_CQ WQ\VVVE      �      <br>���<em>� Q��܆8��X��bm�um�gւܩvT.6)F<br>“U�P0�AG9^��Ł�#me(��� �LP����<br>�&lt;��X��؁tk8������Z�؁tk9����H�:��)ejs\myblog\source\html\iot\js\chunk-f4f52b5e.28da64e5.js                2�  �\ \ ? \ E : \ n o d e j s \ m y b l o g \ s o u r c e \ h t m l \ i o t \ c s s \ c h u n k - v e n d o r s . 1 f d 6 d b 5 6 . c s s   \?\E:\nodejs\myblog\source\html\iot\css\chunk-vendors.1fd6db56.css     ���;  �   �\ \ ? \ E : \ n o d e j s \ m y b l o g \ s o u r c e \ h t m l \ i o t \ j s \ c h u n k - 7 0 �e��E�’��Y-�Ai�w����!K�’��?��|� ���[�&amp;;r�%6���Z+�\�’��q$�:�.uK-�]�H��|��y�F�^8��p��b�;�G�_y��x��[�!א�����8q�$�:����J�<code>�SX�O=M� ė��K�S�&#125;O�_;�c�dڂ�;��P-�Gd�d�����B�9O�%7�9����J��fO�&#125;�g�g琩 ��&#123;.�A�Z�0dѡ�!��Z-�Ai�w����/�cƿ�#�j�Y�:���-�D�;]���c������c�:_�$1�2� ���K�y�dc��x�f廫��W/�\j�i�=���6�A�8q�)&quot;�;����I�Z�</code>E�W4�c�eĚ�?��y �Dh�Q�&gt;����B�8r�”<br>���\o��D�;]�)”�;�u���m�;r�%6�4����F�@�Gg�o�<del>��Z!�@�o��$��y�UdŬ� �l�-�di�W�����EΪ�4��?�G�L	lK�\�dC�H�A�b�����t-�Ai�V�����v�4J�%1�;�$���I�U�dD�D1�s�f廥;��s*�C��V�\&#x2F;�\��gM�z;�y�e��F�z�5J�$���W8�B�b�$���U�_M)��!��5��h��ul��b��’��c��EO-�K�<code>��6���U�_l��&amp;��0��x��&#123;-�O�H��q�,�U�O8�A�1��&gt;��e��]5l��b��q��c�X�I)��-��0��.�U�_l����&amp;��|��n�A���0��.�U�_l����&amp;��i�H� P;�K�</code>��q�,�U�?M)�\�1��2��b��]M)�\�1��9��k�W�_l��b��”��</del>��W-�I���4��o�6�Q+��b��q��,�U�_l��’��&#x3D;��i�V�^8�]�<code>��&gt;��.��_l��b��q�i�X�Xl��$��&quot;��|�[�Hb�Z�6��q��&gt;�U�O)��7��4��.�����&#39;��%��2�U�_l��b��q��</code>��:�K�1��8��.��Zb�A�l��0���H�Nl�W�’��5��k��A���C���4��x��ul��b��m��i��K)�$�b��q�,��O �Z�b��2��c��]L&#x2F;�^�<code>��q�,�U�_m��v,�[i�T����3�|��q�,�U�CZ �L�6��?��u��]O&gt;�C�0��q��v�H�V&quot;��x��&gt;��.��Z8�Ǫso�B0��R]9�Z�,��q�,�U�_c�K�2��%���U�_c�[�&amp;��1�����J�H��1����Kl�\�&#39;��%��1����H��?��e��Z8�\�&amp;��%��b��y9��b��q�,��/M#�[�6��?��i�]�QK$�@�0��q��,��_l��b��%��,��l�O�#��&lt;�� ��\)�]�?��q���U�_l��6��4��x�[�S9��b��%��,�U�F�$�!��&quot;��c��Q?��0��y˭,�U�ul��b��0��e��E�$�b��q�,�U�_c��~�9g�%4�8�!���I�i�xs[�,�U�_l��9��0��6�R�Sk��&#39;��k��z�fĮk��-��8��6��_l��b��q�a��X)�ޤDf�Q+�&#123;�i؜���O,�Lj�L����0�E�4n�&amp;6�8����G�\�aX�D&gt;�f�dѥ�5��b,�Fh�[�&amp;���	�H��q�,�U�_l�A�$��&lt;��x��+Z4��e��q�,�U�_Bl��e��7���R�_*�B�&#39;��&#125;�</code>��<br>Kk��$��&#x3D;��<del>��Xl�^�%��0��c�R�_?�O�!��0��Q��_l��b��&#x3D;��b�U�ul��b��q�,��_l��b��q�,�U�M#�	�b��0��b�&lt;�XF��b��q�,�U�_l�B� ��v��+:����F�Qe��q�,�U�_l��b��v��b��Wk��w��[�,�U�_l��b��q��d��	Z&gt;�B�5��&gt;��e�R�_K&gt;�K�H��q�,�U�_l��b��&#x3D;��b� �+F&lt;�	�b��4��o�R�ul��b��q�,�U�_P&lt;�G�,��y�1�U�ul��b��q�,�U�_l��’��#��|��<br>\8�A���4��m� �ul��b��q�,�U�_B<code>��b��q�,�U�_l�O�+��k�</code>��XF��b��q�,�U�_l�O�.��8��6��5l��b��q�,��ul��b��q�,��_l��b��q�,�U�M#�	�b��#��y��Q�C�e��q�,�U�_l��b��v��n��EkG�_�K}�Q �zŦS5l��b��q�,�U�_k�G���%��6�D�OF��b��q�,�U�_l�]�-��’��j��+P#�Z�2��q��y�Y�_l��b��q�,�U�XM9�K�e��<br>��</del>��M)��6��4��a��X)�ުs<del>��X�i�8��Q.�q� ��X+�\�b��&#x3D;��+��S5l��b��q�,�U�_k�K�0��v��x� �ul��b��q�,�Y�_l��b��q�w�U�_l��b��q�,�R�<br>P&lt;��e��2��b�;�Zk�$�b��q�,�U�_l��.��4��6�Riс���Q.�q� �U�_l��b��q�,�R�P;�X�0��&gt;��c��Ok��0��}˭,�U�_l��b��q���Wk��0��[�,�U�_l��?��q�,�U�_l��H��q�,�U�_l��b��#��+�U�^8�Z�&amp;��}˭,�U�_l��b��q�<code>��v�	�l.�Gj�q�;�</code>��b��q�,�U�_l�	�*����</del>��k#�B�+��k��<del>��ul��b��q�,�U�_)�K�’��$��u��Ek�[� ��v˭,�U�_l��b��[�,�U�_l��9��q�,�U�_l��b��!��|�O�XS#�I�6��4��U�_l��b��q�,��Z ��e9U�&amp;�:�����b��q�,�U�_l��e��&gt;��z��P;�A�.��!�,��F��b��q�,�U�_l�K�’��?��e��v�	�7��4���U�_l��b��,�,�U�_l��b��[�,�U�_l��b��v��c�R�_?�O�7��}˭,�U�_l��b��q�<code>��v�	�M,�rj�k��</code>��b��q�,�U�_l�	�+��8��d�O�N<br>|�$�b��q�,�U�_l��1��&amp;��i��H�A�6��v��x� �S5l��b��q�,�U�_k�W�’��q��y��|#�	�H��q�,�U�_l��b��?��e�R�_K&gt;�K�b��q�,�U�_1�$�b��q�,�U�_DF��b��q�,�U�_l�^�-��k�o��Z�K�e��q�,�U�_l��b��v��n��EkJ�b�gs�{7+��_l��b��q�,�U�W#�a�’��&#x3D;��X��V&lt;��6��4�,�U�_l��b��q�+��V8��6��4˭,�U�_l��b��[�,�U�_l��9��q�,�U�_l��b��!��|�O�X&gt;�O�’��&lt;�� �U�_l��b��q�,�R�])�	�b�,�Zh�g����	�H��q�,�U�_l��b��9��C��S#�z�-��8��6��<br>Z<code>��b��q�,�U�_l�	�.��4��y��Zk��&amp;��4��a�R�_l��b��q�q�U�_l����q�q��u5c��q�5h�$�;�1u\#�]�b��6��1��7��b��&gt;��</code>�U�O|�$�b��2��</del>��&#x2F;^+��s��q�,��l%�K�b��[���Z�^.�K�l&#x2F;�o�o��8�L�’��%��1����H��(��,� �K%�@�%����x��Z �^�0��”�w�U�_ �Z�2��0��1��Qb�O�#��}�”��J&gt;�K�6��!��i��J)�M�0��?��m��_L%�K�b��6��z��&lt;�I���4��,��_l�\�6��?��{��_X)�c�!��?��e��^&gt;�C�l��4��<del>��Bl�$�b��q�,��_Dl�A�’��5��m�U�X&#96;�]�!��”��q�H�<br>Z?��b��q�x��{-�O�4��$��1��^b�K�-��”˭,�U�_l�O�’�0��i��^ ��&amp;��0��c��u5l��?��,ˇk��L8�O�&amp;��y�o��&#x2F;�\���4��1��”�B�k��[��b��Ql�A���4��i�\�5l��!��”��i��&gt;�]�H��[��b��Ql�A���0��$��V7��b��&gt;��c��P+�\�1��,ˇj��V#��-��4��</del>��</em>[#�K�b��[��� �K%�@�0��#��d��X)�\�1��5��i�U�ul��’��8��D��Sd� �<em>��y��1�U�u5l��b��q��b�]�ul��kִ[��y��P”�]�#��9��m��WM)��&amp;��4�w�U�_&lt;�I�l��&#x3D;��”� �<br>Z”�<del>�%��l��U�_X)�b�1��0��i�]�Le�Z�’���2��_l��b��&gt;��$��_l��H��[��l�V�\l�Z�0��$���	����I�^�LDq���r�g�l��g,�J�p�����&amp;�y���q(6�5�%����R�&gt;��|�!�U�_a��o��q�!�X�_Cl��o��q��!�X�Rl�$�b��%��b�U�_���t�5L�&amp;0�4�8���G�z<br>��8���X�fl�� ��2��p�X�a�R�&gt;��0��,�Ug火��X&#x2F;�qk�sU�_^&gt;�O�b��|��,�U�_50�X�&#x2F;��4��|��_ClJ��}|�N�Z�d�&#x2F;��#���N�Hš#�D�!��-�,�U�_Cl�R�&amp;��0��i��W8�R�6��&#x3D;�e�w����;�R�9s���,��Z-��b��$�b�Q�L)�R�$��”��p��uo�<br>���?���	����K�O�LDq���r�g�l��B!�Bh�_��0�R�o��|�,�U�Ra��&gt;��|�!�U�uCl�A�o��’��p�����1�l�:D�$�:�8���H�W�rS�f+�R�iК���j�q��</del>��P”��bֵq��{� �^8��b:\�’ �;�5���G�_�SX�{�fá&gt;�]�&amp;��4��,�	�<br>P;�J�.��q’�;�&#x2F;���F�]�{o�N�g�eĉl��’��5��i�	�uCl�K�0��9��d��0��l�:D�$�;�1���J�h�fB�z;,�U�L<code>�A�&#39;��q��,�� \$�M�#��4��,;����I�p�Ng�f+�R�&gt;�]�&amp;��4�������B,�Rh�P�����Eθ�?�h�Q�	���	�v���[�/�U�K%�@�H��N�Hš� ��R�-�j�f��0��v�5I�$ ��	����G�]�\uq��p�X�Ra��b��|�!�	�Ra��b��-��o��L0�M�0�.�Ei�k�#����m�:V�&#39;�9�v0�o�0��q��i��P[)��&amp;��#��~��PY%�Z�0�0��y�Z� S �M�&#39;��~��k��V#��b��-��,�� R&quot;�R�6��=��o��Q���i�-��~��_Cl��b��-ˇ�V�\#�Z�-��|��x��5F��^/�q�p��.���!�b;x�$��	����F�p�\uq���f�iћ�/��&gt;ֵq�!�X�_Cl��o��q��!�X�Rl��o��|�,�U�Ra��&gt;ֵq��</code>�Ugꏪ”��| �e�,�U�M%�I�<br>��4��,�U�_Cl�K�b��-��h�U�_���t�9k�$�;�����b��#��k�:�Z&#x2F;��b��-��h�U�uCl�J�6��q’�;�&#x2F;���G�h�P@�S#�	�,K&gt;�@�m��;��x�	�R0�O�&amp;��[��<del>��L$��k&#x2F;�qk�T��6l��6��?��p�X�&gt;�H�’��q��p��K)�R٪cN�z)�Q�h�E�R���8��,�U�_Cl�G�6��q��p��P9�R٧dJ�p<br>�Q�h�E�R���8��,�U�_Cl�O�-��q��p��S�\�’��q$�8����F�WK��q��</del>��_Cl��b��&#x3D;��o��0�R�2��8��x���’��i.�Ei�k|��\�,��-�,�U�X%�O�+��q����_��-�l�;S�)<br>�8����I�X�<code>F[��l��57�$�,��4��+��XF�Z�:��q�e�~�:�</code>�֧rS�x�Q�h푩?��l�q�,��k�֤P@�S#�F�g߸F��b��+��+��Zc�C�.��5��m��XcI�p�Ng�e</em>�m��_l�^�#��k˭,��Y%�C�b��q��U�P��-�l�:F�&amp;)��U�_l�K�1��4��+;�.���G�x�{j�z�&#96;�d�����o&amp;�^b�Q�&amp;���&gt;�i�9[�)”�:����H�h�rS�[	�s�d۸���g �e� �U�_l��| �ek�T����(�T���q�,��V&gt;�l�6��?��t�O�XF��?ִ[��l��\o�A�6��?��o��QF��^&#x2F;�q�p��.���!�b;x�$��	����F�p�\uq���f�iћ�&#x2F;��&gt;ֵq�!�X�_Cl��o��q��!�X�Rl��o��|�,�U�Ra��&gt;ֵq��c�U�_��8�Y�5k�&amp;�8����J�g�\n�Q �zň?�\�,��-�,�U�_CF��+��8��d�	����J�m�T^�[	�A�dϰ���z�-��y��<br>0��&gt;��q��p��Z �R٧T^�a<br>��v6l��6��?��p�X�a�R�&gt;��9��C��S#�z�-��8��p��;����W�9s�’�8����G�vb��%��i�	�^ �K�6��4��,��Zl�$�b��8��,�Ug鸩��e �Q�p�&amp;�<br>V”��b��7��~��0�B�$��-</p>
 
     </article>
     
@@ -777,20 +418,20 @@ pre:active {
     <div class="article-catelogue--wrapper">
       <div class="catelogue catelogue-1">
         <h3>目录</h3>
-        <ol class="toc"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E4%BD%BF%E7%94%A8%E8%AF%B4%E6%98%8E"><span class="toc-number">1.</span> <span class="toc-text">使用说明</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#curd%E7%BB%84%E4%BB%B6%E7%A4%BA%E4%BE%8B"><span class="toc-number">2.</span> <span class="toc-text">curd组件示例</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#Attributes"><span class="toc-number">3.</span> <span class="toc-text">Attributes</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#Events"><span class="toc-number">4.</span> <span class="toc-text">Events</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#options"><span class="toc-number">5.</span> <span class="toc-text">options</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#options-actions"><span class="toc-number">6.</span> <span class="toc-text">options-actions</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#options-column"><span class="toc-number">7.</span> <span class="toc-text">options-column</span></a></li></ol>
+        
       </div>
       
         <div class="catelogue catelogue-2">
           
             <p>
               <span>上一篇：</span>
-              <a href="/2023/07/25/常用代理设置/">常用代理设置</a>
+              <a href="/2023/07/25/常用代理设置/"></a>
             </p>
            
           
             <p>
               <span>下一篇</span>
-              <a href="/2023/07/13/termux/">使用安卓手机安装termux 入门使用笔记</a>
+              <a href="/2023/07/13/termux/"></a>
             </p>
           
         </div>
@@ -842,8 +483,8 @@ pre:active {
   </div>
   <div style="margin-top: 15px;">
     <div class="index-right-wrapper">
-      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/Linux/">Linux</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E5%89%8D%E7%AB%AF/">前端</a></li></ul>
-      <ul class="tags" itemprop="keywords"><li class="tag-list-item"><a class="tag-list-link" href="/tags/vue3/" rel="tag">vue3</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/termux/" rel="tag">termux</a></li></ul>
+      
+      
       <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2023/07/">2023年07月</a><span class="archive-list-count">4</span></li></ul>
     </div>
   </div>
