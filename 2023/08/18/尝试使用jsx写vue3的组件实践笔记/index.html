@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8">
   
-  <title>Hello World | JQ的个人技术博客</title>
+  <title>七夕爱心动画，尝试使用jsx写vue3开发实践笔记 | JQ的个人技术博客</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
   <link rel="shortcut icon" href="/imgs/shortcut-icon.ico" type="image/x-icon">
   <link rel="stylesheet" href="/css/public.css" />
@@ -19,7 +19,7 @@
   <script src='//unpkg.com/valine/dist/Valine.min.js'></script>
   <script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
   <script>
-    document.title = `Hello World`
+    document.title = `七夕爱心动画，尝试使用jsx写vue3开发实践笔记`
   </script>
 <meta name="generator" content="Hexo 6.3.0"></head>
 
@@ -197,7 +197,7 @@
   const ipt = document.querySelector('#search-input')
   const btn = document.querySelector('#search-btn')
   const layer = document.querySelector('#search-layer')
-  const posts = JSON.parse(`[{"title":"分装一个基于element-plus的curd组件","path":"2023/07/21/分装一个基于elementplus的curd组件/"},{"title":"常用代理设置","cover":"./images/bg.jpeg","path":"2023/07/25/常用代理设置/"},{"title":"Hello World","path":"2023/07/12/hello-world/"},{"title":"使用安卓手机安装termux 入门使用笔记","cover":"./images/default-cover.jpg","path":"2023/07/13/termux/"}]`)
+  const posts = JSON.parse(`[{"title":"使用安卓手机安装termux 入门使用笔记","cover":"./images/default-cover.jpg","path":"2023/07/13/termux/"},{"title":"分装一个基于element-plus的curd组件","path":"2023/07/21/分装一个基于elementplus的curd组件/"},{"title":"七夕爱心动画，尝试使用jsx写vue3开发实践笔记","cover":"./images/qixi.jpg","path":"2023/08/18/尝试使用jsx写vue3的组件实践笔记/"},{"title":"常用代理设置","cover":"./images/bg.jpeg","path":"2023/07/25/常用代理设置/"}]`)
   ipt.addEventListener('keyup', e => {
     if (e.key === 'Enter') {
       handleSearch()
@@ -286,7 +286,7 @@
         </a>
         <a href="/archives">
           <div>
-            <span>1 </span>
+            <span>2 </span>
             <span>归档</span>
           </div>
         </a>
@@ -351,7 +351,7 @@
       </p>
       <p class="main-left--subtitle">
         <span>上线时间：</span>
-        <span>36天</span>
+        <span>37天</span>
       </p>
       <p class="main-left--subtitle">
         <span>当前版本：</span>
@@ -387,41 +387,106 @@ pre:active {
 
 <div class="article-container">
   <div class="article">
-    <h1 class="article-title">Hello World</h1>
+    <h1 class="article-title">七夕爱心动画，尝试使用jsx写vue3开发实践笔记</h1>
     <div class="article-info">
       <div class="article-info--item">
         <div class="article-info--info">
           
           <div class="article-info--categories">
             <span>分类：</span>
-            
+            <a class="category-link" href="/categories/%E5%89%8D%E7%AB%AF/">前端</a>
           </div>
           
           
           <div class="article-info--tags">
             <span>标签：</span>
-            
+            <a class="tag-link" href="/tags/vue/" rel="tag">vue</a>
           </div>
           
-          <p class="article-info--date">日期：2023-07-12 11:19:52</p>
+          <p class="article-info--date">日期：2023-08-18 08:15:33</p>
         </div>
-        <img src="/images/default-cover.jpg" alt="" class="article-cover">
+        <img src="/./images/qixi.jpg" alt="" class="article-cover">
       </div>
     </div>
     <article class="article-content">
-      <p>Welcome to <a target="_blank" rel="noopener" href="https://hexo.io/">Hexo</a>! This is your very first post. Check <a target="_blank" rel="noopener" href="https://hexo.io/docs/">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a target="_blank" rel="noopener" href="https://hexo.io/docs/troubleshooting.html">troubleshooting</a> or you can ask me on <a target="_blank" rel="noopener" href="https://github.com/hexojs/hexo/issues">GitHub</a>.</p>
-<h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">$ hexo new <span class="token string">"My New Post"</span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+      <p>项目地址<a target="_blank" rel="noopener" href="https://gitee.com/0071/qixi-vue3-jsx.git">https://gitee.com/0071/qixi-vue3-jsx.git</a></p>
+<p>在线预览<a href="https://windfall007.github.io/html/qixi/">https://windfall007.github.io/html/qixi/</a></p>
+<p>react开源地址 <a target="_blank" rel="noopener" href="https://github.com/yacan8/valentine">https://github.com/yacan8/valentine</a></p>
+<p>在网上看到一个开源项目使用的是react写了一个七夕爱心的动画，出于学习，我用vue3+jsx重写了一遍他的功能。使用中对vue3也有了更进一步的理解，写一个笔记记录一下开发中的问题和知识点，巩固记忆和方便以后查阅。</p>
+<h5 id="安装插件"><a href="#安装插件" class="headerlink" title="安装插件"></a>安装插件</h5><pre class="line-numbers language-none"><code class="language-none">npm install @vitejs&#x2F;plugin-vue-jsx --save-dev
+<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+<p>vite.config.js 文件，并增加如下配置：</p>
+<pre class="line-numbers language-javascript" data-language="javascript"><code class="language-javascript"><span class="token keyword">import</span> <span class="token punctuation">&#123;</span> defineConfig <span class="token punctuation">&#125;</span> <span class="token keyword">from</span> <span class="token string">'vite'</span>
+<span class="token keyword">import</span> vue <span class="token keyword">from</span> <span class="token string">'@vitejs/plugin-vue'</span>
+<span class="token keyword">import</span> vueJsx <span class="token keyword">from</span> <span class="token string">"@vitejs/plugin-vue-jsx"</span><span class="token punctuation">;</span> <span class="token comment">// 配置vue使用jsx</span>
 
-<p>More info: <a target="_blank" rel="noopener" href="https://hexo.io/docs/writing.html">Writing</a></p>
-<h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">$ hexo server<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+<span class="token comment">// https://vitejs.dev/config/</span>
+<span class="token keyword">export</span> <span class="token keyword">default</span> <span class="token function">defineConfig</span><span class="token punctuation">(</span><span class="token punctuation">&#123;</span>
+  <span class="token literal-property property">plugins</span><span class="token operator">:</span> <span class="token punctuation">[</span>
+    <span class="token function">vue</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">,</span>
+    <span class="token function">vueJsx</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+  <span class="token punctuation">]</span><span class="token punctuation">,</span>
+   <span class="token comment">// 配置前端服务地址和端口</span>
+   <span class="token literal-property property">server</span><span class="token operator">:</span> <span class="token punctuation">&#123;</span>
+    <span class="token literal-property property">host</span><span class="token operator">:</span> <span class="token string">'0.0.0.0'</span><span class="token punctuation">,</span>
+    <span class="token literal-property property">port</span><span class="token operator">:</span> <span class="token number">8991</span><span class="token punctuation">,</span>
+    <span class="token comment">// 是否开启 https</span>
+    <span class="token literal-property property">https</span><span class="token operator">:</span> <span class="token boolean">false</span><span class="token punctuation">,</span>
+  <span class="token punctuation">&#125;</span><span class="token punctuation">,</span>
+<span class="token punctuation">&#125;</span><span class="token punctuation">)</span>
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<p>我在启动时报错了，安装的版本可能和vite版本不兼容，当报错时可以尝试升级vite版本或者安装低版本的plugin-vue-jsx。</p>
+<h4 id="vue3的defineComponent"><a href="#vue3的defineComponent" class="headerlink" title="vue3的defineComponent"></a>vue3的defineComponent</h4><p>之前一直到都是使用script setup的语法糖，对vue3的defineComponent没有了解，做个简单的记录。</p>
+<p>defineComponent函数，只是对setup函数进行封装，返回options的对象；<br>defineComponent最重要的是：在TypeScript下，给予了组件 正确的参数类型推断 。</p>
+<p>使用setup时，需要在外部定义一个props，setup中的props才能接收到，setup第二个参数 context 包含三个属性：attrs、emit 和 slots。它们分别相当于组件实例的 $attrs、$emit 和 $slots 这几个属性。</p>
+<h4 id="组合式中使用setup"><a href="#组合式中使用setup" class="headerlink" title="组合式中使用setup"></a>组合式中使用setup</h4><p>由于一直使用setup语法糖，对在组合式中使用setup缺乏了解，开发中频频出错，这里大致说明。</p>
+<p>使用setup时，需要在外部定义一个props，setup中的props才能接收到。</p>
+<p><strong>请注意如果你解构了 props 对象，解构出的变量将会丢失响应性。因此我们推荐通过 props.xxx 的形式来使用其中的 props。</strong></p>
+<p><strong>如果你确实需要解构 props 对象，或者需要将某个 prop 传到一个外部函数中并保持响应性，那么你可以使用 toRefs() 和 toRef() 这两个工具函数。</strong></p>
+<p><strong>使用toRefs结构后的需要使用xx.value才能赋值</strong></p>
+<p>官网解释的很好<br><a target="_blank" rel="noopener" href="https://cn.vuejs.org/api/composition-api-setup.html#accessing-props">https://cn.vuejs.org/api/composition-api-setup.html#accessing-props</a></p>
+<pre class="line-numbers language-javascript" data-language="javascript"><code class="language-javascript"><span class="token keyword">import</span> <span class="token punctuation">&#123;</span> toRefs<span class="token punctuation">,</span> toRef <span class="token punctuation">&#125;</span> <span class="token keyword">from</span> <span class="token string">'vue'</span>
 
-<p>More info: <a target="_blank" rel="noopener" href="https://hexo.io/docs/server.html">Server</a></p>
-<h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">$ hexo generate<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+<span class="token keyword">export</span> <span class="token keyword">default</span> <span class="token punctuation">&#123;</span>
+  <span class="token function">setup</span><span class="token punctuation">(</span><span class="token parameter">props</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+    <span class="token comment">// 将 `props` 转为一个其中全是 ref 的对象，然后解构</span>
+    <span class="token keyword">const</span> <span class="token punctuation">&#123;</span> title <span class="token punctuation">&#125;</span> <span class="token operator">=</span> <span class="token function">toRefs</span><span class="token punctuation">(</span>props<span class="token punctuation">)</span>
+    <span class="token comment">// `title` 是一个追踪着 `props.title` 的 ref</span>
+    console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>title<span class="token punctuation">.</span>value<span class="token punctuation">)</span>
 
-<p>More info: <a target="_blank" rel="noopener" href="https://hexo.io/docs/generating.html">Generating</a></p>
-<h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">$ hexo deploy<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+    <span class="token comment">// 或者，将 `props` 的单个属性转为一个 ref</span>
+    <span class="token keyword">const</span> title <span class="token operator">=</span> <span class="token function">toRef</span><span class="token punctuation">(</span>props<span class="token punctuation">,</span> <span class="token string">'title'</span><span class="token punctuation">)</span>
+  <span class="token punctuation">&#125;</span>
+<span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<p>Setup 上下文</p>
+<pre class="line-numbers language-javascript" data-language="javascript"><code class="language-javascript"><span class="token keyword">export</span> <span class="token keyword">default</span> <span class="token punctuation">&#123;</span>
+  <span class="token function">setup</span><span class="token punctuation">(</span><span class="token parameter">props<span class="token punctuation">,</span> context</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+    <span class="token comment">// 透传 Attributes（非响应式的对象，等价于 $attrs）</span>
+    console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>context<span class="token punctuation">.</span>attrs<span class="token punctuation">)</span>
 
-<p>More info: <a target="_blank" rel="noopener" href="https://hexo.io/docs/one-command-deployment.html">Deployment</a></p>
+    <span class="token comment">// 插槽（非响应式的对象，等价于 $slots）</span>
+    console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>context<span class="token punctuation">.</span>slots<span class="token punctuation">)</span>
+
+    <span class="token comment">// 触发事件（函数，等价于 $emit）</span>
+    console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>context<span class="token punctuation">.</span>emit<span class="token punctuation">)</span>
+
+    <span class="token comment">// 暴露公共属性（函数）</span>
+    console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>context<span class="token punctuation">.</span>expose<span class="token punctuation">)</span>
+  <span class="token punctuation">&#125;</span>
+<span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<h5 id="使用jsx写组件"><a href="#使用jsx写组件" class="headerlink" title="使用jsx写组件"></a>使用jsx写组件</h5><p>vue的jsx语法可查看官网的说明<br><a target="_blank" rel="noopener" href="https://cn.vuejs.org/guide/extras/render-function.html#jsx-tsx">https://cn.vuejs.org/guide/extras/render-function.html#jsx-tsx</a></p>
+<p>这个项目中使用的到的功能做一个记录</p>
+<pre class="line-numbers language-javascript" data-language="javascript"><code class="language-javascript"><span class="token comment">//vue诸如&lt;KeepAlive>、&lt;Transition>、&lt;TransitionGroup>、&lt;Teleport> 和 &lt;Suspense> 等内置组件在渲染函数中必须导入才能使用：</span>
+<span class="token keyword">import</span> <span class="token punctuation">&#123;</span> KeepAlive<span class="token punctuation">,</span> Teleport<span class="token punctuation">,</span> Transition<span class="token punctuation">,</span> TransitionGroup <span class="token punctuation">&#125;</span> <span class="token keyword">from</span> <span class="token string">'vue'</span>
+
+<span class="token keyword">export</span> <span class="token keyword">default</span> <span class="token punctuation">&#123;</span>
+  <span class="token function">render</span> <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+      <span class="token keyword">return</span> <span class="token operator">&lt;</span>Teleport to<span class="token operator">=</span><span class="token string">"body"</span><span class="token operator">></span>
+        <span class="token comment">/*****/</span>
+      <span class="token operator">&lt;</span><span class="token operator">/</span>Teleport<span class="token operator">></span>
+  <span class="token punctuation">&#125;</span>
+<span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
     </article>
     
@@ -430,16 +495,16 @@ pre:active {
     <div class="article-catelogue--wrapper">
       <div class="catelogue catelogue-1">
         <h3>目录</h3>
-        <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#Quick-Start"><span class="toc-number">1.</span> <span class="toc-text">Quick Start</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Create-a-new-post"><span class="toc-number">1.1.</span> <span class="toc-text">Create a new post</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Run-server"><span class="toc-number">1.2.</span> <span class="toc-text">Run server</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Generate-static-files"><span class="toc-number">1.3.</span> <span class="toc-text">Generate static files</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Deploy-to-remote-sites"><span class="toc-number">1.4.</span> <span class="toc-text">Deploy to remote sites</span></a></li></ol></li></ol>
+        <ol class="toc"><li class="toc-item toc-level-5"><a class="toc-link" href="#%E5%AE%89%E8%A3%85%E6%8F%92%E4%BB%B6"><span class="toc-number">1.</span> <span class="toc-text">安装插件</span></a></li></ol></li><li class="toc-item toc-level-4"><a class="toc-link" href="#vue3%E7%9A%84defineComponent"><span class="toc-number"></span> <span class="toc-text">vue3的defineComponent</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E7%BB%84%E5%90%88%E5%BC%8F%E4%B8%AD%E4%BD%BF%E7%94%A8setup"><span class="toc-number"></span> <span class="toc-text">组合式中使用setup</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#%E4%BD%BF%E7%94%A8jsx%E5%86%99%E7%BB%84%E4%BB%B6"><span class="toc-number">1.</span> <span class="toc-text">使用jsx写组件</span></a></li></ol>
       </div>
       
         <div class="catelogue catelogue-2">
+           
           
             <p>
-              <span>上一篇：</span>
-              <a href="/2023/07/13/termux/">使用安卓手机安装termux 入门使用笔记</a>
+              <span>下一篇</span>
+              <a href="/2023/07/25/常用代理设置/">常用代理设置</a>
             </p>
-           
           
         </div>
       
@@ -491,8 +556,8 @@ pre:active {
   <div style="margin-top: 15px;">
     <div class="index-right-wrapper">
       <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/Linux/">Linux</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E5%89%8D%E7%AB%AF/">前端</a></li></ul>
-      <ul class="tags" itemprop="keywords"><li class="tag-list-item"><a class="tag-list-link" href="/tags/vue3/" rel="tag">vue3</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/termux/" rel="tag">termux</a></li></ul>
-      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2023/07/">2023年07月</a><span class="archive-list-count">4</span></li></ul>
+      <ul class="tags" itemprop="keywords"><li class="tag-list-item"><a class="tag-list-link" href="/tags/vue/" rel="tag">vue</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/termux/" rel="tag">termux</a></li></ul>
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2023/08/">2023年08月</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2023/07/">2023年07月</a><span class="archive-list-count">3</span></li></ul>
     </div>
   </div>
 
