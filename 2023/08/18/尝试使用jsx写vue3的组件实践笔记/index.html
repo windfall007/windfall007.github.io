@@ -197,7 +197,7 @@
   const ipt = document.querySelector('#search-input')
   const btn = document.querySelector('#search-btn')
   const layer = document.querySelector('#search-layer')
-  const posts = JSON.parse(`[{"title":"使用安卓手机安装termux 入门使用笔记","cover":"./images/default-cover.jpg","path":"2023/07/13/termux/"},{"title":"分装一个基于element-plus的curd组件","path":"2023/07/21/分装一个基于elementplus的curd组件/"},{"title":"七夕爱心动画，尝试使用jsx写vue3开发实践笔记","cover":"./images/qixi.jpg","path":"2023/08/18/尝试使用jsx写vue3的组件实践笔记/"},{"title":"常用代理设置","cover":"./images/bg.jpeg","path":"2023/07/25/常用代理设置/"}]`)
+  const posts = JSON.parse(`[{"title":"分装一个基于element-plus的curd组件","path":"2023/07/21/分装一个基于elementplus的curd组件/"},{"title":"使用安卓手机安装termux 入门使用笔记","cover":"./images/default-cover.jpg","path":"2023/07/13/termux/"},{"title":"七夕爱心动画，尝试使用jsx写vue3开发实践笔记","cover":"./images/qixi.jpg","path":"2023/08/18/尝试使用jsx写vue3的组件实践笔记/"},{"title":"常用代理设置","cover":"./images/bg.jpeg","path":"2023/07/25/常用代理设置/"}]`)
   ipt.addEventListener('keyup', e => {
     if (e.key === 'Enter') {
       handleSearch()
@@ -413,7 +413,7 @@ pre:active {
 <p>在线预览<a href="https://windfall007.github.io/html/qixi/">https://windfall007.github.io/html/qixi/</a></p>
 <p>react开源地址 <a target="_blank" rel="noopener" href="https://github.com/yacan8/valentine">https://github.com/yacan8/valentine</a></p>
 <p>在网上看到一个开源项目使用的是react写了一个七夕爱心的动画，出于学习，我用vue3+jsx重写了一遍他的功能。使用中对vue3也有了更进一步的理解，写一个笔记记录一下开发中的问题和知识点，巩固记忆和方便以后查阅。</p>
-<h5 id="安装插件"><a href="#安装插件" class="headerlink" title="安装插件"></a>安装插件</h5><pre class="line-numbers language-none"><code class="language-none">npm install @vitejs&#x2F;plugin-vue-jsx --save-dev
+<h4 id="安装插件"><a href="#安装插件" class="headerlink" title="安装插件"></a>安装插件</h4><pre class="line-numbers language-none"><code class="language-none">npm install @vitejs&#x2F;plugin-vue-jsx --save-dev
 <span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
 <p>vite.config.js 文件，并增加如下配置：</p>
 <pre class="line-numbers language-javascript" data-language="javascript"><code class="language-javascript"><span class="token keyword">import</span> <span class="token punctuation">&#123;</span> defineConfig <span class="token punctuation">&#125;</span> <span class="token keyword">from</span> <span class="token string">'vite'</span>
@@ -475,7 +475,7 @@ pre:active {
   <span class="token punctuation">&#125;</span>
 <span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
-<h5 id="使用jsx写组件"><a href="#使用jsx写组件" class="headerlink" title="使用jsx写组件"></a>使用jsx写组件</h5><p>vue的jsx语法可查看官网的说明<br><a target="_blank" rel="noopener" href="https://cn.vuejs.org/guide/extras/render-function.html#jsx-tsx">https://cn.vuejs.org/guide/extras/render-function.html#jsx-tsx</a></p>
+<h4 id="使用jsx写组件"><a href="#使用jsx写组件" class="headerlink" title="使用jsx写组件"></a>使用jsx写组件</h4><p>vue的jsx语法可查看官网的说明<br><a target="_blank" rel="noopener" href="https://cn.vuejs.org/guide/extras/render-function.html#jsx-tsx">https://cn.vuejs.org/guide/extras/render-function.html#jsx-tsx</a></p>
 <p>这个项目中使用的到的功能做一个记录</p>
 <pre class="line-numbers language-javascript" data-language="javascript"><code class="language-javascript"><span class="token comment">//vue诸如&lt;KeepAlive>、&lt;Transition>、&lt;TransitionGroup>、&lt;Teleport> 和 &lt;Suspense> 等内置组件在渲染函数中必须导入才能使用：</span>
 <span class="token keyword">import</span> <span class="token punctuation">&#123;</span> KeepAlive<span class="token punctuation">,</span> Teleport<span class="token punctuation">,</span> Transition<span class="token punctuation">,</span> TransitionGroup <span class="token punctuation">&#125;</span> <span class="token keyword">from</span> <span class="token string">'vue'</span>
@@ -488,6 +488,129 @@ pre:active {
   <span class="token punctuation">&#125;</span>
 <span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
+<h4 id="单jsx文件中多个组件"><a href="#单jsx文件中多个组件" class="headerlink" title="单jsx文件中多个组件"></a>单jsx文件中多个组件</h4><p>heartRain.jsx 中有两个组件 默认放回一个组件的组件中调用</p>
+<pre class="line-numbers language-javascript" data-language="javascript"><code class="language-javascript">
+cont Rain <span class="token operator">=</span> <span class="token function">defineComponent</span><span class="token punctuation">(</span><span class="token punctuation">&#123;</span>
+  <span class="token keyword">return</span> <span class="token operator">&lt;</span><span class="token operator">></span>
+     <span class="token operator">&lt;</span>div<span class="token operator">></span>子组件<span class="token operator">&lt;</span><span class="token operator">/</span>div<span class="token operator">></span>
+  <span class="token operator">&lt;</span><span class="token operator">/</span><span class="token operator">></span>
+<span class="token punctuation">&#125;</span><span class="token punctuation">)</span>
+
+<span class="token keyword">export</span> <span class="token keyword">default</span> <span class="token function">defineComponent</span><span class="token punctuation">(</span><span class="token punctuation">&#123;</span>
+  <span class="token literal-property property">props</span><span class="token operator">:</span><span class="token punctuation">&#123;</span>
+    <span class="token literal-property property">num</span><span class="token operator">:</span><span class="token punctuation">&#123;</span>
+      <span class="token literal-property property">type</span><span class="token operator">:</span>Number<span class="token punctuation">,</span>
+      <span class="token keyword">default</span><span class="token operator">:</span><span class="token number">30</span>
+    <span class="token punctuation">&#125;</span>
+  <span class="token punctuation">&#125;</span><span class="token punctuation">,</span>
+  <span class="token function">setup</span><span class="token punctuation">(</span><span class="token parameter">props<span class="token punctuation">,</span>context</span><span class="token punctuation">)</span><span class="token punctuation">&#123;</span>
+    <span class="token keyword">const</span> container <span class="token operator">=</span> <span class="token function">ref</span><span class="token punctuation">(</span><span class="token keyword">null</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token keyword">const</span> queue <span class="token operator">=</span> <span class="token function">ref</span><span class="token punctuation">(</span><span class="token punctuation">[</span><span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+    <span class="token keyword">function</span> <span class="token function">init</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">&#123;</span>
+      <span class="token keyword">const</span> rainNum <span class="token operator">=</span> props<span class="token punctuation">.</span>num<span class="token punctuation">;</span>
+      <span class="token keyword">for</span> <span class="token punctuation">(</span><span class="token keyword">let</span> i <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span> i <span class="token operator">&lt;</span> rainNum<span class="token punctuation">;</span> i<span class="token operator">++</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+          <span class="token keyword">const</span> delay <span class="token operator">=</span> <span class="token function">randomNumber</span><span class="token punctuation">(</span>i <span class="token operator">*</span> <span class="token number">200</span><span class="token punctuation">,</span> i <span class="token operator">*</span> <span class="token number">200</span> <span class="token operator">+</span> <span class="token number">1000</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+          queue<span class="token punctuation">.</span>value<span class="token punctuation">.</span><span class="token function">push</span><span class="token punctuation">(</span><span class="token operator">&lt;</span>Rain key<span class="token operator">=</span><span class="token punctuation">&#123;</span>i<span class="token punctuation">&#125;</span> delay<span class="token operator">=</span><span class="token punctuation">&#123;</span>delay<span class="token punctuation">&#125;</span><span class="token operator">/</span><span class="token operator">></span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+      <span class="token punctuation">&#125;</span>
+    <span class="token punctuation">&#125;</span>
+    
+    <span class="token keyword">const</span> <span class="token function-variable function">render</span> <span class="token operator">=</span> <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">=></span> <span class="token punctuation">&#123;</span>
+      <span class="token keyword">return</span> <span class="token operator">&lt;</span>Teleport to<span class="token operator">=</span><span class="token string">"body"</span><span class="token operator">></span>
+        <span class="token operator">&lt;</span>div<span class="token operator">></span><span class="token operator">&lt;</span>div<span class="token operator">></span><span class="token punctuation">&#123;</span>  queue<span class="token punctuation">.</span>value <span class="token punctuation">&#125;</span><span class="token operator">&lt;</span><span class="token operator">/</span>div<span class="token operator">></span><span class="token operator">&lt;</span><span class="token operator">/</span>div<span class="token operator">></span>
+      <span class="token operator">&lt;</span><span class="token operator">/</span>Teleport<span class="token operator">></span>
+    <span class="token punctuation">&#125;</span>
+    <span class="token keyword">return</span> render
+  <span class="token punctuation">&#125;</span>
+<span class="token punctuation">&#125;</span><span class="token punctuation">)</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<h4 id="vue的文件多个组件"><a href="#vue的文件多个组件" class="headerlink" title=".vue的文件多个组件"></a>.vue的文件多个组件</h4><p>defineComponent 搭配 Composition API 和渲染函数一起使用，接收 props 和 setup 上下文，返回值是一个渲染函数（h()或者 JSX）。</p>
+<pre class="line-numbers language-javascript" data-language="javascript"><code class="language-javascript"><span class="token operator">&lt;</span>template<span class="token operator">></span>
+  <span class="token operator">&lt;</span>section <span class="token keyword">class</span><span class="token operator">=</span><span class="token string">"memo-list__content-item"</span><span class="token operator">></span>
+    <span class="token operator">&lt;</span><span class="token operator">!</span><span class="token operator">--</span> 概要 <span class="token operator">--</span><span class="token operator">></span>
+    <span class="token operator">&lt;</span>section <span class="token keyword">class</span><span class="token operator">=</span><span class="token string">"item-title"</span><span class="token operator">></span><span class="token operator">&lt;</span>SearchContent <span class="token operator">:</span>searchValue<span class="token operator">=</span><span class="token string">"searchValue"</span> <span class="token operator">:</span>content<span class="token operator">=</span><span class="token string">"item.title"</span> <span class="token operator">/</span><span class="token operator">></span><span class="token operator">&lt;</span><span class="token operator">/</span>section<span class="token operator">></span>
+    <span class="token operator">&lt;</span><span class="token operator">!</span><span class="token operator">--</span> 内容 <span class="token operator">--</span><span class="token operator">></span>
+    <span class="token operator">&lt;</span>section <span class="token keyword">class</span><span class="token operator">=</span><span class="token string">"item-content"</span><span class="token operator">></span><span class="token operator">&lt;</span>SearchContent <span class="token operator">:</span>searchValue<span class="token operator">=</span><span class="token string">"searchValue"</span> <span class="token operator">:</span>content<span class="token operator">=</span><span class="token string">"item.content"</span> <span class="token operator">/</span><span class="token operator">></span><span class="token operator">&lt;</span><span class="token operator">/</span>section<span class="token operator">></span>
+  <span class="token operator">&lt;</span><span class="token operator">/</span>section<span class="token operator">></span>
+<span class="token operator">&lt;</span><span class="token operator">/</span>template<span class="token operator">></span>
+<span class="token operator">&lt;</span>script setup lang<span class="token operator">=</span><span class="token string">"tsx"</span><span class="token operator">></span>
+<span class="token comment">// 使用JSX创建组件</span>
+<span class="token keyword">const</span> SearchContent <span class="token operator">=</span> <span class="token function">defineComponent</span><span class="token punctuation">(</span><span class="token punctuation">&#123;</span>
+  <span class="token literal-property property">name</span><span class="token operator">:</span> <span class="token string">'SearchContent'</span><span class="token punctuation">,</span>
+  <span class="token literal-property property">props</span><span class="token operator">:</span> <span class="token punctuation">&#123;</span>
+    <span class="token literal-property property">searchValue</span><span class="token operator">:</span> <span class="token punctuation">&#123;</span>
+      <span class="token literal-property property">type</span><span class="token operator">:</span> String<span class="token punctuation">,</span>
+      <span class="token keyword">default</span><span class="token operator">:</span> <span class="token string">''</span>
+    <span class="token punctuation">&#125;</span><span class="token punctuation">,</span>
+    <span class="token literal-property property">content</span><span class="token operator">:</span> <span class="token punctuation">&#123;</span>
+      <span class="token literal-property property">type</span><span class="token operator">:</span> String<span class="token punctuation">,</span>
+      <span class="token keyword">default</span><span class="token operator">:</span> <span class="token string">''</span>
+    <span class="token punctuation">&#125;</span>
+  <span class="token punctuation">&#125;</span><span class="token punctuation">,</span>
+  <span class="token function">setup</span><span class="token punctuation">(</span><span class="token parameter">props</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+    <span class="token keyword">const</span> searchValue <span class="token operator">=</span> props<span class="token punctuation">.</span>searchValue
+    <span class="token keyword">const</span> content <span class="token operator">=</span> props<span class="token punctuation">.</span>content
+    <span class="token keyword">const</span> index <span class="token operator">=</span> content<span class="token punctuation">.</span><span class="token function">indexOf</span><span class="token punctuation">(</span>searchValue<span class="token punctuation">)</span>
+
+    <span class="token keyword">if</span> <span class="token punctuation">(</span>index <span class="token operator">===</span> <span class="token operator">-</span><span class="token number">1</span><span class="token punctuation">)</span> <span class="token keyword">return</span> content
+
+    <span class="token keyword">const</span> searchIndex <span class="token operator">=</span> searchValue<span class="token punctuation">.</span>length <span class="token operator">+</span> index
+
+    <span class="token comment">// 搜索结果</span>
+    <span class="token keyword">const</span> <span class="token function-variable function">extraContent</span> <span class="token operator">=</span> <span class="token parameter">startIndex</span> <span class="token operator">=></span> <span class="token punctuation">(</span>
+      <span class="token operator">&lt;</span><span class="token operator">></span>
+        <span class="token punctuation">&#123;</span>startIndex <span class="token operator">?</span> <span class="token operator">&lt;</span>span<span class="token operator">></span><span class="token operator">...</span><span class="token operator">&lt;</span><span class="token operator">/</span>span<span class="token operator">></span> <span class="token operator">:</span> <span class="token string">''</span><span class="token punctuation">&#125;</span>
+        <span class="token operator">&lt;</span>span<span class="token operator">></span><span class="token punctuation">&#123;</span>content<span class="token punctuation">.</span><span class="token function">slice</span><span class="token punctuation">(</span>startIndex<span class="token punctuation">,</span> index<span class="token punctuation">)</span><span class="token punctuation">&#125;</span><span class="token operator">&lt;</span><span class="token operator">/</span>span<span class="token operator">></span>
+        <span class="token operator">&lt;</span>span style<span class="token operator">=</span><span class="token string">'background: #fae086'</span><span class="token operator">></span><span class="token punctuation">&#123;</span>content<span class="token punctuation">.</span><span class="token function">slice</span><span class="token punctuation">(</span>index<span class="token punctuation">,</span> searchIndex<span class="token punctuation">)</span><span class="token punctuation">&#125;</span><span class="token operator">&lt;</span><span class="token operator">/</span>span<span class="token operator">></span>
+        <span class="token operator">&lt;</span>span<span class="token operator">></span><span class="token punctuation">&#123;</span>content<span class="token punctuation">.</span><span class="token function">slice</span><span class="token punctuation">(</span>searchIndex<span class="token punctuation">)</span><span class="token punctuation">&#125;</span><span class="token operator">&lt;</span><span class="token operator">/</span>span<span class="token operator">></span>
+      <span class="token operator">&lt;</span><span class="token operator">/</span><span class="token operator">></span>
+    <span class="token punctuation">)</span>
+    <span class="token keyword">if</span> <span class="token punctuation">(</span>searchIndex <span class="token operator">></span> <span class="token constant">CONTENT_CUT_LENGTH</span><span class="token punctuation">)</span> <span class="token keyword">return</span> <span class="token function">extraContent</span><span class="token punctuation">(</span>index <span class="token operator">-</span> <span class="token number">4</span><span class="token punctuation">)</span>
+    <span class="token keyword">return</span> <span class="token function">extraContent</span><span class="token punctuation">(</span><span class="token number">0</span><span class="token punctuation">)</span>
+  <span class="token punctuation">&#125;</span>
+<span class="token punctuation">&#125;</span><span class="token punctuation">)</span>
+<span class="token operator">&lt;</span><span class="token operator">/</span>script<span class="token operator">></span>
+
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+
+<h4 id="vue的文件-setup语法糖多个组件"><a href="#vue的文件-setup语法糖多个组件" class="headerlink" title=".vue的文件 setup语法糖多个组件"></a>.vue的文件 setup语法糖多个组件</h4><p>在script setup中既可以像上面提到的使用defineComponent来定义子组件，也可以直接像 React 中那样定义子组件，即一个函数式组件，参考官方文档函数式组件一章，接收 props 和上下文对象，返回 JSX 或h()函数。</p>
+<pre class="line-numbers language-javascript" data-language="javascript"><code class="language-javascript"><span class="token operator">&lt;</span>template<span class="token operator">></span>
+  <span class="token operator">&lt;</span><span class="token operator">!</span><span class="token operator">--</span> 概要 <span class="token operator">--</span><span class="token operator">></span>
+  <span class="token operator">&lt;</span>section <span class="token keyword">class</span><span class="token operator">=</span><span class="token string">"item-title"</span><span class="token operator">></span>
+    <span class="token operator">&lt;</span>RenderSearchContent <span class="token operator">:</span>searchValue<span class="token operator">=</span><span class="token string">"searchValue"</span> <span class="token operator">:</span>content<span class="token operator">=</span><span class="token string">"item.title"</span> <span class="token operator">/</span><span class="token operator">></span>
+  <span class="token operator">&lt;</span><span class="token operator">/</span>section<span class="token operator">></span>
+  <span class="token operator">&lt;</span><span class="token operator">!</span><span class="token operator">--</span> 内容 <span class="token operator">--</span><span class="token operator">></span>
+  <span class="token operator">&lt;</span>section <span class="token keyword">class</span><span class="token operator">=</span><span class="token string">"item-content"</span><span class="token operator">></span>
+    <span class="token operator">&lt;</span>RenderSearchContent <span class="token operator">:</span>searchValue<span class="token operator">=</span><span class="token string">"searchValue"</span> <span class="token operator">:</span>content<span class="token operator">=</span><span class="token string">"item.content"</span> <span class="token operator">/</span><span class="token operator">></span>
+  <span class="token operator">&lt;</span><span class="token operator">/</span>section<span class="token operator">></span>
+<span class="token operator">&lt;</span><span class="token operator">/</span>template<span class="token operator">></span>
+<span class="token operator">&lt;</span>script setup lang<span class="token operator">=</span><span class="token string">"tsx"</span><span class="token operator">></span>
+<span class="token comment">// 接收 props 和 setup上下文对象</span>
+<span class="token keyword">const</span> RenderSearchContent <span class="token operator">=</span> <span class="token punctuation">(</span><span class="token punctuation">&#123;</span> content <span class="token operator">=</span> <span class="token string">''</span><span class="token punctuation">,</span> searchValue <span class="token punctuation">&#125;</span><span class="token punctuation">)</span> <span class="token operator">=></span> <span class="token punctuation">&#123;</span>
+  <span class="token keyword">const</span> index <span class="token operator">=</span> content<span class="token punctuation">.</span><span class="token function">indexOf</span><span class="token punctuation">(</span>searchValue<span class="token punctuation">)</span>
+
+  <span class="token keyword">if</span> <span class="token punctuation">(</span>index <span class="token operator">===</span> <span class="token operator">-</span><span class="token number">1</span><span class="token punctuation">)</span> <span class="token keyword">return</span> content
+
+  <span class="token keyword">const</span> searchIndex <span class="token operator">=</span> searchValue<span class="token punctuation">.</span>length <span class="token operator">+</span> index
+
+  <span class="token comment">// 搜索结果</span>
+  <span class="token keyword">const</span> <span class="token function-variable function">extraContent</span> <span class="token operator">=</span> <span class="token punctuation">(</span><span class="token parameter">startIndex</span><span class="token punctuation">)</span> <span class="token operator">=></span> <span class="token punctuation">(</span>
+    <span class="token operator">&lt;</span><span class="token operator">></span>
+      <span class="token punctuation">&#123;</span>startIndex <span class="token operator">?</span> <span class="token operator">&lt;</span>span<span class="token operator">></span><span class="token operator">...</span><span class="token operator">&lt;</span><span class="token operator">/</span>span<span class="token operator">></span> <span class="token operator">:</span> <span class="token string">''</span><span class="token punctuation">&#125;</span>
+      <span class="token operator">&lt;</span>span<span class="token operator">></span><span class="token punctuation">&#123;</span>content<span class="token punctuation">.</span><span class="token function">slice</span><span class="token punctuation">(</span>startIndex<span class="token punctuation">,</span> index<span class="token punctuation">)</span><span class="token punctuation">&#125;</span><span class="token operator">&lt;</span><span class="token operator">/</span>span<span class="token operator">></span>
+      <span class="token operator">&lt;</span>span style<span class="token operator">=</span><span class="token string">"background: #fae086"</span><span class="token operator">></span>
+        <span class="token punctuation">&#123;</span>content<span class="token punctuation">.</span><span class="token function">slice</span><span class="token punctuation">(</span>index<span class="token punctuation">,</span> searchIndex<span class="token punctuation">)</span><span class="token punctuation">&#125;</span>
+      <span class="token operator">&lt;</span><span class="token operator">/</span>span<span class="token operator">></span>
+      <span class="token operator">&lt;</span>span<span class="token operator">></span><span class="token punctuation">&#123;</span>content<span class="token punctuation">.</span><span class="token function">slice</span><span class="token punctuation">(</span>searchIndex<span class="token punctuation">)</span><span class="token punctuation">&#125;</span><span class="token operator">&lt;</span><span class="token operator">/</span>span<span class="token operator">></span>
+    <span class="token operator">&lt;</span><span class="token operator">/</span><span class="token operator">></span>
+  <span class="token punctuation">)</span>
+  <span class="token keyword">if</span> <span class="token punctuation">(</span>searchIndex <span class="token operator">></span> <span class="token constant">CONTENT_CUT_LENGTH</span><span class="token punctuation">)</span> <span class="token keyword">return</span> <span class="token function">extraContent</span><span class="token punctuation">(</span>index <span class="token operator">-</span> <span class="token number">4</span><span class="token punctuation">)</span>
+  <span class="token keyword">return</span> <span class="token function">extraContent</span><span class="token punctuation">(</span><span class="token number">0</span><span class="token punctuation">)</span>
+<span class="token punctuation">&#125;</span>
+<span class="token operator">&lt;</span><span class="token operator">/</span>script<span class="token operator">></span>
+
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
     </article>
     
   </div>
@@ -495,7 +618,7 @@ pre:active {
     <div class="article-catelogue--wrapper">
       <div class="catelogue catelogue-1">
         <h3>目录</h3>
-        <ol class="toc"><li class="toc-item toc-level-5"><a class="toc-link" href="#%E5%AE%89%E8%A3%85%E6%8F%92%E4%BB%B6"><span class="toc-number">1.</span> <span class="toc-text">安装插件</span></a></li></ol></li><li class="toc-item toc-level-4"><a class="toc-link" href="#vue3%E7%9A%84defineComponent"><span class="toc-number"></span> <span class="toc-text">vue3的defineComponent</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E7%BB%84%E5%90%88%E5%BC%8F%E4%B8%AD%E4%BD%BF%E7%94%A8setup"><span class="toc-number"></span> <span class="toc-text">组合式中使用setup</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#%E4%BD%BF%E7%94%A8jsx%E5%86%99%E7%BB%84%E4%BB%B6"><span class="toc-number">1.</span> <span class="toc-text">使用jsx写组件</span></a></li></ol>
+        <ol class="toc"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%AE%89%E8%A3%85%E6%8F%92%E4%BB%B6"><span class="toc-number">1.</span> <span class="toc-text">安装插件</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#vue3%E7%9A%84defineComponent"><span class="toc-number">2.</span> <span class="toc-text">vue3的defineComponent</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E7%BB%84%E5%90%88%E5%BC%8F%E4%B8%AD%E4%BD%BF%E7%94%A8setup"><span class="toc-number">3.</span> <span class="toc-text">组合式中使用setup</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E4%BD%BF%E7%94%A8jsx%E5%86%99%E7%BB%84%E4%BB%B6"><span class="toc-number">4.</span> <span class="toc-text">使用jsx写组件</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%8D%95jsx%E6%96%87%E4%BB%B6%E4%B8%AD%E5%A4%9A%E4%B8%AA%E7%BB%84%E4%BB%B6"><span class="toc-number">5.</span> <span class="toc-text">单jsx文件中多个组件</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#vue%E7%9A%84%E6%96%87%E4%BB%B6%E5%A4%9A%E4%B8%AA%E7%BB%84%E4%BB%B6"><span class="toc-number">6.</span> <span class="toc-text">.vue的文件多个组件</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#vue%E7%9A%84%E6%96%87%E4%BB%B6-setup%E8%AF%AD%E6%B3%95%E7%B3%96%E5%A4%9A%E4%B8%AA%E7%BB%84%E4%BB%B6"><span class="toc-number">7.</span> <span class="toc-text">.vue的文件 setup语法糖多个组件</span></a></li></ol>
       </div>
       
         <div class="catelogue catelogue-2">
