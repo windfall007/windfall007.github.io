@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8">
   
-  <title>使用安卓手机安装termux 入门使用笔记 | JQ的个人技术博客</title>
+  <title>JQ的个人技术博客 | JQ的个人技术博客</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
   <link rel="shortcut icon" href="/imgs/shortcut-icon.ico" type="image/x-icon">
   <link rel="stylesheet" href="/css/public.css" />
@@ -19,8 +19,18 @@
   <script src='//unpkg.com/valine/dist/Valine.min.js'></script>
   <script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
   <script>
-    document.title = `使用安卓手机安装termux 入门使用笔记`
+    document.title = `JQ的个人技术博客`
   </script>
+  <script>
+    var _hmt = _hmt || [];
+    (function() {
+      var hm = document.createElement("script");
+      hm.src = "https://hm.baidu.com/hm.js?5d5d2ee1f85789aa2757de8425b3c746";
+      var s = document.getElementsByTagName("script")[0]; 
+      s.parentNode.insertBefore(hm, s);
+    })();
+    </script>
+    
 <meta name="generator" content="Hexo 6.3.0"></head>
 
 <style>
@@ -197,7 +207,7 @@
   const ipt = document.querySelector('#search-input')
   const btn = document.querySelector('#search-btn')
   const layer = document.querySelector('#search-layer')
-  const posts = JSON.parse(`[{"title":"koa快速入门教学","path":"2023/11/17/koa快速入门教学/"},{"title":"使用安卓手机安装termux 入门使用笔记","cover":"./images/default-cover.jpg","path":"2023/07/13/termux/"},{"title":"七夕爱心动画，尝试使用jsx写vue3开发实践笔记","cover":"./images/qixi.jpg","path":"2023/08/18/尝试使用jsx写vue3的组件实践笔记/"},{"title":"分装一个基于element-plus的curd组件","path":"2023/07/21/分装一个基于elementplus的curd组件/"},{"title":"React Hooks中常用Hooks的用法详解","path":"2023/10/27/React-Hooks中常用Hooks的用法详解/"},{"title":"常用代理设置","cover":"./images/bg.jpeg","path":"2023/07/25/常用代理设置/"}]`)
+  const posts = JSON.parse(`[{"title":"","path":"2023/10/27/React-Hooks中常用Hooks的用法详解/"},{"title":"","path":"2023/07/13/termux/"},{"title":"","path":"2023/08/18/尝试使用jsx写vue3的组件实践笔记/"},{"title":"","path":"2023/07/21/分装一个基于elementplus的curd组件/"},{"title":"","path":"2023/07/25/常用代理设置/"},{"title":"","path":"2023/11/17/koa快速入门教学/"}]`)
   ipt.addEventListener('keyup', e => {
     if (e.key === 'Enter') {
       handleSearch()
@@ -274,13 +284,13 @@
       <div class="main-left--statics">
         <a href="/categories">
           <div>
-            <span>3</span>
+            <span>0</span>
             <span>分类</span>
           </div>
         </a>
         <a href="/tags">
           <div>
-            <span>5</span>
+            <span>0</span>
             <span>标签</span>
           </div>
         </a>
@@ -347,11 +357,11 @@
       </p>
       <p class="main-left--subtitle">
         <span>最近动态：</span>
-        <span>4天前</span>
+        <span>6天前</span>
       </p>
       <p class="main-left--subtitle">
         <span>上线时间：</span>
-        <span>132天</span>
+        <span>134天</span>
       </p>
       <p class="main-left--subtitle">
         <span>当前版本：</span>
@@ -387,43 +397,29 @@ pre:active {
 
 <div class="article-container">
   <div class="article">
-    <h1 class="article-title">使用安卓手机安装termux 入门使用笔记</h1>
+    <h1 class="article-title"></h1>
     <div class="article-info">
       <div class="article-info--item">
         <div class="article-info--info">
           
           <div class="article-info--categories">
             <span>分类：</span>
-            <a class="category-link" href="/categories/Linux/">Linux</a>
+            
           </div>
           
           
           <div class="article-info--tags">
             <span>标签：</span>
-            <a class="tag-link" href="/tags/termux/" rel="tag">termux</a>
+            
           </div>
           
-          <p class="article-info--date">日期：2023-07-13 23:32:04</p>
+          <p class="article-info--date">日期：2023-07-13 13:37:49</p>
         </div>
-        <img src="/./images/default-cover.jpg" alt="" class="article-cover">
+        <img src="/images/default-cover.jpg" alt="" class="article-cover">
       </div>
     </div>
     <article class="article-content">
-      <p>###这几篇文章照着做可以很快就搭建起来<br><a target="_blank" rel="noopener" href="https://blog.csdn.net/chen462488588/article/details/112237950">https://blog.csdn.net/chen462488588/article/details/112237950</a><br><a target="_blank" rel="noopener" href="https://blog.csdn.net/phaste/article/details/123616645">https://blog.csdn.net/phaste/article/details/123616645</a><br><a target="_blank" rel="noopener" href="https://blog.csdn.net/qdhugo/article/details/120721535">https://blog.csdn.net/qdhugo/article/details/120721535</a></p>
-<p>pkg install openssh  #安装ssh服务器，应该自动生成密钥<br>whoami               #查看用户名，比如u0_a400 <br>passwd               #设置一个密码，注意输入的时候啥也看不见，尽管输入就行。123456</p>
-<h3 id="开启ssh"><a href="#开启ssh" class="headerlink" title="开启ssh"></a>开启ssh</h3><p>输入命令 sshd</p>
-<p>然后键入proot-distro list来显示可安装包<br>proot-distro list</p>
-<p>进入Ubuntu系统<br>proot-distro login ubuntu<br>proot-distro login debian<br>proot-distro login archlinux</p>
-<p>使用vns服务启动远程桌面<br>vncserver :1 -localhost no -geometry 1920x1080<br>tigervncserver :1 -localhost no -geometry 1920x1080<br>tigervncserver :1 -localhost no -geometry 1920x1080  -xstartup   &#x2F;usr&#x2F;bin&#x2F;xterm</p>
-<p>可以看到上边的报错，Can’t exec “&#x2F;usr&#x2F;bin&#x2F;xterm”: No such file or directory at &#x2F;usr&#x2F;bin&#x2F;tigervncserver line 901。<br>然后看到这个xterm不存在，到&#x2F;usr&#x2F;bin目录下确认了一下真的不存在。百度到安装方法<br>sudo apt install xterm</p>
-<h3 id="查看当前运行的vnc进程"><a href="#查看当前运行的vnc进程" class="headerlink" title="查看当前运行的vnc进程"></a>查看当前运行的vnc进程</h3><p>&#x2F;&#x2F; 关于搭建VNC，我用的安卓大于9的版本，9以上限制了应用的进程数量，开启vnc后termux就会杀进程闪退，导致我安装上后用不了桌面的，后面就没有尝试了。以后有安卓9以下版本的再尝试安装。</p>
-<p>tigervncserver -list</p>
-<h3 id="删除进程"><a href="#删除进程" class="headerlink" title="删除进程"></a>删除进程</h3><p>vncserver -kill :1</p>
-<p>遇到这个情况时需要删除文件<br>root@localhost:~# vncserver :1 -localhost no -geometry 1920x1080<br>Cleaning stale pidfile ‘&#x2F;root&#x2F;.vnc&#x2F;localhost.localdomain:5901.pid’!<br>Cleaning stale X11 lock ‘&#x2F;tmp&#x2F;.X1-lock’!<br>Cleaning stale X11 lock ‘&#x2F;tmp&#x2F;.X11-unix&#x2F;X1’!</p>
-<h3 id="删除文件"><a href="#删除文件" class="headerlink" title="删除文件"></a>删除文件</h3><p>rm -rf &#x2F;root&#x2F;.vnc&#x2F;localhost.localdomain:5901.pid<br>rm -rf  &#x2F;tmp&#x2F;.X1-lock<br>rm -rf  &#x2F;tmp&#x2F;.X11-unix&#x2F;X1</p>
-<h3 id="开机自启"><a href="#开机自启" class="headerlink" title="开机自启"></a>开机自启</h3><p>使用nano 创建 ~&#x2F;.profile 文件<br>写入<br>nohup mysqld &amp;<br>sshd<br>proot-distro login ubuntu<br>保存这样以后打开软件自动开启ssh和进入Ubuntu<br>需要退出Ubuntu时 输入 exit 回车 就可以回到 Termux</p>
-<p>宝塔安装命令： curl -sSO <a target="_blank" rel="noopener" href="http://download.bt.cn/install/install_panel.sh">http://download.bt.cn/install/install_panel.sh</a> &amp;&amp; bash install_panel.sh</p>
-<p>数据库密码 password<br>Android Termux安装MySQL，并使用cpolar实现公网安全远程连接[内网穿透] - 知乎 (<a target="_blank" rel="noopener" href="https://zhuanlan.zhihu.com/p/633075370">https://zhuanlan.zhihu.com/p/633075370</a>)</p>
+      <p>  	  	     		 <br>���Ǹ������ļ�                                                                                                                                                                                                                                                                                                                                                                                                                  ���d      u8                  AYEGT_CQQTRU  ][VVE      �      ���@2c&lt;2�e�&gt;Vn��$��X:����I�6�,;�<del>o�����U���F��wXP����<br>�&lt;��X��؁tk8������Z�؁tk9����H�:��)�5	1  ���   |       I���K�	1   9H����� 9H�������5	1   �2	1   �	1   �	1  p�W   �M�	1  (N�	1          H�5	1                          H�5	1                          H�5	1                          H�5	1                          H�5	1                          H�5	1                                                  ���HcH           ������5	1                                  <br>���:�Z�q5�?:���rdP�	�&lt;��VG&#x3D;����4O�+�C�l&#x2F;U^”����*u&gt;�,�v��k�IB���</del>��$8��<br>BI���<del>�$�{bݾ�Y@㸬+�<br>&lt;��UK!����8N1�&gt;�xnɴ�YJZW���n�?��Ug����&lt;j�D�A�.&#x2F;ĩ�HPY�e&lt;�”�B��aa����7-B�a�O4Ӵ�H@��#�I�g Ծ�LS���8�\�</del>���L@���+��Xfޮ�’@���n�<br>&lt;��Wv9<br>zZ<br>���&lt;�[�”���’SYu@��&#x3D;��VM ����m&gt;��[��?tc�՟�&#x2F;f�a�k�&gt;&lt;��ϐqW|D�Z�d|���O@���*� �q{���HN���v��;n¯�N�&#x2F;�B�;&gt;��GC���:�^�. ���BTD䮷<code>�K�;غ�YUF徰-�K�pjĺ�AU�����!د�]@���!� �gk���HUV�)��f&#123;ٸ�H_B㫰&quot;��&amp;?��CO-���D�E�4fި�L��� �]�4��b������&amp;b�W�&gt;��ƫrpM�+�2��UQ/����Z&lt;��H�ǳ�LUj��$�/r&#123;���Z�7�� &lt;��WG����&#125;&lt;�	�f��Ob��ȫ�~��zѨ�ZZ�7���z4��E�P���yn��t�� uc��=/v�c�[��&lt;=4����tJ��=��VL1����o=��F��Vo��/i�c�&#123;��#&gt;��ʖkU���&amp;&lt;��&#39;zY��&lt;��J�|ó�����o&lt;�9�a�/è�Izp�|&lt;� �N��5~�_S���=�\�4c٨�����t&gt;�&gt;�U��Ro������&lt;�A�9k٨�_ZK���D��e��5~�OS�-j�c�E´�Y]N侫!�B�sf���OS���&lt;�A�9k٨�_ZK��� �J�vfѵ�]H��&#39;�Z�&#123;/ܴ�DZF婱&quot;�@�l�?:���ᤪ��?��UK(����(V&gt;��&#123;��-y�[T�+��%/���NO���n�A�9hմ�H^���|�V�$7���DU᤺=�\�q&#125;�� ]H���&amp;�]�4a���JJ�7��&amp;?��@pS���&lt;�@�gj­�_P@��!�O�|</code>ï�CZ<br>�#�Z�m&#x2F;��K����$�g{ѩ�X Z�7��;�\�vf���YJ��ӫ�&gt;��WG����&#x2F;@1�&#x3D;�@��:<del>n�镛�� f�C<code>/գ�NP���=��&#125;a���H�W�n�A�gzӳ�KB���n�G�qlĴ�TPS��=��&#125;a���JQ���+�X�f/ܲ�HPC�)Y̎�^�� U</code>����’”f�<code>�pl&#123;թ�����:R&lt;�,�f��8k�X�����?��Tc����9n=��b��P</code>�.a�a�B�8���rp��?��Xx����$_�&#x3D;�J�4n���D	S���n�Z�fb�ѤSZ�o&gt;��g��9Vo����-C��@���+&lt;&#x2F;�zp��&lt;�7�<code>�� vb��,i�%e�b�K�&lt;��ԮrGJ� �&gt;���&lt;���qVu�8���??���rBo�&gt;�?��WO/����(Q&gt;��O��7Th����/I��@��&gt;��__rzh�8�&lt;��Xd���� </code>0��f��go�Ĝ�&#x2F;w�l�_�:&gt;���srT�&gt;�&lt;��YF%����+F&lt;�<br>�G�� ja�ќ�&#x2F;i�l�O�68����rZW��?��UV���srR�<br>�&lt;��WA����’W1��t��^d��p-㣾+�X�w|թ�HZ<br>���:�$�7,�&gt;���uB�,��baӨ�_U��’�B�.&gt;��n����’”f�&#96;�p�5&gt;���</del>VY�”�?��YB#����,|�&lt;�A�Tc߸�AT��m�X�w|թ�HZ���”�M�xgߨ�<br>���!�K�fv��@���D�B�uaٵ�<br>F���&gt;�J�}c���H���8�M�x<code>Ӻ�E	S���-�B�&#123;bѲ�EC��&#39;�	�Lܾ�C@���/�K�L&gt;���B��#��L&gt;���N]���+�@�zh���L���n�A�/���@ U	���c�@�l ��zp�����3��VM ���-��c�H�;&#125;ߴ�^I��!�O�|</code>ï�AF���#�G�.:�� C���n�\�4���@ U	���”�M�}���_Z�7�#��L&gt;���C���D�<br>�4�[a�ʒ�&#x3D;&#x2F;I��g��$s�LrBB�?��j ���BK��?��a�U]���-���;��m|���<br>VpT䢽D�\�</p>
 
     </article>
     
@@ -432,14 +428,14 @@ pre:active {
     <div class="article-catelogue--wrapper">
       <div class="catelogue catelogue-1">
         <h3>目录</h3>
-        <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%BC%80%E5%90%AFssh"><span class="toc-number">1.</span> <span class="toc-text">开启ssh</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%9F%A5%E7%9C%8B%E5%BD%93%E5%89%8D%E8%BF%90%E8%A1%8C%E7%9A%84vnc%E8%BF%9B%E7%A8%8B"><span class="toc-number">2.</span> <span class="toc-text">查看当前运行的vnc进程</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%88%A0%E9%99%A4%E8%BF%9B%E7%A8%8B"><span class="toc-number">3.</span> <span class="toc-text">删除进程</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%88%A0%E9%99%A4%E6%96%87%E4%BB%B6"><span class="toc-number">4.</span> <span class="toc-text">删除文件</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%BC%80%E6%9C%BA%E8%87%AA%E5%90%AF"><span class="toc-number">5.</span> <span class="toc-text">开机自启</span></a></li></ol>
+        
       </div>
       
         <div class="catelogue catelogue-2">
           
             <p>
               <span>上一篇：</span>
-              <a href="/2023/07/21/分装一个基于elementplus的curd组件/">分装一个基于element-plus的curd组件</a>
+              <a href="/2023/07/21/分装一个基于elementplus的curd组件/"></a>
             </p>
            
           
@@ -492,8 +488,8 @@ pre:active {
   </div>
   <div style="margin-top: 15px;">
     <div class="index-right-wrapper">
-      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/Linux/">Linux</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/nodejs/">Nodejs</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E5%89%8D%E7%AB%AF/">前端</a></li></ul>
-      <ul class="tags" itemprop="keywords"><li class="tag-list-item"><a class="tag-list-link" href="/tags/vue/" rel="tag">vue</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/termux/" rel="tag">termux</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/react/" rel="tag">react</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/nodejs/" rel="tag">nodejs</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/koa/" rel="tag">koa</a></li></ul>
+      
+      
       <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2023/11/">2023年11月</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2023/10/">2023年10月</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2023/08/">2023年08月</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2023/07/">2023年07月</a><span class="archive-list-count">3</span></li></ul>
     </div>
   </div>

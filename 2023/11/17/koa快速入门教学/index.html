@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8">
   
-  <title>koa快速入门教学 | JQ的个人技术博客</title>
+  <title>JQ的个人技术博客 | JQ的个人技术博客</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
   <link rel="shortcut icon" href="/imgs/shortcut-icon.ico" type="image/x-icon">
   <link rel="stylesheet" href="/css/public.css" />
@@ -19,8 +19,18 @@
   <script src='//unpkg.com/valine/dist/Valine.min.js'></script>
   <script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
   <script>
-    document.title = `koa快速入门教学`
+    document.title = `JQ的个人技术博客`
   </script>
+  <script>
+    var _hmt = _hmt || [];
+    (function() {
+      var hm = document.createElement("script");
+      hm.src = "https://hm.baidu.com/hm.js?5d5d2ee1f85789aa2757de8425b3c746";
+      var s = document.getElementsByTagName("script")[0]; 
+      s.parentNode.insertBefore(hm, s);
+    })();
+    </script>
+    
 <meta name="generator" content="Hexo 6.3.0"></head>
 
 <style>
@@ -197,7 +207,7 @@
   const ipt = document.querySelector('#search-input')
   const btn = document.querySelector('#search-btn')
   const layer = document.querySelector('#search-layer')
-  const posts = JSON.parse(`[{"title":"koa快速入门教学","path":"2023/11/17/koa快速入门教学/"},{"title":"使用安卓手机安装termux 入门使用笔记","cover":"./images/default-cover.jpg","path":"2023/07/13/termux/"},{"title":"七夕爱心动画，尝试使用jsx写vue3开发实践笔记","cover":"./images/qixi.jpg","path":"2023/08/18/尝试使用jsx写vue3的组件实践笔记/"},{"title":"分装一个基于element-plus的curd组件","path":"2023/07/21/分装一个基于elementplus的curd组件/"},{"title":"React Hooks中常用Hooks的用法详解","path":"2023/10/27/React-Hooks中常用Hooks的用法详解/"},{"title":"常用代理设置","cover":"./images/bg.jpeg","path":"2023/07/25/常用代理设置/"}]`)
+  const posts = JSON.parse(`[{"title":"","path":"2023/10/27/React-Hooks中常用Hooks的用法详解/"},{"title":"","path":"2023/07/13/termux/"},{"title":"","path":"2023/08/18/尝试使用jsx写vue3的组件实践笔记/"},{"title":"","path":"2023/07/21/分装一个基于elementplus的curd组件/"},{"title":"","path":"2023/07/25/常用代理设置/"},{"title":"","path":"2023/11/17/koa快速入门教学/"}]`)
   ipt.addEventListener('keyup', e => {
     if (e.key === 'Enter') {
       handleSearch()
@@ -274,13 +284,13 @@
       <div class="main-left--statics">
         <a href="/categories">
           <div>
-            <span>3</span>
+            <span>0</span>
             <span>分类</span>
           </div>
         </a>
         <a href="/tags">
           <div>
-            <span>5</span>
+            <span>0</span>
             <span>标签</span>
           </div>
         </a>
@@ -347,11 +357,11 @@
       </p>
       <p class="main-left--subtitle">
         <span>最近动态：</span>
-        <span>4天前</span>
+        <span>6天前</span>
       </p>
       <p class="main-left--subtitle">
         <span>上线时间：</span>
-        <span>132天</span>
+        <span>134天</span>
       </p>
       <p class="main-left--subtitle">
         <span>当前版本：</span>
@@ -387,739 +397,29 @@ pre:active {
 
 <div class="article-container">
   <div class="article">
-    <h1 class="article-title">koa快速入门教学</h1>
+    <h1 class="article-title"></h1>
     <div class="article-info">
       <div class="article-info--item">
         <div class="article-info--info">
           
           <div class="article-info--categories">
             <span>分类：</span>
-            <a class="category-link" href="/categories/nodejs/">Nodejs</a>
+            
           </div>
           
           
           <div class="article-info--tags">
             <span>标签：</span>
-            <a class="tag-link" href="/tags/koa/" rel="tag">koa</a><a class="tag-link" href="/tags/nodejs/" rel="tag">nodejs</a>
+            
           </div>
           
-          <p class="article-info--date">日期：2023-11-17 13:37:14</p>
+          <p class="article-info--date">日期：2023-11-17 13:50:22</p>
         </div>
         <img src="/images/default-cover.jpg" alt="" class="article-cover">
       </div>
     </div>
     <article class="article-content">
-      <p>koa是什么？</p>
-<p>Koa 是一个新的 web 框架，由 Express 幕后的原班人马打造， 致力于成为 web<br>应用和 API 开发领域中的一个更小、更富有表现力、更健壮的基石。 通过利用<br>async 函数，Koa 帮你丢弃回调函数，并有力地增强错误处理。 Koa<br>并没有捆绑任何中间件，<br>而是提供了一套优雅的方法，帮助您快速而愉快地编写服务端应用程序。</p>
-<p>这是官方给的一个简介，这里我们能很好的理解到koa是基于Express进行改造的nodejs框架，并且没有绑定中间件，<br>异步函数使用async。</p>
-<h3 id="创建koa项目文件目录"><a href="#创建koa项目文件目录" class="headerlink" title="创建koa项目文件目录"></a>创建koa项目文件目录</h3><p>我们学习的第一步就是先搭好项目目录，这里会有我们项目中使用到的任何东西。</p>
-<pre class="line-numbers language-text" data-language="text"><code class="language-text">// 创建项目文件夹  也可手动创建
-mkdir  koa-app
-
-// 进入项目文件
-cd  koa-app
-
-// 添加koa依赖    
-// 根据自己的包管理器执行自己的命令 我这里以yarn举例
-yarn add koa -S
-
-// 新建入口文件
-echo >index.js
-
-// 创建变量管理目录   const
-mkdir const
-
-// 创建数据库管理目录   database
-mkdir database
-
-// 创建中间件管理目录   middlewares
-mkdir middlewares
-
-// 创建路由管理目录   router
-mkdir router
-
-// 创建静态资源管理目录   static
-mkdir static
-
-// 创建工具类管理目录   utils
-mkdir utils
-
-// 创建html文件管理目录   view
-// 主要用于测试自己接口
-mkdir const
-
-// 创建webpack打包文件
-
-echo >webpack.config.js<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-
-<p>这时候我们生成的目录结构大致如下</p>
-<pre class="line-numbers language-text" data-language="text"><code class="language-text">--koa-app
-    --const
-    --database
-    --middlewares
-    --router
-    --static
-    --utils
-    --view
-    -- index.js
-    -- packjson.js
-    -- webpack.config.js<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-
-
-<h3 id="创建koa服务"><a href="#创建koa服务" class="headerlink" title="创建koa服务"></a>创建koa服务</h3><p>这时候我们就可以创建koa服务，启动后就可以访问服务器目录了。</p>
-<pre class="line-numbers language-javascript" data-language="javascript"><code class="language-javascript"><span class="token comment">// index.js</span>
-
-<span class="token keyword">const</span> Koa <span class="token operator">=</span> <span class="token function">require</span><span class="token punctuation">(</span><span class="token string">"koa"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-<span class="token keyword">const</span> app <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">Koa</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-app<span class="token punctuation">.</span><span class="token function">use</span><span class="token punctuation">(</span><span class="token keyword">async</span> <span class="token parameter">ctx</span> <span class="token operator">=></span> <span class="token punctuation">&#123;</span>
-    ctx<span class="token punctuation">.</span>body <span class="token operator">=</span> <span class="token string">"hellO  欢迎使用koa"</span>
-<span class="token punctuation">&#125;</span><span class="token punctuation">)</span>
-app<span class="token punctuation">.</span><span class="token function">listen</span><span class="token punctuation">(</span><span class="token number">3000</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-
-
-<span class="token comment">// 启动koa服务</span>
-node  index<span class="token punctuation">.</span>js
-
-<span class="token comment">// 访问服务</span>
-在浏览器地址栏输入  localhost<span class="token operator">:</span><span class="token number">3000</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-
-
-<p>启动服务后我们打开浏览器就能看到&quot;hellO<br>欢迎使用koa&quot;说明我们koa程序运行成功。</p>
-<h3 id="添加路由-koa-router"><a href="#添加路由-koa-router" class="headerlink" title="添加路由 koa-router"></a>添加路由 koa-router</h3><p>我们后台服务已经搭建好了，那下一步必不可少的就是路由管理了，这里我们使用koa-router插件</p>
-<pre class="line-numbers language-javascript" data-language="javascript"><code class="language-javascript"><span class="token comment">//  /router/index.js</span>
-
-<span class="token comment">// 引入koa-router</span>
-<span class="token keyword">const</span>  Router <span class="token operator">=</span> <span class="token function">require</span><span class="token punctuation">(</span><span class="token string">'koa-router'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-<span class="token comment">// 引入user路由对象</span>
-<span class="token keyword">const</span> user <span class="token operator">=</span> <span class="token function">require</span><span class="token punctuation">(</span><span class="token string">'./user/index.js'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-<span class="token keyword">const</span> view <span class="token operator">=</span> <span class="token function">require</span><span class="token punctuation">(</span><span class="token string">'./view/index.js'</span><span class="token punctuation">)</span>
-<span class="token keyword">const</span> goods <span class="token operator">=</span> <span class="token function">require</span><span class="token punctuation">(</span><span class="token string">'./goods/index.js'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-<span class="token keyword">const</span> category <span class="token operator">=</span> <span class="token function">require</span><span class="token punctuation">(</span><span class="token string">'./category/index.js'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-<span class="token keyword">const</span> upload <span class="token operator">=</span> <span class="token function">require</span><span class="token punctuation">(</span><span class="token string">'./upload/index.js'</span><span class="token punctuation">)</span>
-<span class="token keyword">const</span> rule <span class="token operator">=</span> <span class="token function">require</span><span class="token punctuation">(</span><span class="token string">'./rule/index.js'</span><span class="token punctuation">)</span>
-<span class="token keyword">const</span> menu <span class="token operator">=</span> <span class="token function">require</span><span class="token punctuation">(</span><span class="token string">'./menu/index.js'</span><span class="token punctuation">)</span>
-<span class="token keyword">const</span> role <span class="token operator">=</span> <span class="token function">require</span><span class="token punctuation">(</span><span class="token string">'./role/index.js'</span><span class="token punctuation">)</span>
-<span class="token keyword">const</span> managerUser <span class="token operator">=</span> <span class="token function">require</span><span class="token punctuation">(</span><span class="token string">'./managerUser/index.js'</span><span class="token punctuation">)</span>
-<span class="token keyword">const</span> attribute <span class="token operator">=</span> <span class="token function">require</span><span class="token punctuation">(</span><span class="token string">'./attribute/index.js'</span><span class="token punctuation">)</span>
-
-<span class="token comment">// 生成新的router对象</span>
-<span class="token keyword">let</span> router <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">Router</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-
-<span class="token comment">// 添加路由管理</span>
-router<span class="token punctuation">.</span><span class="token function">use</span><span class="token punctuation">(</span><span class="token string">'/api/user'</span><span class="token punctuation">,</span> user<span class="token punctuation">.</span><span class="token function">routes</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
-router<span class="token punctuation">.</span><span class="token function">use</span><span class="token punctuation">(</span><span class="token string">'/view'</span><span class="token punctuation">,</span> view<span class="token punctuation">.</span><span class="token function">routes</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
-router<span class="token punctuation">.</span><span class="token function">use</span><span class="token punctuation">(</span><span class="token string">'/api/goods'</span><span class="token punctuation">,</span> goods<span class="token punctuation">.</span><span class="token function">routes</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
-router<span class="token punctuation">.</span><span class="token function">use</span><span class="token punctuation">(</span><span class="token string">'/api/category'</span><span class="token punctuation">,</span> category<span class="token punctuation">.</span><span class="token function">routes</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
-router<span class="token punctuation">.</span><span class="token function">use</span><span class="token punctuation">(</span><span class="token string">'/api/upload'</span><span class="token punctuation">,</span> upload<span class="token punctuation">.</span><span class="token function">routes</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
-router<span class="token punctuation">.</span><span class="token function">use</span><span class="token punctuation">(</span><span class="token string">'/api/rule'</span><span class="token punctuation">,</span> rule<span class="token punctuation">.</span><span class="token function">routes</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
-router<span class="token punctuation">.</span><span class="token function">use</span><span class="token punctuation">(</span><span class="token string">'/api/menu'</span><span class="token punctuation">,</span> menu<span class="token punctuation">.</span><span class="token function">routes</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
-router<span class="token punctuation">.</span><span class="token function">use</span><span class="token punctuation">(</span><span class="token string">'/api/role'</span><span class="token punctuation">,</span> role<span class="token punctuation">.</span><span class="token function">routes</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
-router<span class="token punctuation">.</span><span class="token function">use</span><span class="token punctuation">(</span><span class="token string">'/api/managerUser'</span><span class="token punctuation">,</span> managerUser<span class="token punctuation">.</span><span class="token function">routes</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
-router<span class="token punctuation">.</span><span class="token function">use</span><span class="token punctuation">(</span><span class="token string">'/api/attribute'</span><span class="token punctuation">,</span> attribute<span class="token punctuation">.</span><span class="token function">routes</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
-
-<span class="token comment">// 导出路由</span>
-module<span class="token punctuation">.</span>exports <span class="token operator">=</span> router<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-
-<p>这里我是以自己写好的项目文件直接复制了，如果是测试的话不需要导入那么多路由对象，导入一个自己已经写好的就行了。</p>
-<p>接下来我们就需要修改index.js文件与编写user路由</p>
-<pre class="line-numbers language-javascript" data-language="javascript"><code class="language-javascript"><span class="token comment">// /router/user/index.js</span>
-
-router<span class="token punctuation">.</span><span class="token function">get</span><span class="token punctuation">(</span><span class="token string">'/list'</span><span class="token punctuation">,</span> <span class="token keyword">async</span> <span class="token punctuation">(</span><span class="token parameter">ctx</span><span class="token punctuation">)</span> <span class="token operator">=></span> <span class="token punctuation">&#123;</span>
-    ctx<span class="token punctuation">.</span>body <span class="token operator">=</span>  <span class="token punctuation">&#123;</span>
-        <span class="token literal-property property">code</span><span class="token operator">:</span> <span class="token number">200</span><span class="token punctuation">,</span>
-        <span class="token literal-property property">message</span><span class="token operator">:</span> <span class="token string">'访问成功'</span>
-    <span class="token punctuation">&#125;</span>
-<span class="token punctuation">&#125;</span><span class="token punctuation">)</span>
-
-<span class="token comment">// index.js</span>
-
-<span class="token keyword">const</span> Koa <span class="token operator">=</span> <span class="token function">require</span><span class="token punctuation">(</span><span class="token string">"koa"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-<span class="token keyword">const</span> router <span class="token operator">=</span> <span class="token function">require</span><span class="token punctuation">(</span><span class="token string">"./router/index.js"</span><span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment">// 路由</span>
-<span class="token keyword">const</span> app <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">Koa</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-
-<span class="token comment">// 添加路由中间件</span>
-app<span class="token punctuation">.</span><span class="token function">use</span><span class="token punctuation">(</span>router<span class="token punctuation">.</span><span class="token function">routes</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">use</span><span class="token punctuation">(</span>router<span class="token punctuation">.</span><span class="token function">allowedMethods</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-app<span class="token punctuation">.</span><span class="token function">use</span><span class="token punctuation">(</span><span class="token keyword">async</span> <span class="token parameter">ctx</span> <span class="token operator">=></span> <span class="token punctuation">&#123;</span>
-    ctx<span class="token punctuation">.</span>body <span class="token operator">=</span> <span class="token string">"hellO  欢迎使用koa"</span>
-<span class="token punctuation">&#125;</span><span class="token punctuation">)</span>
-
-app<span class="token punctuation">.</span><span class="token function">listen</span><span class="token punctuation">(</span><span class="token number">3000</span><span class="token punctuation">)</span><span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-
-
-<p>这时候我们重新启动koa服务后，访问localhost&#x2F;3000&#x2F;api&#x2F;user&#x2F;list<br>就能获取ctx.body的内容了。<br>做到这里我们已经实现了自己的第一个接口了。剩下就是去数据库里面获取数据就形成了后台数据服务了。<br>是不是很棒呢！</p>
-<h3 id="数据库服务-mongodb"><a href="#数据库服务-mongodb" class="headerlink" title="数据库服务 mongodb"></a>数据库服务 mongodb</h3><p>数据库的引入主要是做了2个步骤，<br>第一连接数据库，第二创建数据model对象，并执行数据库操作。<br>mongodb使用的是mdb语句去做的查询，mysql则是使用的sql语句。</p>
-<p>当然每个数据库特性都不一样，在什么项目中使用什么数据库都需要在搭建项目目录的时候考虑到的，比如mysql,<br>oracle<br>都是关系型的，在做一些数据关联性强的一些网站上更加适用比如电商，金融，证券，医疗等。<br>而非关系型的mongodb数据因为数据结构更加多变，适用与一些日记管理，博客，官网等</p>
-<p>话不多说，我们来创建我们的数据库服务吧</p>
-<blockquote>
-<p>添加依赖</p>
-</blockquote>
-<pre class="line-numbers language-text" data-language="text"><code class="language-text">// 添加依赖
-yarn add glob mongoose  -S<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
-
-
-<blockquote>
-<p>创建mongosse文件</p>
-</blockquote>
-<pre class="line-numbers language-text" data-language="text"><code class="language-text">// 添加mongoose文件   /database/index.js
-// 添加mongosse
-const mongoose = require('mongoose')
-// 数据库访问地址
-const db = "mongodb://127.0.0.1/waimai"
-// glob ：提供匹配文件路径的方法，可以快速地找 到需要读取的文件
-const glob  = require('glob');
-const &#123; resolve &#125; = require('path')
-
-// 初始化文档模式
-exports.initSchemas = async () => &#123;
-    await  glob.sync(resolve(__dirname, './schema', './*.js')).forEach((v) => &#123;
-        require(v)
-    &#125;)
-&#125;
-
-exports.connect = () => &#123;
-    // 连接数据库
-    mongoose.connect(db)
-
-    return new Promise((resolve, reject) => &#123;
-        // 添加数据库断开监听事件
-        mongoose.connection.on('disconnected', () => &#123;
-            console.log('数据库断开---------------')
-            mongoose.connect(db)
-        &#125;)
-
-        // 添加数据库启动监听事件
-        mongoose.connection.on('open', () => &#123;
-            console.log('数据库连接---------------1')
-            mongoose.connect(db)
-
-            resolve();
-        &#125;)
-    &#125;)
-&#125;
-
-// index.js   引入mongoose文件
-
-// moogose初始化
-const &#123; connect, initSchemas &#125; = require("./database/index");
-
-(async () => &#123;
-  await connect();
-  await initSchemas();
-&#125;)();<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-
-
-<p>我们重启服务后就能连接到mongodb数据库了， 在conosle里面我们能看到<br>数据库连接字样</p>
-<h3 id="添加请求参数json处理-koa-bodyparser"><a href="#添加请求参数json处理-koa-bodyparser" class="headerlink" title="添加请求参数json处理 koa-bodyparser"></a>添加请求参数json处理 koa-bodyparser</h3><blockquote>
-<p>添加新依赖</p>
-</blockquote>
-<pre class="line-numbers language-text" data-language="text"><code class="language-text">yarn add koa-bodyparser -D<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
-
-<blockquote>
-<p>更新index.js</p>
-</blockquote>
-<pre class="line-numbers language-text" data-language="text"><code class="language-text">const bodyParser = require("koa-bodyparser"); // requeast请求
-
-app.use(bodyParser());<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
-
-<h3 id="用户接口举例"><a href="#用户接口举例" class="headerlink" title="用户接口举例"></a>用户接口举例</h3><h4 id="添加新依赖"><a href="#添加新依赖" class="headerlink" title="添加新依赖"></a>添加新依赖</h4><pre class="line-numbers language-text" data-language="text"><code class="language-text">yarn add bcrypt -D<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
-
-<blockquote>
-<p>创建mongoose.model模型</p>
-</blockquote>
-<pre class="line-numbers language-text" data-language="text"><code class="language-text">const mongoose = require('mongoose');
-const Schema = mongoose.Schema;
-let ObjectId = Schema.Types.ObjectId;
-// const bcrypt = require('bcrypt');
-
-const SALT_WORK_FACTOR = 10;
-
-// 前台用户表接口
-const userSchema = new Schema(&#123;
-    UserId: ObjectId,
-    userName: &#123;
-        unique: true,
-        type: String
-    &#125;,
-    passWord: String,
-    avator: String,
-    hashPassword: String,
-    nikeName: String,
-    address: String,
-    isBlack: Boolean,
-    sex: String,
-    createAt: &#123;
-        type: Date,
-        default: Date.now(),
-    &#125;,
-    lastLoginAt: &#123;
-        type: Date,
-        default: Date.now(),
-    &#125;,
-&#125;)
-
-// 每次存储时都要执行，加盐加密
-userSchema.pre('save', function (next)&#123;
-    bcrypt.genSalt(SALT_WORK_FACTOR,(err,salt)=>&#123;
-        if(err) return next(err)
-        bcrypt.hash(this.passWord,salt,(err,hash)=>&#123;
-            if(err) return next(err)
-            this.hashPassword = hash
-            next()
-        &#125;)
-    &#125;)
-&#125;)
-
-// 添加自定义方法
-userSchema.methods = &#123;
-    // 对比密码一致性
-    comparePassword: (_password, hashPassword) => &#123;
-        return new Promise((resolve, reject) => &#123;
-            // 对比密码方法
-            bcrypt.compare(_password, hashPassword, (err, isMatch) => &#123;
-                if(!err) resolve(isMatch);
-
-                reject(err)
-            &#125;)
-        &#125;) 
-    &#125;
-&#125;
-// 发布模型
-module.exports = mongoose.model('User', userSchema)<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-
-<blockquote>
-<p>添加用户接口</p>
-</blockquote>
-<pre class="line-numbers language-text" data-language="text"><code class="language-text">const Router  = require('koa-router');
-const mongoose = require('mongoose')
-let router = new Router();
-const User = require('../../database/schema/User')
-
-// 用户注册
-router.post('/register', async (ctx) => &#123;
-    const userName = ctx.request.body.userName;
-    const passWord = ctx.request.body.passWord;
-
-    let newUser = new User(&#123;
-        userName,
-        passWord,
-    &#125;)
-    .save()
-    .then((res) => &#123;
-      ctx.body = &#123;
-        code: 200,
-        message: "添加用户成功",
-      &#125;;
-    &#125;)
-    .catch((err) => &#123;
-      ctx.body = &#123;
-        code: 500,
-        message: "添加失败" + err,
-      &#125;;
-    &#125;);;
-&#125;)
-
-router.get('/list', async (ctx) => &#123;
-    // 引入user模型
-    // const User  = mongoose.model('User');
-    const uid  = ctx.request.query.uid || '';
-    //  分页 page
-    let page = ctx.request.body.page || 1;
-    //  分页每页数量
-    let limit = ctx.request.body.limit || 8;
-    // 上一次获取位置
-    const start =(page - 1)*limit;
-    // console.log( userName, User, 'User')
-     const result =  await User.find().exec()
-
-     console.log(result, 'result')
-     ctx.body = &#123;
-        code: 200,
-        data: result.slice((page-1)*limit, page*limit),
-        page: &#123;
-            page: page,
-            limit,
-            total: result.length ,
-            lastPage: parseInt(result.length / limit)
-        &#125;
-     &#125;
-
-    // ctx.body = ctx.request.body;
-&#125;)
-
-module.exports = router;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-
-<p>这时候我们就已经写好了用户添加接口与用户列表接口。因为用户的密码需要保密，我们在这里用了bcrypt去做了加盐加密，考虑到了bcrypt的加密是不可逆的所以我们这里用了passWord对原密码做了保存。</p>
-<blockquote>
-<p>这里我们使用了schema的自定义方法与 schema的钩子函数</p>
-</blockquote>
-<ul>
-<li>userSchema.methods</li>
-</ul>
-<p>向由该 schema 编译的 model 构造的 document 添加一个实例方法.</p>
-<ul>
-<li>userSchema.pre</li>
-</ul>
-<p>给 schema 定义一个前置钩子 (pre hook)</p>
-<h3 id="引入koa一些常用插件"><a href="#引入koa一些常用插件" class="headerlink" title="引入koa一些常用插件"></a>引入koa一些常用插件</h3><h4 id="处理跨域问题-koa2-cors"><a href="#处理跨域问题-koa2-cors" class="headerlink" title="处理跨域问题 koa2-cors"></a>处理跨域问题 koa2-cors</h4><pre class="line-numbers language-text" data-language="text"><code class="language-text">yarn add koa2-cors -D
-
-
-// index,js
-const koa2cors = require("koa2-cors"); // 配置跨域
-
-app.use(koa2cors(&#123;
-    origin: "*",
-    maxAge: 5,
-    allowMethods: ['GET', 'POST', 'PUT', 'DELETE', 'OPTIONS'],
-    allowHeaders: ['Content-Type', 'Authorization', 'Accept'],
-&#125;));<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-
-
-<h4 id="添加静态文件目录-koa-static"><a href="#添加静态文件目录-koa-static" class="headerlink" title="添加静态文件目录 koa-static"></a>添加静态文件目录 koa-static</h4><pre class="line-numbers language-text" data-language="text"><code class="language-text">yarn add koa-static -D
-
-
-// index.js
-
-const koaStatic = require("koa-static"); // 静态目录
-app.use(koaStatic("./"));<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-
-
-<h4 id="添加websokit服务-koa-websocket"><a href="#添加websokit服务-koa-websocket" class="headerlink" title="添加websokit服务 koa-websocket"></a>添加websokit服务 koa-websocket</h4><pre class="line-numbers language-text" data-language="text"><code class="language-text">yanr add  koa-websocket -S
-
-// index.js
-
-const websocket = require("koa-websocket"); // socket
-
-// 这时候app需用被websoket包裹
-const app = websocket(new Koa());
-
-
-// 建立socket连接
-app.ws.use(async (ctx) => &#123;
-  // the websocket is added to the context as `ctx.websocket`.
-  ctx.websocket.send("我是服务器");
-  ctx.websocket.on("message", function (message) &#123;
-    // do something
-    const msg = message.toString("utf-8");
-    console.log("客户端发来消息", msg);
-  &#125;);
-&#125;);<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-
-<h4 id="添加xss防御"><a href="#添加xss防御" class="headerlink" title="添加xss防御"></a>添加xss防御</h4><pre class="line-numbers language-text" data-language="text"><code class="language-text">yarn add xss -S
-
-// index.js
-const xss = require('./middlewares/xss.js') // xss
-
-app.use(xss())
-
-
-// /middlewares/xss.js
-
-const xss = require("xss"); // 需要 npm install xss -S
-
-const xssHandler = () => &#123;
-  return async (ctx, next) => &#123;
-    try &#123;
-      const body = ctx.request.body;
-      for (const key in body) &#123;
-        if (typeof body[key] === "string") &#123;
-          body[key] = xss(body[key]);
-        &#125;
-      &#125;
-      // 一定要添加await
-      await next();
-    &#125; catch (error) &#123;
-      // console.error(error)
-      throw error;
-    &#125;
-  &#125;;
-&#125;;
-
-module.exports = xssHandler;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-
-
-<h4 id="图片文件处理-koa-multer"><a href="#图片文件处理-koa-multer" class="headerlink" title="图片文件处理 koa-multer"></a>图片文件处理 koa-multer</h4><pre class="line-numbers language-text" data-language="text"><code class="language-text">yarn add koa-multer -D
-
-//  /router/upload/index.js
-const Router  = require('koa-router');
-let router = new Router();
-const multer = require('koa-multer');
-
-//配置
-const storage = multer.diskStorage(&#123;
-    //配置图片上传的目录
-    destination: function (req, file, cb) &#123;
-        console.log('destination')
-      cb(null, 'static/images/'); //注意路径必须存在
-    &#125;,
-    //图片上传完成重命名
-    filename: function (req, file, cb) &#123;
-        console.log('filename')
-      // 获取后缀名
-      var fileFormat = file.originalname.split('.');
-      cb(null, Date.now() + '.' + fileFormat[fileFormat.length - 1]);
-    &#125;,
-&#125;);
-const upload = multer(&#123; storage: storage &#125;);
-router.post('/img', upload.single('file'), async ctx => &#123;
-    console.log(ctx.req.file, 'ctx.req.file')
-    ctx.body = &#123;
-        code: 200, 
-        data: &#123;
-            filename: ctx.req.file.filename,//返回文件名 
-            path: ctx.req.file.destination + ctx.req.file.filename
-        &#125;
-
-    &#125; 
-&#125;)
-
-
-module.exports = router;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-
-<h4 id="请求参数验证-Joi"><a href="#请求参数验证-Joi" class="headerlink" title="请求参数验证 Joi"></a>请求参数验证 Joi</h4><p>访问接口时会先校验参数是否传对，如果对继续后面的逻辑，如果参数校验不对则会直接返回错误信息给前端。</p>
-<pre class="line-numbers language-text" data-language="text"><code class="language-text">yarn add Joi -D
-
-
-// /router/user/index.js
-
-const Joi = require("joi");
-const validateSchemaJoi = require("../../middlewares/validateSchemaJoi");
-const userSchema = Joi.object(&#123;
-    userName: Joi.string().min(1).required(),
-&#125;);
-
-// 用户注册
-router.post('/register', validateSchemaJoi("post", userSchema), async (ctx) => &#123;
-    // 注册流程
-&#125;)
-
-
-// /middlewares/validateSchemaJoi
-function validateSchemaJoi(method, schema) &#123;
-    async function validateSchema (ctx, next) &#123;
-      let data = undefined;
-      if (method === 'get') &#123;
-        data = ctx.request.query;
-      &#125; else &#123;
-        data = ctx.request.body;
-      &#125;
-      const &#123; value, error &#125; = schema.validate(data);
-      if (error) &#123;
-        ctx.body = &#123;
-            code: 400,
-            error
-        &#125;;
-      &#125; else &#123;
-        next();
-      &#125;
-    &#125;
-    return validateSchema;
-  &#125;
-
-  module.exports =  validateSchemaJoi;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-
-<h3 id="用户登录验证-koa-jwt"><a href="#用户登录验证-koa-jwt" class="headerlink" title="用户登录验证 koa-jwt"></a>用户登录验证 koa-jwt</h3><p>用户验证有3种方式</p>
-<p>1。cookie 2. session 3. token</p>
-<p>这里我们就以token来做用户验证。</p>
-<blockquote>
-<p>添加依赖</p>
-</blockquote>
-<pre class="line-numbers language-text" data-language="text"><code class="language-text">yarn add koa-jwt jsonwebtoken -S<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
-
-
-<blockquote>
-<p>用户登录添加token返回</p>
-</blockquote>
-<pre class="line-numbers language-text" data-language="text"><code class="language-text">//  /router/user/index.js
-
-var jwt = require('jsonwebtoken');
-
-
-router.post('/login', async (ctx) => &#123;
-    const userName = ctx.request.body.userName;
-    const passWord = ctx.request.body.passWord;
-
-    // 查询用户是否存在
-    await User.findOne(&#123; userName: userName &#125;).exec().then(async result => &#123;
-        // 如果用户名存在
-        if(result) &#123;
-            let newUser = new User();
-            // 校验用户密码
-            await newUser.comparePassword(passWord, result.hashPassword).then(isMatch => &#123;
-                // 如果用户校验成功
-                if(isMatch) &#123;
-                    // 生成token
-                    const token = jwt.sign(&#123;userName: result.userName&#125;, 'secret', &#123; expiresIn: '2h' &#125;);
-                    // 返回给前端
-                    ctx.body = &#123;
-                        code: 200,
-                        message: isMatch,
-                        data: &#123;
-                            token: token,
-                            uid: result._id
-                        &#125;
-                    &#125;
-                &#125;else &#123;
-                    ctx.body = &#123;
-                        code: 500,
-                        message: isMatch
-                    &#125;
-                &#125;
-            &#125;)
-        &#125;else &#123;
-            ctx.body = &#123;
-                code: 500,
-                message: '用户名不存在！'
-            &#125;
-        &#125;
-    &#125;).catch(err => &#123;
-        // console.log('result----err')
-        ctx.body = &#123;
-            code: 500,
-            message: err,
-        &#125;
-    &#125;)
-
-&#125;)<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-<p>:::</p>
-<blockquote>
-<p>添加token白名单 不拦截请求</p>
-</blockquote>
-<pre class="line-numbers language-text" data-language="text"><code class="language-text">const &#123; jwtWhiteList &#125; = require("./const/jwtWhiteList"); // token白名单
-
-// /const/jwtWhiteList.js
-
-const jwtWhiteList  = [
-    /^\/api\/user\/login/,
-    /^\/view/,
-    /^\/static/,
-    "/api/managerUser/login",
-    "/api/goods/getGoodsDetailsInfo",
-    "/api/upload/img"
-]
-module.exports = &#123;
-    jwtWhiteList
-&#125;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-
-<blockquote>
-<p>添加路由token验证拦截</p>
-</blockquote>
-<p>token路由拦截主要做了以下这几件事</p>
-<p>1.koa-jwt对每个请求头部信息进行token校验，如果用户校验失败就返回401，过滤掉白名单的请求。</p>
-<p>2.在路由中间件上面添加中间件，当用户token失效后我们就会走401步骤<br>返回用户token失效信息，让前端去重定向到登录页</p>
-<p>3.用户token都是有时效性的，当然时效性越短越好，因为没用数据库去存储token所以在项目重启后可能会有失效问题，没验证过。我这默认是2小时，当小于一半的失效时间时我就会生成新的token交予前端重新生成。也就是所谓的token续存机制。</p>
-<pre class="line-numbers language-text" data-language="text"><code class="language-text">// index.js
-
-const jwt = require("koa-jwt"); // token验证
-const jwtToken = require('jsonwebtoken');
-
-// 路由拦截器中间件
-app.use(function (ctx, next) &#123;
-  // console.log("ce0", ctx.header.authorization)
-  if (ctx.header &amp;&amp; ctx.header.authorization) &#123;
-    const parts = ctx.header.authorization.split(" ");
-    if (parts.length === 2) &#123;
-      //取出token
-      const scheme = parts[0];
-      const token = parts[1];
-      if (/^Bearer$/i.test(scheme)) &#123;
-        try &#123;
-          const decoded = jwtToken.verify(token, 'secret',&#123; complete: true &#125;);
-          // iat: 签发时间  exp: 过期时间
-          const &#123; iat, exp, userName  &#125; = decoded.payload;
-          const nowTime = new Date().getTime()/1000;
-          const lastTime  = (exp - nowTime)/60;
-          // 当前事件离过期时间还剩一半的时候更新token 如果过期就走401
-          if(decoded &amp;&amp; 0 &lt; lastTime &amp;&amp;  lastTime&lt; ((exp-iat)/60)/2) &#123;
-            // console.log('更新token0')
-            const newToken = jwtToken.sign(&#123;userName: userName&#125;, 'secret', &#123; expiresIn: '2h' &#125;);
-            // console.log('更新token1', newToken)
-            ctx.res.setHeader('Authorization', newToken)
-          &#125;
-
-        &#125; catch (error) &#123;
-          console.log("ce3")
-          //token过期 
-        &#125;
-      &#125;
-    &#125;
-  &#125;
-
-  return next().catch((err) => &#123;
-    if (401 == err.status || err.status === 301) &#123;
-      ctx.status = 401;
-      ctx.body = &#123;
-        code: err.status,
-        message: "token已经失效！！！！"
-      &#125;;
-      // ctx.body = &#123;error: err.originalError ? err.originalError.message : err.message&#125;;
-    &#125; else &#123;
-      throw err;
-    &#125;
-  &#125;);
-&#125;);
-
-// 添加token中间件
-app.use(jwt(&#123; secret: "secret" &#125;).unless(&#123; path: jwtWhiteList &#125;));<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-
-
-<h3 id="webpack生产打包"><a href="#webpack生产打包" class="headerlink" title="webpack生产打包"></a>webpack生产打包</h3><p>这里就做了简单的js打包，打包后的文件体积会变小，因为webpack设置mode为生产环境后默认就做了许多处理。</p>
-<pre class="line-numbers language-text" data-language="text"><code class="language-text">// webpack.config.js
-const webpack = require("webpack");
-    const path = require("path");
-    const &#123; CleanWebpackPlugin &#125; = require("clean-webpack-plugin");
-    const nodeExternals = require("webpack-node-externals");
-    // const MinifyPlugin = require('babel-minify-webpack-plugin');
-    const CopyWebpackPlugin = require('copy-webpack-plugin')
-
-    module.exports = &#123;
-      entry: "./index.js",
-      mode: "production",
-      output: &#123;
-        path: path.resolve(__dirname, "./dist"),
-        filename: "[name].js",
-      &#125;,
-      target: "node",
-      externals: [nodeExternals()], //node 打包可去除一些警告
-      module: &#123;
-        rules: [
-          &#123;
-            test: /\.js$/,
-            exclude: /node_modules/,
-            use: [
-              &#123;
-                loader: "babel-loader",
-                options: &#123;
-                  presets: ["@babel/preset-env"], //兼容es6，并添加.babelrc
-                &#125;,
-              &#125;,
-            ],
-          &#125;,
-        ],
-      &#125;,
-      plugins: [
-            // 清楚dist
-        new CleanWebpackPlugin(),
-            // js压缩
-            // split切片
-            // 复制静态目录
-            new CopyWebpackPlugin(&#123;
-                patterns: [
-                    &#123;
-                        from: path.resolve(__dirname, './static'),
-                        to: path.resolve(__dirname, './dist/static')
-                    &#125;
-                ]
-            &#125;)
-        // new MinifyPlugin() //压缩js
-      ],
-    &#125;;
-
-// packjson.js  添加启动指令
-
-"build": "webpack --progress  --config webpack.config.js",
-"prd_server": "node ./dist/main.js"<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-
-<h3 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h3><p>这时候我们的第一个koa学习项目页就可以走向结束了，项目中可能会有一些小小的不足，在后面更多的实践中我会慢慢的完善这些问题，也希望能与大家一起互相学习koa，走向全栈开发工程师的道路。</p>
+      <p>  	  	     		 <br>���Ǹ������ļ�                                                                                                                                                                                                                                                                                                                                                                                                                  \We    |  4@                  AYEGT_CQ Q<br>XTWVE      �      ������S����%�)�vۆA����Z{��7�Vy��C�N<br>�|��.vw�)H�30t� KW<del>P����<br>�&lt;��X��؁tk8������Z�؁tk9����H�:��)                                                                                                                                        �  d  h���d  f���d  d���d  b����  +      ����m  ����          V  s     ����s     ����s      �����   ��J?  	   �  �  	   �����     �����     �����     �����      �<br>  ��������������������������������X  |      �  �  ��������  ����  Ǟ]���qVXA�+O���S<br>5�9������DW-���������]��^ZG���������GŅ}����Ք���m��SW	���	筙���]��NET���N������T��OCm���i�Ȝ@q�j���Z$3i�쒑�8����<br>2J�$@gt���ʘ��S�(+di�”֚ƸI�Bm</del>?D�Kd��|�}QQM�.J���p+�q-fbP�&amp;z��ݕ���BGd?J�Kx�W&amp;�ь�(‘I7�(��<br>5K�CEp&lt;f�Hqʒ�:{,�r&lt;IwR�2c���R�&lt;pY8��҂6K�BbJ?A�Mj�W�5D�BuY?JϤ�<br>	ָI�)Ah@7b��W�<br>6H�4CER&#x3D;b�Kq���6}+�r2MdR�\���P7�RF;���7I�@mv;^厡mP!�&amp;lQ8�(<br>��#H�CE]1I�JQȘ�9�D�Ae_&gt;Q�JT��3|�qjdF�5o���S�’2LT;� �ށ70I�?N}o0^�Hn���}0�sk^G�2g���R3�.3dp9�%���5�i|d@q� r���R#5�#HX:�<br>���C�OBi1Y�Hb��p&#x2F;�qu}c�4n���]?����8��̓��՘��6�5���!!E�4@gt��ˀ<br>��3<del>2�{qah�</del>���S%�&#x2F;6^B:��Ã.C��LZ8��ʁ (H�+@iX������忒�@��xC;���!K�:Akw&lt;e�IqВ� ���6Kt;��׀&#x2F;K�8CEp&gt;s�KZϑ�})�r7P}c�S���R�)2LT6�7���	J�Aua&lt;e�GKǐ�|�pBLv�&amp;Z���Q#�)2HD6�	��m����Ә���H�ʛ��P#�5kv8�)���!�CpbWq�’a���P7�&#x2F;������^Ե�������q���\9�	f_:��G����ƍ���H�ʘ��P��NE6�8�^WG���CrDUp�)@���R(�”^y9�(�߁&lt;?D�OzZ&#x3D;i�Ip���|ǴAua0a�Gm�����CEN&lt;<code>줓	����̒���4��QXGS�/u&#125;;� ���.��ϒ��	ʏY ƒ�L��xC;���2K�5@mv?E�KW�WG��� ��������	��i���PE�P���S�.4^y9�( �ق �C�Ü���ݏt���C�Ɖ�����tXH�&#125;$�qG</code>s�9^���R6<br>�!kv;�;�^W<br>����М���mÁ����˘�����tXH�}$�qGoq�:[���R<em>�	MM�G�����Ô���۞m���Cq&#x2F;fcd�3s���]-(�.7^y9�(<br>�ق<br>�C�ԉ�����Ǹ��Ӕ���H�ʛ��P#�#uo9�<br>�ր%K�:B@e��G۞�����݅����tXH�}$�qG���H|����s7{Cp�^WG�������&lt;f�FL���|�rvwK�)@���S	�������	��i���PE�P	���r.nT[�8m��ѿ�� ���ί�ދI�����Ӛ��Ίt}�<br>J�”B}i&gt;V�JQҐ�</em><del>$�s&#x3D;yCp����S(�0 wl;�,��m����Ә���J��J���i��������<br>m���C������ϙ}G���N�ʔ���ً���C��Ђ��˘tWG���N�Ӝ���m��^WJ���<br>������G���C������	ʏY<br>ƒ�C������́۶�������J�����M�ȓ���IętՒ�i����&#x3D;V�KQ��</del>0�q-\��6�7���5J�CF=n�Keѓ�}$�qG����2g���Z$ �zp;� �Ƃ:7H�1OSO1I�Hv��}5�s&lt;SeK�l��忒�􇗃��H��Ͷ���������G����Ҕ���EŅUN����ԉй���^¸�����ҿ�������ݓ��G��^m���C�Ӆ޺���CWE���ۇ�t|�d���R������mϚY���������N��t}H��I�;BwX��Hv�������б�˒P���L�OSO1I�Hv���I�&lt;AH0y�Ks֒�}1�rrfM�+O^W����Ȏ���W��tՒ�iq7RRv�2g���P”�6Kt8�&#x3D;��� D�BdX&#x3D;n�FiÐ�&gt;}$�ȅ����(��Տ<br>H�+@iX���Ȗ��S ”�6Kt��<br>���D�O|&gt;V�K<code>��7��@���oe�$J���RC�Ȝݪ�ڏ&#125;mS=�/</code>V;����?9I�&amp;@F&gt;N�KQĒ�|�{qZ}�a���S5	�+”HU;���&#x2F;I�%Ae_0i�I<del>ϐ�&lt;�p{dR�s���S&#x3D;�&#x2F;Mg9��J�����J:��t���i������۞H���쉗���H�ʛ��P	��Ђ��˘t���C��������^����ڛ��J܅ǿ�X����&#x3D;b�Ko���D�;@iA&#x3D;q�F[�}����Ҏ���Z�����K��҅����Ͷ�������	ݞ^��^�՘�����YYH����Γ���IęY^m�����������^����������<br>X����͎���mͅ���������Z�����K��ғ��ɅH���쉗���\������Ȝ���G܏���D�����������	�����	ݞ^���^�՘�����YYH����Γ���IęY^m���������G��������ߵ�	�����	�����	ݞ^���^�՘�����YYH����Γ���IęY^m��������� ˘+Ǹ�C������PX<br>����ը���HǄ���D��������<br>�����Ъ�ۃO����ӏ��������	�����H�<br>��&#x3D;J�$@gt��ڏ��p˘���۞G���㇯�����WLm���CrFR</del>�E���R6<br>�!����˘Pа�L�ה߭���RW���M�Ȉ���O��t����Ҏ���H؃ @���<br>��ӂ��˙V^N����ޭ���Qܷ��Î��� ��I�����������<br>�����ґ��H͋<br> ���D������ ��Y������Ҭ۞I���K������ކ����˒�����<br>���i�Ȉ���Iۙ_@���<br>�Ո���K���������m܅Ƕ���߹�������Ɉު�ڏ<br><em>N����Ә�����YX���˘�����Y������Ҭ۞I���K������<br>τ�����е�	ύ2���M�Ȉ���O��t����Ҏ���HϚX���<br>�҉���GϞ<br>����Ւ�����W}m����;wb6�<br>��m�����ӕ��ܞ<br>WZ������������\ �6hw:��݂)I�<br>BXM?D�GKǐ�<del>:�pKCj� O���P�.!LT;�,��-7J�ORe?D�FE��8q0�||wb�+O���Q!$�0&#x3D;Gw9��Ώ9C�BRL&#x3D;[�JR���p+�qLol�e���P&#x3D;�#@i6�”��5�ir)X&#96;U�3O���Q# �$lX6�&#x2F;�ف!!�<br>�޲��8m���Q “�(1vA�˘���Ri�ǝ���m��^X���戈���HǄ���i�Ւ�����O���<br>������ׄWO���J���У�G��^Ͷ���������^WG���C�ș���U��R}G���C��ݝ��ύMG�p�}0SPN�$uY}G���������H��Ͷ���������G����Ҕ���EŅUN����ԉЪ�ڏWZ����Ώ���I����<br>�Ø�����EWH��D�;@iAҽ��<br>W��^�ɘ�����WLm���CrFR</del>�E���Q �Kn�ޚPа��Ә���۞O�����Ղ��˘P����ꘄ����W^\����Ҏ��ׄW���^������G��<br>I������Ұ�¥^W�:D�C@O?J�ŅUmȱ�i�׍޴�ڏ_T���J������m���”.I�<br>Aua&lt;e�Gm��}&lt;�q-U����2g���P”�(+^g7� ����������HϚX���L�Ύ��;��ʏ;&#x2F;I�ĉ���ʓ���P)�:J^&#x3D;�,����P�+&gt;wT8�?�ۂ*K�BSn?P�JP���}�s&#x3D;ytr�j���S	�J^&#x3D;�,�ރ<br>I�%Ae</em>&#x3D;P�HΑ�}�} qE|� ]���S<br>�	@i;���I�Br@&gt;K�HgБ�8}&amp;�p{X\mHrѓ�8<del>4�qu{L�?H��濒�@��eh8� ��)I�5�����ʈt}mS<br>�	JK9�*��0&#x3D;H�&#x2F;O[q&gt;F�Kk��3�H�&gt;APU1t�AV�}�4H�OBn&gt;P�HΑ�}�{qtr�f���P#�}v�ʏ��p�{qah�’M���S<br>�	JK8�#��5��ɚ����U���R(����6��҂;#I�@gt&gt;A�FEܘ�9����xA8��Ȁ!0K�Ԍ�0q�Ke۔�7���)4tn8�!�݁ (J�:BGc?W�Hjٞ�|�p}xi�f���Q#,�-&#x2F;Qa9� �ڃ’K�&lt;CFp&lt;g�HΑ�}�}$@D^�k���S�&#x2F;Qa9� <br>�ق<br>K�AjF&#x3D;^�Fj���$}$�s&#x3D;ydR�</del>������������t��<del>4�q”Nke�0a���Z$ �qB:�.�� (J�:BxC0_�Hjْ�6�p}bE�{���Q &amp;�zx7�,<br>�߁I�@iE&#x3D;K�AV��$p2�{qw_�&amp;R���P�0]Q&#x3D;�,����\2�Cc;�%<br>��<br>�����eh8� �׃<br>“J�$Ap^?e�Ht���}&amp;�qgWF�f���R�,)HX:�5�ҏ(K�5@mv7b�Kg��w�q	eeO�ct}�H�BYj0q�AV��$|�r:XPE�P���Q# �#eh8� ��)I�5BmW��Y��̂?8H�	OHf��Ί^��L��Gc;��� ��Փй������<br>�Ȓ���G��tՒ�i��xC;�� ���r1zchm��G�������&gt;i�K<code>������f_:��^WH����Ǝ���	ʏY ƒ�L�AJK=T�Å���i�ȓ��� �����^�՘�����Y���������H��ǁ86I�OSO1I�KvΒ�5���ԉм�G��\���������P��PGI����ʜ���H��׸C�Ar</code>&lt;&#96;�KfǞ�8</del>:�pKoq�n���S�’2LT;��҂<br>3E�Ba@&gt;Wَ�ǎ)D�ORK&#x3D;Q�Ip���2|՞Ē���GɆG����ֈ���O�����i�ȓ��������C��Ъ�ۃO���������H���I�Akw&gt;�HBߒ�:���ȏ�����<br>$�����й���^<em>N���C�����ًG���������O܏<br>���&lt;�Ô���<br>��^PI����ʜ���@��TY<br>ƿ�J��������VN���C�����G��^�������G��^mȒ��ג���Iͅ��^������G��^WG���C|cV{�;Z���P”?i���е�	Ʌ���<br>�����tWG����ҏ�����.���������؏RW��� ��������^WG���C���oe�$J���S�.4fu;�.<br>��%4H�CFF��G��^WG���<br>�Ȓ��������<br>�ȓ���݉	���������G��^m���C������G�����M�Ț��8��قJ�9BAp��J��SZJ���N������G��^WG���C��������Y�����Ք��m��^WG���������G��^WH��J�&#x2F;BwP&gt;K�HgВ�&amp;}&lt;�q-UCO�&gt;F���Q#i������G�� ����Ē���ڃI���D�ט���G��^JY��C������G��^W�����Ӝ��O��ǁ86I�OBn&gt;P�SZJ���N������V��tWG���C������<br>����� �ɓ���OʈW}m���C������G�����K������G��^W���C����ңm��QW����͎�����������Ȏ�&gt;H�JQ�}m����Ț����&amp;w���P:i�ȓ�����	���O�Γ���Ə��^�՘�����\YH����Ǝ���	ʏUN���K�Ԅ���O��CIGΒ�C�М��������X��ݑ��������ʜ���\��W_N�������&gt;V�JQҞ�8}&lt;�r;pR�&gt;d���]�+9<del>};�� ��΅}v;�&#x3D;��	���������\�6Kt6�<br>���&#x3D;(��}v;�&#x3D;��;&#x3D;I�A]G��D��^��}&amp;�|Ji\�!h������<br>qyHXGŅZ����Վ���m�ʘ��P�NE6�8�tո�������	��G���N�ș���ݏWJ�������8�������͎�Ҿ��<br>����ԉк�׺��^�՘�����\Ե��ލ�����WLG����ֈ���FEɑ�7����Ӆ��O̅7��������Ίt}D���� xo8��ԃ<br>&amp;H������D��̂?8J�$CCm0k��tո�������	��G������ݜ�Ίt}Y�}$�qG��� ��<br>I����AUQ&#x3D;@��tո���������	�����Ъ�ۃO���<br>�Ȓ���N��	��0�Ϙ���Z�� ��������������	�ĉ���Z�����7�ט���ď.ѣ�L����������^�՘�����Y�������ҽ��<br>W4���&lt;�读��&amp;��1%G���S�������’g���R�Qp8���m���������4͂���<br>��ݣ��ËVm���C�Ԙ���]�����������ݏ9���C�����G��^	���������K��^WG���C�ލ���4ژ ���C������G�����������	��tWG����Ӓ���4ژ ���C������7ϙ<br> ���C�ӏ���K��^WG����Ɛ���4ژ ���C������ݙDW4���<br>�����GǙ&lt;��C�Ȓ���	��^WG���������	��tWG����Ɖ���]��tWG���C������]�����C������ˌ���’�Ә޶���R}G���������ϙ<br>;���”��݋��G��^WG����ݴ����^WG���C�Ø�����^3���<br>������G��^<br>K��i����&gt;q�HFߒ�-}.�r0K[c�k���]9 �(+zx9�&gt;�ׂ�����ËPа��ј���ۄ���K���m��^W���������V$&amp;���4������$��,[O���O�Ƒ���Y��^WG���C�Λؽ������C�����tWG���C��������ݰ���Ӏ����K���������ϙ^Z��C������G��^WӰ��݂��܄^��������G��^WG���C�ϔ���݂.������а���^WG���C������֞V^m���C���Х�m��^W���J�����8��׏22I�CDy&gt;H�HY�}���0�Ϙ���<br>˞Ƹ�C�����H�ʛ��S78�;!PY:�.�Á5?�C��ݓ��Ϙ’���������ϙ<br> ���C�Ǝ���ݝ���]������G��^W���������7܅а��Ԓ���K����C��݋��G��^WG���C����&#x3D;q�HE��3�r1DkKm��^WG���C��ݒ��ޞP���񏢀��مK���������܎RWO���O�Ύ�����^JY��C������G��^WG���<br>�ܕ��N�����K�԰�����t}G���C������G��^W��� ������m��^WG���C��ݍ��G��^WG���J��������tXH�}#�q</del>p�0at���������CW<br>����Ԙ޵�ˆVP2���D������4͂��������8��׀!0J�#AsU&#x3D;QĤ����୞�������C������܏VP����҉���N��	���ɚ�����^����ڝ�� ��<br>@�����������CW	��1�҉���N��	��6����˛а�M������ڋз� ����˘Y^m���Cs3UPi�B������ި���YX�������ݓG���������m��^W����Ҏ���Ï^JG���M����������霝��m��^W����ל���܎^JG���M����������𒂼�m��^WG���C������^¸���Ջ��G��^WG����霝��m��^WG����Ԏ�����^WG��i������؏V^m���C�ӕ���O܏<br>^G���������G͞Y���C������G��^WG���������m��^WG����Ԏ���]�Ș��P� xo8�&gt;��E���C���Х�m��^W���C��ӓ����VǱ�^������G��^Ͷ�������m��^WG��� �Ø���W��tWG���C������ɏDWES&#x2F;�Ti6��^\G���O������G��tWG���J������m܅Ƕ����ߴ���RW��� ������G��^m���C���dK�+O�<del>�q9v���G��QW����򎕪�G��	���񉐟����+ǿ�X��������<br>W���C������˛����Մޭ���W@���C������GKb��� ��������G<br>W���C������˛�����Ӏ����WV���C�������&amp;l���S7#�5eh7�!�^WG����˔���G���������ʓP���C������G��^XH�|�p}t� ]���Q%!�)	����Gͅ��������ɏ^ZG����ʔ���G��^XH���<br>�ȑ�����^������Ѝ���^P2���D������Gͅ����ˉ���Gϝ���扛���O��ְ�i��������<br>ж�󏏕����^P���������G�������У�G��^WG���������W��^WG���C�Ü���G܏<br>����Ę��ɏSFN������Ш� ��<br>��O������G�� Т�������G��^WG����݀����^WG���C������Ã<br>[m���C������G��٢��Ԉ���˄���C������G��^W���3������ܙ&gt;	����ґ�����<br>G���<br>�Ή���G��^WG��C���Х�m��^WH���쉟���G���������ʓE}����È���֚Ƹ�C�Ȉ���\��m�p�r0KXG�&amp;{���P(�#KW;�7�ʃK�<AuG>i�K&#96;ޑ�}#�psLv�&amp;]���]9�{&#x3D;�,�׃<br>“K�&lt;AuG?D�KE���4q0�||gC�l���S&#x3D;�&#x2F;lp6�7���!0H�Ş���KdŒ�&#x2F;|�q-]CN�$J���Z$ �$iI;�������@gt&#x3D;T�KE���|�q(RXX�4n���Q#	�6Kt6�7���!0H�ל���܎���P3�;!PY;�4��<br>I�D}r��Y���2J�CF&lt;c�I</del>֓�3���ʜBZ�)@���Q!%�CM:� �<br>��̈́#bq;�&gt;�ʁ (�i��݅����<br>Զ��ϒ���mKz��pƴԞ����<br>��	K���������58K������<br>˄<br>W�#I�4CEp&lt;f�KD���&gt;~:�rh���J������ʜި����������ʜ�&#x3D;p�JS���5|�q.pep�&lt;C������񇕟��N��]TD�}�q”X����j���P � J:��tTD����0#&#96;^6���”6E������Jͅm���􇉕��m׋G���C�Ȝ���ܙ^Z#���L��������<br>}����̒��ܙ^JG����՘�����S��J�����7�#<br>�ُ0I������Iۙ</em>��� �Վأ�G��^���<br>������m��^W<br>��������G��^���.�ӕ���]��Y0”῀C������K��.”3���D�Ⱶ��@��Y87���-ǀ����G������Ø���G��&#x3D;	����󄀽�K��?���<br>�Ɖ���@��Y6���������N�����@����&gt;i�K<code>ޞ�,~,�r1zch�5D������ԉ��������ୄ���GώW����Ɖ���J��t&#125;H��� �޲�m������􉑬���^����ߛ��Jݞֺ�X����1C�Hj���&#125;��ƍ��������������E��E&#125;���i�������Q�������̔�&gt;B�K</code>�W����Ŏ�����tո���������G����И���ŏ<br>WJ撦L��������<br>}m���������́G����Ҕ���EŅZ����̘���\��QW���������s���P5��lX9�������T[�<br>St���C�׍���ˈ<br>���K�Г���WLm���L�BFJ?u�݅�p�r)X�����<br>Y����ޓ���ڒWWZ���i��������	�����ݙ��ʎG�����ݓ��˒<br>WƸ� ��Ӈ����ն�C�ĉ���̙���ə��8�?�؁)I�5BdX��\��^Ͷ��Ԓ�����<em>E���������ۄ���K������}G���L������Ï<br>���C��ݓ���� ����Ԏ���Iڅ-���K�҉���E��tWG����Ԓ�����VU�:J�#@V</em>&#x3D;Q�Hwۑ�&#x3D;<del>-̶�ݝ��N��^W���������m��]TD�</del>�q-]����6X��ƿ��􇉕��m׋G���C�Ԏ���m��QW����͎���	ݞ^Ƹ�C������PX<br>����М���H֙<br>Y<br>ƿ�C��݈��m��I���K�Ԏ���m��QXG����˘��������i�Ē���G֙<br>WZ����Ώ���ݙ^\���C};}<del><em>G��W�����݈��G��t}����ߎ���	ʆG���J���У�G������ޓ���ڒRW	���J���У�G��^̸�i��������<br>G�����ݓ��I܏���Ä���G��^W��K�ȓ���˓^	����݋��G��^WG���C�ӄ��������ɇ����Eݞ	Һ�C�����G��^WG����̘���Z��<br>O����̘���\��^WG���C�����G��tWG���C���<code>^� p���S/�������^WG����Ήж���WLm���C釞�������C�����G��QW�����ӕ������i������Ƙ G��������G��^W���X�������������݈��/τǣ�������D��^��%�r1zch� n������ʈ��������ୄ���GώW����ˉ���J��tXH����҉���ކ�����Ӛ���� G���������˛а���Ђ��˘Y^\����Ւ�����^¸��Ә���\������Ә���G܏���D�Ȝݵ�ڏPN���L�Nx&#125;?cɤ�����՜���Z�����Ԗ���ύ_���C���]S�D���R+�,-Lx9�* �ق �C��ݔ��Ǆ���C�ғ�����VĴ��˘�����&#125;G���C��ݓ����Y���D����ڃ@���C���л�O��K����Ӕ��� ύH���C��Cp8�!�؂I�N\K=s�Kv�&#125;G���������H��ɀ&lt;H�CAP=p�Hb��8&#125;=�q7p���G�����������ǅWO���O������G͈WW���C�����������������	χPN���C������� ]���P&quot;�(&#39;</code>U�G��^WG���C�Α���Ë<br>WZ���񉒂��������˔���I��E}G���C�ğض���^3���<br>������G��YWL����ᒂ���������Ӝ�� ڂ^ZG�ŅX������K��WLm�����������CW<br>���揆Ы�܋]����ƚ���N�����M�Ȏ���HǇPK����ƙޫ�	Ɇ</em>@������й���^͸�]������Gͅ�����Փ��I܏Y���O������˛P���J��������̸�C�����G��^���C������G��^WG������У�G��^WG���C������	χMG���M�޾���������0a�Kq���2|�q7p���G��^WG���C�ל���G͞Y���˘޼�ڃ���C������˛P����˘�����^WG���C�����G��t<br>N����È���֚Ƹ�C�Ȉ���\��m���@��_o8�,��� (E�ORq����t��<br>q;�r)XW}�9\���P$�4ZT;�,�ǁ-7I�2CAP&#x3D;q�AV��7</del>2�qDcy�G���\�#pc6�?���J�Brr&gt;K�HJߞ�9|�qDPG�p���S	�+3kF7�7�؃<br>9J�;@Fi&#x3D;W�IAє�7��i�ǝЬ���۸�������J��t}H����҉���ݏX����͎�ҽ��<br>W-��^�՘�����\ܺ�X�Ē���G؋���0�Ϙ�����CW���<br>������H��Q����Ə���φ��� ������E}����Ҏ���ƏG�����������}G���������4����ɚ���<br>ǄVFN����Ώ���N��^\���L�@iX&gt;V�HY֒�9���Ә���ݞVPH���<br>�Ә���G؋���0�Ϙ�����\��O�Ҏ���ƏN����ɞ����^JY��C�������B���S–�&lt;,����m��QWH�������������ĕ���-��t���<br>��݆��ʋ<br>4����풙�ڂK����ʜ���m��^W��� ��������^����®���<br>��Vʹ�<br>�߉���m��^WG����Ü���Z����������G��G����ș���Z�����������G��Ը�C�Ӆު�ۏ<br>I��������G��W���C�����G��^���^�ĉ���ߟ��������G��}G���C�Ē���G�����C�Տ�����^����ќ���ڏV���X������Gǌ^_���������G��^WG���M�ș���G��^WG���C������ʏDWS���i������G��^WG��������G��^<br>\���C��ݍ��ݏ^m���C���ж���WLm���C������G��tWG����ҏ�������ʜ���G��tWG�����ӕ��ܞ<br>WZ����Ι���4͂���X�ǝ���D��^��<del>$�s&gt;FeK�f������͊��Ԁ:B���\2 �;&amp;lQ�	g���P$#i��pZ���G����Ԏ���G��^���i�OBi1Y�Hb��}�pX�����҂4K�&lt;AuG1t�FE���7��]�AJK&#x3D;T�JT��#��i�ǝЬ���۸�������<br>ٞ^����Ӓ���G��tՒ�i��dp8�<br>�̂<br>J�&#x2F;BwP��˄���P2i������˒<br>}H���L�Ȉ���HۙH���쉗���Ϙ^���C����������Ȗ���N��t}���才���O�� ���O�Ǝ���G��<br>N���C�������<br>G����Ɛ���G͞Y�����Ӓ����<br>�����������<br>G����ȏ���G͞Y�����Ӓ�������������G��^��p�s3UPi�6E���P54�����Gϝ���扛���(��VG����Ɛ���ݏ9���������O��<br>۰��ɞЪ�ۆ<br>WZ���i������G��QW�J�@iX&gt;V�Kz��-}0˞�����G��O������У�G��^WG���C������	˝+Ǹ�C�Ѝ���WLm���C������G��QW�9E�@iX&gt;V�KE���4��C������G��^���C���������3�Ԏ��������������������В���IڂO����ĕ���G��^WG���C������G��QXGP&gt;.�<br>;dp8��֎J�Bwo��G��^WG���C��������<br>:���J������G��^WG���C������G��^��*</del>$��Ȗ���G��^WG���C������G��^���C�Ȗ���Z��	I���<br>�܈���)χMG�����Ӆ��������ď���K��^��������U��^<br>N���C������G��^WG���C�����6�:��I�@V_��G��^WG���C������G�������У�G��^WG���C������G��^WG���������W��^WG���C������G��^WG���C�ʘ��� ��^��� ������G��^WG���C������G��^W���Y������G��^WG���C������G��^WG����̘�����K���C������G��^WG���C������G������ґ�����^WG���C������G��^WG���C������G��^WG���C������G��^WG���C������G�����������G��^WG���C��������̸�C�����G��^WG���C������G��^���C������G��^WG���C������G��^WG����ƚ���ݧݒ�C������G��^WG���C������G��^WG���C���Х�G��^WG���C������G��^WG�����݋��G��^WG���C�ĉ���ʓ^JGΒ�C������G��^WG���������W��^WG���C������G��������Lv�&amp;]���Q !�9?lp1�&#x2F;�tWG���C��������^WG���C������������������^WG���C��ݓ����Y���D����J��Sǿ�i������G��<br>I�����݋��G��^WG���C�Ē���G��N[m���C������G�����Y����G��^WG���i���Х�m��W}���Y�������Q�������@dM&#x3D;N�Kg�W�<br>J�2AuZ0q�H[�}m���C��ҽ��<br>W����ϔ���ݞ^<br>G����Ҕ���E��	��	�Ӫ����<br>E���L������	IsÒ�8}!���������<br>H���4�Ή�����m���<br>��ݚ��0ƃ<br>+���C��ݫ��G��Q);���<br>Ȉ����;��۷�i������;�����C���߆�Hݞַ�i������ރQ����򎕪���E���C���߹���Ʒ�������#˞���������G��Qܷ��Ȝ���<br>��t<em>m�����ӕ��ܞ<br>WZ��C��ݚ��0ƃ<br>+���i魝���m�ʘ��P�#di�ŏ��9p�r,[Ptm���p�s3LSx�&amp;@���]&gt;-�&#x3D;J^:����<br>I�4CFF&lt;d��OY���	��_a8�!�ݏ&#x2F;J�BYD1]�JUߑ�p�|q�����֎C�B[r&gt;@�I<del>֑�</del>�}<br>q|o�O���]’8�9���1�”���&lt;J�@dM&#x3D;N�Kg��1p�rX\m��P��p�s3L<code>s�9^���Q &amp;�	Gc;��ڎ&quot;,H�&quot;HA|=c�I~֑�����Ti8�&amp;���=	H�8BMA&lt;b�F_�CW�~�&#125; Y�0a�Kq���~$��Ȗ��;���� 9J�;HA|0p�Kc��&#125;&quot;�&#125; pvD�&gt;&#123;���R�)2Qm�m�ę��S�̘�1]�Hrё�&lt;~;�r2uXy�4n���P%?�gn8�&amp;�ЏK�9OKz=&#123;�AV��|�r\Lv�;Z���P&quot;?�]@;���~%�pXDv�S���\!�</code>V;��ʃ	J�BYA&gt;K�G}О�-w�r\rR�k���V.�6OA7�6�Ӂ-7��$(gn1�”��H�CEp&#x3D;S�Ip���~9�r0KOj�9\���P(�(&#x3D;dG8�&gt;�ǀ&#x2F;��bz�b���R3�</em>fh9�1��5H�BMA&gt;F�Hc���&amp;6��Ȗ��9���)”I�”D}r��mΊW���i��ݙ����m���<br>��ݚ��G�����������<br>ٞ^\���C�Ȗ��7�”��m���������ŏWZ����Ώ���<br>݅ ���������m��^��8�r,[Pt�7B���\�&#x2F;����Iۙ_����ȓ����^��C�����Gͅ������һ�W��^Ͷ��Ø���ڂ���<br>��������VͶ��Ø���A��<br>I�����ӑ����<br>���<br>������G������ӎ���ڒP����ƈ���ǐ����˔���G��E}G���<br>�Հ����	���C������G��^WG���L�Brf&#x3D;Y�څ	���C��ݓ����<br>���C��������#Lm���C��������۸�C�Ə���V��tWG���C������%ˋ���M���ƏN���i������G��GΒ�C������G������ș���Z��	3���<br>�ј�����۴�D����@��^������Ь���^\���C������G��^����9I8���G�����O_8�1���”,�C������G��	���Μ���֚RW���-�ʘ���G������ל�����tWG���C���л�	ݞ^�����ж�������ө���O��OGW���C������G��	���ԉ�����CWO���C������ÏWXQ���C������G��QXGP%?�<em>JS:�<br>�̏<br>J�AjF1I�FU��|�q</em>wBZ�9\���S�����	����+D�Aao&#x3D;n�F_�CW���C������G��_���������W��^���<br>������G<br>3���_��Օ��Jǋ<br>^H���L��݋��G��^WG���C���л�	݅I���K�AfD&gt;H�څ	���i������G��^WG���������ŏWZ����Ȗ���Ǎ_����Ɛ���ݏ9���O��������RW����՘���]��L@��X������G��^WG���C�ȓ�����O�<del>7�r1M�����Y[G���7�̘���G��^WG���C������˙P�������ڂ���<br>������پ۱�C������G��}m���C���Х�ϞG������У�G��^WG���C�ȓ�����O���P������G��^WG����̘�0a�Hv�Wm���C���Х�G��^WGȒ�C��������^W���������O�����K�Տ���Y��tWG���������Z������ҎФ�G˘Y��������T��WW���C��ݓ��IݞƸ�C������G��^W����Ä�����^WG���C�ș���ܘP���������G��^�����Ҭ�˄���R##�0eP1�&#x2F;���	C������G��Lm���C��������̸�C����]��I����ɜ�����^HG���M�Ք���¯Ƕ��Ԝ���]��I���������G��^<br>G���������G��<br>��������G��tWGȱ�i�����H��̂?8��<code>s�9^��ѿ���Ҏ����W������ҫ�܏ UGȱ��˘���������𕙬�+Ǚ W���i�ǝ���D��^ ��� �@io&lt;d�Hc��0���+&gt;wT;���K�Bpe?D�ę���P)�(+yK;�+���/J�CFF&lt;c�IMѓ�/&#125;#�qrdR�5J�������Ėv</code>�D�|�s3bby� E���P”�&#x2F;?^|;���D�,BYj&#x3D;z�Iz���7��i�ǝЬ���QXG����Ė޻�	ȃY<br>ƒ��ԉЯ�ދG����Ҕ���Eُ��J��������<br>G�����݂��ǘ_E���������G�����C�˘���̚�����ݍ��G܏���A�˘���ˈ޵�������\��^WG���������”֞	���C������܏VU�����О������������G��QXG���������׺ ���^�՘�����Y���N�Γ���Jُ���Қ���N��^WG���<br>��ݳ�������������G܏���D�ȍ���̚����Γ���m��^W<br>���񉘈��ڙ^JGΒ�C���н�ܓDWE���<br>�޲�E��^WG����Ø���܅���<br>������G�����Y������G��^W���Y�ל���˙а�&lt;�Ώ�����\YH���������G��^WG����Ɛ���E����������G��[m���C��������^U	���A������G������ݫ��˯����ԭ��H���</del>%�q+xWq� Q���Q ,�.&lt;]<del>;�$�^WG����È���G��^WG���C�Ո���]��tWG���C���У�G��^WG���C������]��”Y<br>Ƽ�O������G��^WG��� �ҙ���H��8�������G��^WG���C������G��^WG���C������G��^WG���C������G�����Y����������O������G��^WG���C�ȍ���	��^m���C������G��^WG����Ԙ���G��&gt;���L�՘���J˄U:���Lq”Avg�ܑ��P!�#zx�ψ֒�C������G��^WG���O������G��^WG���������G��^WG���O������G��^W���C������:��^WG���������G�� ���Y������G��^WG���L��H]8�4����C��������&#x3D;����ל���ۍO���C������G��^WH���q)vdwm��^WG���C������ކ�&#x3D;K������G��^WG���L�BY}&#x3D;V�Gw��47�qh���G��^WG���C�Л�׽���3�Қ�����^WG���C������G�����������G��^WG���C������G��tWG���C������G��^WG���C������]������ˋ���8ʃ���C��҃��ǉY^K���C������G��^WG���C��������ݶ��ȑ���8�	���O���߼���<br>���D������G��^WG���C��������^WG���C������G��tWG���C��������^WG���C���ж������������G�ś��R$	�����G��R}G���������ω���	��oe�$J���P� K|�m��Ѻ�C�И�����SZ����Ԏ���JͅҸ��ל����� ���A��߀��8ݏǺ�C�ɒ���I�����<br>������Ίt}D����KK�mFU��},�r&#x2F;lcr�4n���Q ,�,<br>���;��׎!K�:N\E&#x3D;n�Keѓ�p�q7lcM�3u���Z$ �5kv:��؏6%H�Aay&lt;f�JP��:}�s&#x3D;y&#96;S�Y���P�)mz8���&#x2F;I�<br>OJE&lt;f�Hb��&#x2F;</del>)�r”_BZ� f���]’5�.&lt;gv7�6���I�Aak0]�JR��}�p}mi�x���P5<br>�-���1�”�ǂ%	I�&lt;A]x&#x3D;b�Ke���quBZ�&#x2F;y���V.</p>
 
     </article>
     
@@ -1128,7 +428,7 @@ const webpack = require("webpack");
     <div class="article-catelogue--wrapper">
       <div class="catelogue catelogue-1">
         <h3>目录</h3>
-        <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%88%9B%E5%BB%BAkoa%E9%A1%B9%E7%9B%AE%E6%96%87%E4%BB%B6%E7%9B%AE%E5%BD%95"><span class="toc-number">1.</span> <span class="toc-text">创建koa项目文件目录</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%88%9B%E5%BB%BAkoa%E6%9C%8D%E5%8A%A1"><span class="toc-number">2.</span> <span class="toc-text">创建koa服务</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%B7%BB%E5%8A%A0%E8%B7%AF%E7%94%B1-koa-router"><span class="toc-number">3.</span> <span class="toc-text">添加路由 koa-router</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%95%B0%E6%8D%AE%E5%BA%93%E6%9C%8D%E5%8A%A1-mongodb"><span class="toc-number">4.</span> <span class="toc-text">数据库服务 mongodb</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%B7%BB%E5%8A%A0%E8%AF%B7%E6%B1%82%E5%8F%82%E6%95%B0json%E5%A4%84%E7%90%86-koa-bodyparser"><span class="toc-number">5.</span> <span class="toc-text">添加请求参数json处理 koa-bodyparser</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%94%A8%E6%88%B7%E6%8E%A5%E5%8F%A3%E4%B8%BE%E4%BE%8B"><span class="toc-number">6.</span> <span class="toc-text">用户接口举例</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E6%B7%BB%E5%8A%A0%E6%96%B0%E4%BE%9D%E8%B5%96"><span class="toc-number">6.1.</span> <span class="toc-text">添加新依赖</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%BC%95%E5%85%A5koa%E4%B8%80%E4%BA%9B%E5%B8%B8%E7%94%A8%E6%8F%92%E4%BB%B6"><span class="toc-number">7.</span> <span class="toc-text">引入koa一些常用插件</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%A4%84%E7%90%86%E8%B7%A8%E5%9F%9F%E9%97%AE%E9%A2%98-koa2-cors"><span class="toc-number">7.1.</span> <span class="toc-text">处理跨域问题 koa2-cors</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E6%B7%BB%E5%8A%A0%E9%9D%99%E6%80%81%E6%96%87%E4%BB%B6%E7%9B%AE%E5%BD%95-koa-static"><span class="toc-number">7.2.</span> <span class="toc-text">添加静态文件目录 koa-static</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E6%B7%BB%E5%8A%A0websokit%E6%9C%8D%E5%8A%A1-koa-websocket"><span class="toc-number">7.3.</span> <span class="toc-text">添加websokit服务 koa-websocket</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E6%B7%BB%E5%8A%A0xss%E9%98%B2%E5%BE%A1"><span class="toc-number">7.4.</span> <span class="toc-text">添加xss防御</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%9B%BE%E7%89%87%E6%96%87%E4%BB%B6%E5%A4%84%E7%90%86-koa-multer"><span class="toc-number">7.5.</span> <span class="toc-text">图片文件处理 koa-multer</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E8%AF%B7%E6%B1%82%E5%8F%82%E6%95%B0%E9%AA%8C%E8%AF%81-Joi"><span class="toc-number">7.6.</span> <span class="toc-text">请求参数验证 Joi</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%94%A8%E6%88%B7%E7%99%BB%E5%BD%95%E9%AA%8C%E8%AF%81-koa-jwt"><span class="toc-number">8.</span> <span class="toc-text">用户登录验证 koa-jwt</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#webpack%E7%94%9F%E4%BA%A7%E6%89%93%E5%8C%85"><span class="toc-number">9.</span> <span class="toc-text">webpack生产打包</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%80%BB%E7%BB%93"><span class="toc-number">10.</span> <span class="toc-text">总结</span></a></li></ol>
+        
       </div>
       
         <div class="catelogue catelogue-2">
@@ -1136,7 +436,7 @@ const webpack = require("webpack");
           
             <p>
               <span>下一篇</span>
-              <a href="/2023/10/27/React-Hooks中常用Hooks的用法详解/">React Hooks中常用Hooks的用法详解</a>
+              <a href="/2023/10/27/React-Hooks中常用Hooks的用法详解/"></a>
             </p>
           
         </div>
@@ -1188,8 +488,8 @@ const webpack = require("webpack");
   </div>
   <div style="margin-top: 15px;">
     <div class="index-right-wrapper">
-      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/Linux/">Linux</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/nodejs/">Nodejs</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E5%89%8D%E7%AB%AF/">前端</a></li></ul>
-      <ul class="tags" itemprop="keywords"><li class="tag-list-item"><a class="tag-list-link" href="/tags/vue/" rel="tag">vue</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/termux/" rel="tag">termux</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/react/" rel="tag">react</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/nodejs/" rel="tag">nodejs</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/koa/" rel="tag">koa</a></li></ul>
+      
+      
       <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2023/11/">2023年11月</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2023/10/">2023年10月</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2023/08/">2023年08月</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2023/07/">2023年07月</a><span class="archive-list-count">3</span></li></ul>
     </div>
   </div>
