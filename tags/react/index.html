@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8">
   
-  <title>log | JQ的个人技术博客</title>
+  <title>JQ的个人技术博客 | JQ的个人技术博客</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
   <link rel="shortcut icon" href="/imgs/shortcut-icon.ico" type="image/x-icon">
   <link rel="stylesheet" href="/css/public.css" />
@@ -19,7 +19,7 @@
   <script src='//unpkg.com/valine/dist/Valine.min.js'></script>
   <script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
   <script>
-    document.title = `log`
+    document.title = `JQ的个人技术博客`
   </script>
   <script>
     var _hmt = _hmt || [];
@@ -372,36 +372,96 @@
 </div></div>
       <div id="main-container" class="main-container">
 
+<div class="index">
+  <div class="index-left">
+    
+      <div class="index-article">
+        <!-- <img class="index-article--cover" src="/imgs/default-cover.webp" alt=""> -->
+        <div class="index-article--box">
+          <img class="index-article--cover" data-cover="/images/default-cover.jpg" alt="">
+        </div>
+        <div class="index-article--content">
+          <a href="/2023/10/27/React-Hooks%E4%B8%AD%E5%B8%B8%E7%94%A8Hooks%E7%9A%84%E7%94%A8%E6%B3%95%E8%AF%A6%E8%A7%A3/">React Hooks中常用Hooks的用法详解 </a>
+          <div>
+            
+              <p>
+                <a class="post-category-link" href="/categories/%E5%89%8D%E7%AB%AF/">前端</a>
+              </p>
+            
+            
+              <p>
+                <a class="-link" href="/tags/react/" rel="tag">react</a>
+              </p>
+            
+          </div>
+          <div class="bg"></div>
+        </div>
+      </div>
+    
+  </div>
 
-  <!--  -->
-
-<style>
-pre::-webkit-scrollbar {
-  width: 5px;
-  height: 10px;
-  background-color:#F5F5F5;
-}
-/*定义滚动条轨道
-内阴影+圆角*/
-pre::-webkit-scrollbar-track {
-  background-color:#F5F5F5;
-}
-/*定义滑块
-内阴影+圆角*/
-pre::-webkit-scrollbar-thumb {
-  background-color: rgb(69, 83, 100);
-}
-
-pre:active {
-  background-color: rgb(81, 95, 116);
-}
-</style>
-<div class="log">
-  
 </div>
 
 
-</div>
+<script>
+  var allImgBoxs = document.querySelectorAll('.index-article--box');
+  var windowHeight = window.innerHeight;
+  var boxs = Array.from(allImgBoxs);
+  var timer = null;
+  boxs.forEach((box, idx) => {
+    if (!window.loadImageSet || !window.loadImageSet.includes(idx)) {
+      box.classList.add('img-loading');
+    } else {
+      const imgDom = box.querySelector('img');
+      imgDom.src = imgDom.dataset.cover.replace(/^(\.+)/, "");
+    }
+  });
+
+  function scrollFn() {
+    if (timer) {
+      return;
+    }
+    timer = setTimeout(() => {
+      loadImage();
+      timer = null;
+    }, 100)
+  }
+
+  if (!window.loadedImage) {
+    document.addEventListener('scroll', scrollFn);
+  }
+
+  function loadImage() {
+    const doc = document.documentElement;
+    const scrollTop = doc.scrollTop;
+    if (boxs.every(box => box.loadedImage)) {
+      document.removeEventListener('scroll', scrollFn);
+      window.loadedImage = 1;
+      return;
+    }
+    boxs.forEach((box, idx) => {
+      if (box.loadedImage) {
+        return;
+      }
+      if (box.getBoundingClientRect().top < windowHeight) {
+        const imgDom = box.querySelector('img');
+        imgDom.src = imgDom.dataset.cover.replace(/^(\.+)/, "");
+        imgDom.onload = () => {
+          box.classList.remove('img-loading')
+          box.loadedImage = true;
+          if (window.loadImageSet) {
+            window.loadImageSet.push(idx);
+          } else {
+            window.loadImageSet = [];
+            window.loadImageSet.push(idx);
+          }
+        }
+      }
+    });
+  }
+
+  window.loadImageFn = loadImage;
+</script> </div>
       <div class="main-right-wrapper"><div class="main-right">
   <div class="main-right--board">
     <div class="main-right--title">
