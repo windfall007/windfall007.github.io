@@ -1,0 +1,734 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <title>使用Vscode 运行flutter的踩坑记录 | JQ的个人技术博客</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <link rel="shortcut icon" href="/imgs/shortcut-icon.ico" type="image/x-icon">
+  <link rel="stylesheet" href="/css/public.css" />
+  <link rel="stylesheet" href="/css/layout.css" />
+  <link rel="stylesheet" href="/css/iconfont.css" />
+  <!-- <link rel="stylesheet" href="/css/APlayer.min.css" />
+  <script src="/js/APlayer.min.js"></script> -->
+  <script src="/js/jquery.min.js"></script>
+  <script src="/js/jquery.pjax.min.js"></script>
+  <script src="/js/universe.js"></script>
+  <script src="/js/line.js"></script>
+
+  <script src='//unpkg.com/valine/dist/Valine.min.js'></script>
+  <script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+  <script>
+    document.title = `使用Vscode 运行flutter的踩坑记录`
+  </script>
+<meta name="generator" content="Hexo 6.3.0"></head>
+
+<style>
+  .load {
+    width: 100%;
+    height: 100vh;
+    background-color: rgb(37, 35, 40);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    z-index: 9999;
+  }
+  .load-circle {
+    width: 80px;
+    height: 80px;
+    border: 8px solid orange;
+    border-bottom-color: transparent;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    animation: rotate 1s linear infinite;
+    filter: drop-shadow(0 0 3px orange);
+  }
+  .load-circle-inner {
+    width: 40px;
+    height: 40px;
+    border: 8px solid orange;
+    border-top-color: transparent;
+    border-radius: 50%;
+    animation: rotate-reverse .5s linear infinite;
+  }
+  .load-text {
+    margin-top: 20px;
+    font-size: 24px;
+    color: orange;
+    display: flex;
+  }
+  .load-text span {
+    margin: 0 5px;
+    text-shadow: 5px 5px 5px orange;
+    animation: move 1s linear infinite;
+  }
+  .load-text span:nth-child(1) {
+    animation-delay: -0.6s;
+  }
+  .load-text span:nth-child(2) {
+    animation-delay: -0.5s;
+  }
+  .load-text span:nth-child(3) {
+    animation-delay: -0.4s;
+  }
+  .load-text span:nth-child(4) {
+    animation-delay: -0.3s;
+  }
+  .load-text span:nth-child(5) {
+    animation-delay: -0.2s;
+  }
+  .load-text span:nth-child(6) {
+    animation-delay: -0.1s;
+  }
+  @keyframes rotate {
+    0% { transform: rotate(0); }
+    100% { transform: rotate(360deg); }
+  }
+  @keyframes rotate-reverse {
+    0% { transform: rotate(0); }
+    100% { transform: rotate(-360deg); }
+  }
+  @keyframes move {
+    0% { transform: translateY(0%) rotate(0) scale(1); }
+    20% { transform: translateY(20%) rotate(10deg) scale(1.2); }
+    80% { transform: translateY(-10%) rotate(-20deg) scale(.8);}
+    100% { transform: translateY(0) rotate(0) scale(1); }
+  }
+
+  .progress {
+    position: fixed;
+    left: 0; top: 0;
+    width: 0;
+    height: 3px;
+    background-color: green;
+    transition: all cubic-bezier(0.215, 0.610, 0.355, 1) .1s;
+    z-index: 9999;
+  }
+
+  .to-up {
+    animation: toUp .5s 1;
+  }
+  .gray {
+    position: fixed;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100vh;
+    z-index: 9999;
+    display: none;
+    pointer-events: none;
+    background-color: #000;
+    mix-blend-mode: color;
+  }
+  @keyframes toUp {
+    from { transform: translateY(15px); opacity: 0; }
+    to { transform: translateY(0) ; opacity: 1; }
+  }
+</style>
+<body class="dark">
+  <div id="load" class="load">
+    <div class="load-circle">
+      <div class="load-circle-inner"></div>
+    </div>
+    <p class="load-text">
+      <span>L</span>
+      <span>O</span>
+      <span>A</span>
+      <span>D</span>
+      <span>I</span>
+      <span>N</span>
+      <span>G</span>
+    </p>
+  </div>
+  <div id="container" class="container w-100 vh-100" style="display: none;">
+    <header class="header">
+  <canvas id="rotating_stars"></canvas>
+  <div class="header-wrapper">
+    <div class="header-left">
+      <div class="header-search">
+        <input id="search-input" type="text" class="header-search--input" placeholder="请输入要检索的文章标题" />
+        <span id="search-btn" class="header-search--icon"><i class="iconfont icon-sousuo"></i></span>
+      </div>
+      <div id="search-layer" class="header-search--layer hidden">
+        <p class="title">
+          <span>以下是搜索内容：</span>
+          <span id="close-layer-btn">关闭</span>
+        </p>
+        <ul>
+        </ul>
+      </div>
+    </div>
+    <div class="header-right">
+      <ul class="header-menu">
+        <li>
+          <a href="https://windfall007.github.io/">
+            <i class="header-menu--icon iconfont icon-shouye"></i>
+            <span class="header-menu--span">首页</span>
+          </a>
+        </li>
+        <li>
+          <a href="https://windfall007.github.io/log">
+            <i class="header-menu--icon iconfont icon-rizhi"></i>
+            <span class="header-menu--span">日志</span>
+          </a>
+        </li>
+        <li>
+          <a href="https://windfall007.github.io/link">
+            <i class="header-menu--icon iconfont icon-youqinglianjie"></i>
+            <span class="header-menu--span">友情链接</span>
+          </a>
+        </li>
+        <li>
+          <a href="https://windfall007.github.io/about">
+            <i class="header-menu--icon iconfont icon-guanyuwomen"></i>
+            <span class="header-menu--span">关于我</span>
+          </a>
+        </li>
+      </ul>
+    </div>
+  </div>
+</header>
+
+<script>
+  const ipt = document.querySelector('#search-input')
+  const btn = document.querySelector('#search-btn')
+  const layer = document.querySelector('#search-layer')
+  const posts = JSON.parse(`[{"title":"React Hooks中常用Hooks的用法详解","path":"2023/10/27/React-Hooks中常用Hooks的用法详解/"},{"title":"使用安卓手机安装termux 入门使用笔记","cover":"./images/default-cover.jpg","path":"2023/07/13/termux/"},{"title":"koa快速入门教学","path":"2023/11/17/koa快速入门教学/"},{"title":"分装一个基于element-plus的curd组件","path":"2023/07/21/分装一个基于elementplus的curd组件/"},{"title":"七夕爱心动画，尝试使用jsx写vue3开发实践笔记","cover":"./images/qixi.jpg","path":"2023/08/18/尝试使用jsx写vue3的组件实践笔记/"},{"title":"常用代理设置","cover":"./images/bg.jpeg","path":"2023/07/25/常用代理设置/"},{"title":"使用Vscode 运行flutter的踩坑记录","path":"2024/07/12/使用Vscode-运行flutter的踩坑记录/"}]`)
+  ipt.addEventListener('keyup', e => {
+    if (e.key === 'Enter') {
+      handleSearch()
+    }
+  })
+  btn.addEventListener('click', () => {
+    handleSearch()
+  })
+
+  document.querySelector('#close-layer-btn').addEventListener('click', () => {
+    layer.classList.toggle('hidden')
+  })
+
+  function handleSearch() {
+    if (ipt.value.trim() === '') {
+      return
+    }
+    let html = ''
+    const targetPosts = posts.filter(post => post.title.includes(ipt.value))
+    targetPosts.forEach(post => {
+      html += `
+        <li>
+          <div>
+            <a href="/${post.path}">${post.title.replace(new RegExp(ipt.value), `<span>${ipt.value}</span>`)}</a>
+          </div>
+          <img src="${post.cover || '/imgs/default-cover.webp' }" />
+        </li>
+      `
+    })
+    if (html.trim () === '') {
+      html += '<p class="empty">没有搜索到内容</p>'
+    }
+    layer.querySelector('ul').innerHTML = html
+    layer.classList.remove('hidden')
+  }
+</script>
+
+<style>
+#rotating_stars{
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100px;
+  z-index: 0;
+}
+
+</style> 
+    <section id="main" class="main">
+      <div class="main-left-wrapper">
+<div class="main-left">
+  <div class="main-left--block">
+    <div class="main-left--info">
+      <img src="/imgs/avatar.jpg"" class="main-left--avatar" />
+      <div class="main-left--intro">
+        <p class="main-left--name">JQ.</p>
+        <div class="main-left--tags">
+          <span class="main-left--tag">音乐</span>
+          <span class="main-left--tag">游戏</span>
+        </div>
+      </div>
+    </div>
+  
+    <div>
+      <div class="main-left--motto">
+        <p>“花有重开日，人无再少年”</p>
+        <p>“技术永不停息，学习不止”</p>
+      </div>
+      <div class="main-left--github">
+        <span class="line"></span>
+        <a target="_blank" rel="noopener" href="https://github.com/windfall007"><i class="logo iconfont icon-github-fill"></i></a>
+        <span class="line"></span>
+      </div>
+      <div class="main-left--statics">
+        <a href="/categories">
+          <div>
+            <span>3</span>
+            <span>分类</span>
+          </div>
+        </a>
+        <a href="/tags">
+          <div>
+            <span>6</span>
+            <span>标签</span>
+          </div>
+        </a>
+        <a href="/archives">
+          <div>
+            <span>5 </span>
+            <span>归档</span>
+          </div>
+        </a>
+      </div>
+    </div>
+  </div>
+
+  <div class="main-left--block">
+    <ul class="main-left--menu">
+      
+        <li>
+          <a href="/">
+            <span class="header-menu--span">小站首页</span>
+            <i class="header-menu--icon iconfont icon-shouye"></i>
+          </a>
+        </li>
+      
+        <li>
+          <a href="/log">
+            <span class="header-menu--span">个人日志</span>
+            <i class="header-menu--icon iconfont icon-rizhi"></i>
+          </a>
+        </li>
+      
+        <li>
+          <a href="/link">
+            <span class="header-menu--span">友情链接</span>
+            <i class="header-menu--icon iconfont icon-youqinglianjie"></i>
+          </a>
+        </li>
+      
+        <li>
+          <a href="/about">
+            <span class="header-menu--span">关于自己</span>
+            <i class="header-menu--icon iconfont icon-guanyuwomen"></i>
+          </a>
+        </li>
+      
+        <li>
+          <a href="/tools">
+            <span class="header-menu--span">我的工具</span>
+            <i class="header-menu--icon iconfont icon-gongju"></i>
+          </a>
+        </li>
+      
+    </ul>
+  </div>
+
+  <div class="main-left--block">
+    <div class="main-left--site">
+      <h5 class="main-left--title">
+        <span>站点信息</span>
+        <i class="iconfont icon-zhandian"></i>
+      </h5>
+      <p class="main-left--subtitle">
+        <span>文章数目：</span>
+        <span>7 篇</span>
+      </p>
+      <p class="main-left--subtitle">
+        <span>最近动态：</span>
+        <span>今天</span>
+      </p>
+      <p class="main-left--subtitle">
+        <span>上线时间：</span>
+        <span>366天</span>
+      </p>
+      <p class="main-left--subtitle">
+        <span>当前版本：</span>
+        <span>v1.0.2</span>
+      </p>
+    </div>
+  </div>
+</div></div>
+      <div id="main-container" class="main-container">
+
+
+  <style>
+pre::-webkit-scrollbar {
+  width: 5px;
+  height: 10px;
+  background-color:#F5F5F5;
+}
+/*定义滚动条轨道
+内阴影+圆角*/
+pre::-webkit-scrollbar-track {
+  background-color:#F5F5F5;
+}
+/*定义滑块
+内阴影+圆角*/
+pre::-webkit-scrollbar-thumb {
+  background-color: rgb(69, 83, 100);
+}
+
+pre:active {
+  background-color: rgb(81, 95, 116);
+}
+</style>
+
+<div class="article-container">
+  <div class="article">
+    <h1 class="article-title">使用Vscode 运行flutter的踩坑记录</h1>
+    <div class="article-info">
+      <div class="article-info--item">
+        <div class="article-info--info">
+          
+          <div class="article-info--categories">
+            <span>分类：</span>
+            <a class="category-link" href="/categories/%E5%89%8D%E7%AB%AF/">前端</a>
+          </div>
+          
+          
+          <div class="article-info--tags">
+            <span>标签：</span>
+            <a class="tag-link" href="/tags/flutter/" rel="tag">flutter</a>
+          </div>
+          
+          <p class="article-info--date">日期：2024-07-12 15:50:36</p>
+        </div>
+        <img src="/images/default-cover.jpg" alt="" class="article-cover">
+      </div>
+    </div>
+    <article class="article-content">
+      <p>在使用vscode打开flutter项目时。能访问外网的情况下，使用官方提供的插件<br><a target="_blank" rel="noopener" href="https://docs.flutter.cn/get-started/install/windows/mobile#%E4%BD%BF%E7%94%A8-vs-code-%E5%AE%89%E8%A3%85-flutter">使用 VS Code 安装 Flutter</a></p>
+<p>安装好后，可使用命令查看当前环境是否正常。</p>
+<pre class="line-numbers language-none"><code class="language-none">flutter doctor<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+<p>vscode <B>ctrl+shift+p </B> 可查看flutter的命令<br>其中flutter:Select Device 可指定flutter的运行环境，在按<B>F5</B>才启动项目,如果需要切换环境就重启点击改命令。</p>
+<h6 id="解决Flutter启动一直卡在-Running-Gradle-task-‘assembleDebug"><a href="#解决Flutter启动一直卡在-Running-Gradle-task-‘assembleDebug" class="headerlink" title="解决Flutter启动一直卡在 Running Gradle task ‘assembleDebug"></a><a target="_blank" rel="noopener" href="https://blog.csdn.net/weixin_47723549/article/details/133940987">解决Flutter启动一直卡在 Running Gradle task ‘assembleDebug</a></h6><p>1、修改项目中android&#x2F;build.gradle文件<br>将 buildscript.repositories 下面的</p>
+<pre class="line-numbers language-javascript" data-language="javascript"><code class="language-javascript"><span class="token comment">//google()</span>
+<span class="token comment">//mavenCentral()</span>
+注释掉，改成
+maven <span class="token punctuation">&#123;</span>
+   allowInsecureProtocol <span class="token operator">=</span> <span class="token boolean">true</span>
+   url <span class="token string">'https://maven.aliyun.com/repository/google'</span>
+<span class="token punctuation">&#125;</span>
+maven <span class="token punctuation">&#123;</span>
+   allowInsecureProtocol <span class="token operator">=</span> <span class="token boolean">true</span>
+   url <span class="token string">'https://maven.aliyun.com/repository/jcenter'</span>
+<span class="token punctuation">&#125;</span>
+maven <span class="token punctuation">&#123;</span>
+   allowInsecureProtocol <span class="token operator">=</span> <span class="token boolean">true</span>
+   url <span class="token string">'http://maven.aliyun.com/nexus/content/groups/public'</span>
+<span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+
+<p>在使用真机运行的时候flutter:Select Device 选择到真机后，如果会一直卡在<b>Flutter: Running Gradle task ‘assembleDebug’…</b>提示下，是因为会到外网下载包，此时这种方式不行。需要使用在终端使用命令行运行。<br><b>allprojects.repositories 同上修改</b></p>
+<p><b>使用”阿里云”仓库为下载源，可能会报错(gradle的仓库地址不安全警告的错误)，因为配置了除 maven 中央仓库之外的其他不安全的仓库(一些国内的镜像仓库，如”阿里云”镜像仓库也是不安全的)，如下所示:</b><br>A problem occurred configuring root project ‘Packer’.</p>
+<blockquote>
+<p>Could not resolve all dependencies for configuration ‘:classpath’.<br>Using insecure protocols with repositories, without explicit opt-in, is unsupported. Switch Maven repository ‘maven(<a target="_blank" rel="noopener" href="http://maven.aliyun.com/nexus/content/groups/public/">http://maven.aliyun.com/nexus/content/groups/public/</a>)’ to redirect to a secure protocol (like HTTPS) or allow insecure protocols. See <a target="_blank" rel="noopener" href="https://docs.gradle.org/7.0.2/dsl/org.gradle.api.artifacts.repositories.UrlArtifactRepository.html#org.gradle.api.artifacts.repositories.UrlArtifactRepository:allowInsecureProtocol">https://docs.gradle.org/7.0.2/dsl/org.gradle.api.artifacts.repositories.UrlArtifactRepository.html#org.gradle.api.artifacts.repositories.UrlArtifactRepository:allowInsecureProtocol</a> for more details.</p>
+</blockquote>
+<ul>
+<li>Try:<br>Run with –info or –debug option to get more log output. Run with –scan to get full insights.</li>
+</ul>
+<p><b>解决方法:只需要在App项目工程的 build.gradle 中，使用 allowInsecureProtocol 属性(允许gradle使用”不安全”的仓库并且不报警告信息)即可</b></p>
+<pre class="line-numbers language-none"><code class="language-none">allowInsecureProtocol &#x3D; true
+<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+
+<p>2、修改 Flutter SDK 中packages\flutter_tools\gradle\flutter.gradle文件</p>
+<p>将 buildscript.repositories 下面的</p>
+<pre class="line-numbers language-none"><code class="language-none">&#x2F;&#x2F;google()
+&#x2F;&#x2F;mavenCentral()
+maven &#123;
+   allowInsecureProtocol &#x3D; true
+   url &#39;https:&#x2F;&#x2F;maven.aliyun.com&#x2F;repository&#x2F;google&#39;
+&#125;
+maven &#123;
+   allowInsecureProtocol &#x3D; true
+   url &#39;https:&#x2F;&#x2F;maven.aliyun.com&#x2F;repository&#x2F;jcenter&#39;
+&#125;
+maven &#123;
+   allowInsecureProtocol &#x3D; true
+   url &#39;http:&#x2F;&#x2F;maven.aliyun.com&#x2F;nexus&#x2F;content&#x2F;groups&#x2F;public&#39;
+&#125;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<p>将 DEFAULT_MAVEN_HOST 值修改成 “<a target="_blank" rel="noopener" href="https://storage.flutter-io.cn/">https://storage.flutter-io.cn</a>“;<br>这一步我没有设置也运行起来了</p>
+<pre class="line-numbers language-none"><code class="language-none">private static final String DEFAULT_MAVEN_HOST &#x3D; &quot;https:&#x2F;&#x2F;storage.flutter-io.cn&quot;;
+<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+
+
+
+<pre class="line-numbers language-javascript" data-language="javascript"><code class="language-javascript">flutter devices 
+<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+<p>例如会输入以下信息</p>
+<pre class="line-numbers language-none"><code class="language-none">22021211RC (mobile) • 58a2a93a • android-arm64  • Android 14 (API 34)
+Windows (desktop)   • windows  • windows-x64    • Microsoft Windows [版本 10.0.19045.4651]
+Chrome (web)        • chrome   • web-javascript • Google Chrome 126.0.6478.127
+Edge (web)          • edge     • web-javascript • Microsoft Edge 126.0.2592.87<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre>
+<p>作用<br>查看设备信息：当你执行flutter devices命令时，它会列出所有已连接并被Flutter SDK识别的设备，包括Android真机、iOS真机以及模拟器等。<br>帮助选择运行设备：在知道哪些设备可用后，你可以使用<B>flutter run -d <deviceId></B>命令来指定在哪个设备上运行你的Flutter应用程序。</p>
+<p>会运行到Android 14 (API 34)真机设备</p>
+<pre class="line-numbers language-none"><code class="language-none">flutter run -d 58a2a93a<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+
+<p>可以用下面的方法，</p>
+<h3 id="在中国网络环境下使用-Flutter"><a href="#在中国网络环境下使用-Flutter" class="headerlink" title="在中国网络环境下使用 Flutter"></a><a target="_blank" rel="noopener" href="https://docs.flutter.cn/community/china/">在中国网络环境下使用 Flutter</a></h3><p>在 macOS、Linux 或 ChromeOS 上：</p>
+<pre class="line-numbers language-none"><code class="language-none">export PUB_HOSTED_URL&#x3D;https:&#x2F;&#x2F;pub.flutter-io.cn;
+export FLUTTER_STORAGE_BASE_URL&#x3D;https:&#x2F;&#x2F;storage.flutter-io.cn<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
+
+<p>在 Windows 上：</p>
+<pre class="line-numbers language-none"><code class="language-none">$env:PUB_HOSTED_URL&#x3D;&quot;https:&#x2F;&#x2F;pub.flutter-io.cn&quot;;
+$env:FLUTTER_STORAGE_BASE_URL&#x3D;&quot;https:&#x2F;&#x2F;storage.flutter-io.cn&quot;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
+
+<p>项目运行起来后，在终端输入以下可以更新项目</p>
+<pre class="line-numbers language-none"><code class="language-none">r 键： 点击后重新加载；
+	p 键： 显示网格；
+o 键： 切换 android 和 ios 的预览模式；
+	q 键： 退出调试预览模式；<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre>
+    </article>
+    
+  </div>
+  <div class="article-catelogue">
+    <div class="article-catelogue--wrapper">
+      <div class="catelogue catelogue-1">
+        <h3>目录</h3>
+        <ol class="toc"><li class="toc-item toc-level-6"><a class="toc-link" href="#%E8%A7%A3%E5%86%B3Flutter%E5%90%AF%E5%8A%A8%E4%B8%80%E7%9B%B4%E5%8D%A1%E5%9C%A8-Running-Gradle-task-%E2%80%98assembleDebug"><span class="toc-number">1.</span> <span class="toc-text">解决Flutter启动一直卡在 Running Gradle task ‘assembleDebug</span></a></li></ol></li></ol></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%9C%A8%E4%B8%AD%E5%9B%BD%E7%BD%91%E7%BB%9C%E7%8E%AF%E5%A2%83%E4%B8%8B%E4%BD%BF%E7%94%A8-Flutter"><span class="toc-number"></span> <span class="toc-text">在中国网络环境下使用 Flutter</span></a>
+      </div>
+      
+        <div class="catelogue catelogue-2">
+           
+          
+            <p>
+              <span>下一篇</span>
+              <a href="/2023/11/17/koa快速入门教学/">koa快速入门教学</a>
+            </p>
+          
+        </div>
+      
+      <div class="catelogue">
+        <span id="busuanzi_container_page_pv">
+          本文总阅读量<span id="busuanzi_value_page_pv"></span>次
+        </span>
+      </div>
+    </div>
+  </div>
+
+</div>
+
+<!-- <script src="http://cdn.yangxiang.cc/prism.js"></script> -->
+
+
+<script>
+  $(document).on('pjax:complete', function() {
+    const tocs = document.querySelector('.toc')
+    const links = tocs ? tocs.querySelectorAll('a') : []
+    links.forEach(link => {
+      link.addEventListener('click', e => {
+        const href = decodeURIComponent(e.href)
+        href.search(/#(.*)/)
+        const id = RegExp.$1
+        const target = document.querySelector('#' + id)
+        const top = target.offsetTop
+        document.documentElement.scrollTo({
+          top: top - 100,
+          behavior: 'smooth'
+        })
+        e.preventDefault()
+      })
+    })
+  })
+</script> 
+
+</div>
+      <div class="main-right-wrapper"><div class="main-right">
+  <div class="main-right--board">
+    <div class="main-right--title">
+      <h5>公告栏</h5>
+      <i class="iconfont icon-gonggao"></i>
+    </div>
+    <div class="main-right--content">
+      【欢迎来到我的个人博客，记录一些学习笔记和有趣的东西。】 
+    </div>
+  </div>
+  <div style="margin-top: 15px;">
+    <div class="index-right-wrapper">
+      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/Linux/">Linux</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/nodejs/">Nodejs</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E5%89%8D%E7%AB%AF/">前端</a></li></ul>
+      <ul class="tags" itemprop="keywords"><li class="tag-list-item"><a class="tag-list-link" href="/tags/vue/" rel="tag">vue</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/termux/" rel="tag">termux</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/react/" rel="tag">react</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/nodejs/" rel="tag">nodejs</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/koa/" rel="tag">koa</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/flutter/" rel="tag">flutter</a></li></ul>
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2024/07/">2024年07月</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2023/11/">2023年11月</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2023/10/">2023年10月</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2023/08/">2023年08月</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2023/07/">2023年07月</a><span class="archive-list-count">3</span></li></ul>
+    </div>
+  </div>
+
+
+  <!-- <div id="aplayer" class="main-right--music"></div> -->
+
+  <div class="operate-items">
+    <div class="operate-item backtop">
+      <i class="iconfont icon-huidaodingbu"></i>
+      <span>回到顶部</span>
+    </div>
+    
+  </div>
+
+  <div class="main-right--site">
+    <div class="main-right--power">
+      <p>Power By <a target="_blank" rel="noopener" href="https://hexo.io/zh-cn/docs/">Hexo</a>.</p>
+      <p>Theme：<a target="_blank" rel="noopener" href="https://github.com/Aizener/hexo-theme-cola">Cola.</a></p>
+    </div>
+    <p class="main-right--refer"><a target="_blank" rel="noopener" href="https://beian.miit.gov.cn/#/Integrated/index"></a> </p>
+    <p class="main-right--power"><span> 总访问量<span id="busuanzi_value_site_pv"></span>次</span></p>
+    <p class="main-right--power"><span>访客数<span id="busuanzi_value_site_uv"></span>人</span></p>
+  </div>
+</div>
+
+<script>
+  function setOperateItem () {
+    const reg = /\d{4}\/\d{2}\/\d{2}\/.+/
+    const path = location.pathname
+    const operateDom = document.querySelector('.main-right .operate-items')
+    const commentDom = document.querySelector('.turn-comment')
+    const cateloguDom = document.querySelector('.article-catelogue > .article-catelogue--wrapper');
+
+    if (commentDom) {
+      if (reg.test(path) || path.match(/\/log\/.+/)) {
+        commentDom.classList.remove('hidden')
+        const newDom = operateDom.cloneNode(true);
+        const _backtopDom = newDom.querySelector('.backtop');
+        const _commentDom = newDom.querySelector('.turn-comment');
+        _backtopDom.addEventListener('click', () => backTopEvent());
+        _commentDom.addEventListener('click', () => commentDomEvent());
+
+        cateloguDom.appendChild(newDom);
+      } else {
+        commentDom.classList.add('hidden')
+      }
+    }else{
+      if (reg.test(path) || path.match(/\/log\/.+/)) {
+        const newDom = operateDom.cloneNode(true);
+        const _backtopDom = newDom.querySelector('.backtop');
+        _backtopDom.addEventListener('click', () => backTopEvent());
+        cateloguDom.appendChild(newDom);
+      }
+   
+
+    }
+  }
+
+  setOperateItem()
+
+  $(document).on('pjax:complete', function() {
+    setOperateItem()
+  })
+
+  document.querySelector('.backtop').addEventListener('click', () => {
+    backTopEvent();
+  })
+  const dom = document.querySelector('.turn-comment')
+  dom && dom.addEventListener('click', () => {
+    commentDomEvent();
+  })
+
+  function backTopEvent() {
+    document.documentElement.scrollTo({
+      top: 0,
+      behavior: 'smooth'
+    })
+  }
+
+  function commentDomEvent() {
+    const commentDom = document.querySelector('.comments-intro')
+    if (!commentDom) return
+    const top = commentDom.offsetTop, height = commentDom.offsetHeight
+    document.documentElement.scrollTo({
+      top: top - 2 * height,
+      behavior: 'smooth'
+    })
+  }
+</script></div>
+    </section>
+    <canvas id="universe"></canvas>
+  </div>
+  <div id="progress" class="progress"></div>
+  <div id="gray" class="gray"></div>
+  <script>
+    function initScroll () {
+      document.addEventListener('scroll', () => {
+        const doc = document.documentElement
+        const scrollTop = doc.scrollTop
+        const pageHeight = doc.offsetHeight
+        const clientHeight = doc.clientHeight
+        const ratio = scrollTop / (pageHeight - clientHeight)
+        const progress = document.querySelector('#progress')
+        const avatarImg = document.querySelector('.main-left--avatar')
+        progress.style.width = (100 * ratio) + '%'
+        avatarImg.style.transform = `rotate(${360 * ratio}deg)`
+      })
+    }
+
+    const rootPath = "/"
+
+    const checkAndSetArticlePageLayout = () => {
+      if (/^\/?\d{4}\/\d{2}\/\d{2}\/.*/.test(location.pathname.replace(rootPath, ''))) {
+        $('.main-container, .main-right, .main-right-wrapper').addClass('is-article')
+      } else {
+        $('.main-container, .main-right, .main-right-wrapper').removeClass('is-article')
+      }
+    }
+
+    const gray = "none"
+    const setGrayStyle = () => {
+      if (gray === 'none') {
+        return
+      } else if (gray === 'index') {
+        location.pathname === '/' ? $('#gray').show() : $('#gray').hide()
+      } else if (gray === 'all') {
+        $('#gray').show()
+      }
+    }
+    setGrayStyle()
+
+
+    window.onload = function () {
+      checkAndSetArticlePageLayout()
+      setTimeout(() => {
+        $('#load').slideUp()
+        $('#container').slideToggle()
+        setTimeout(() => {
+          initScroll();
+          window.loadImageFn();
+          Universe();
+          Rotating_stars('rotating_stars',window.innerWidth,100);
+        }, 500)
+      }, 500)
+    }
+    
+    let status = 0
+    // 对所有链接跳转事件绑定pjax容器container
+    $(document).pjax('a[target!=_blank]', '#main-container', {
+      container: '#main-container',
+      fragment: '#main-container',
+      timeout: 8000
+    })
+
+    $(document).on('pjax:start', function() {
+    })
+    $(document).on('pjax:complete', function() {
+      status = 0
+      $('.main-container').addClass('to-up').on('animationend', function() {
+        $(this).removeClass('to-up')
+      })
+      setGrayStyle()
+      checkAndSetArticlePageLayout()
+    })
+    $(document).on('pjax:popstate', function() {
+      status = -1
+      checkAndSetArticlePageLayout()
+      // $('.main-container').fadeIn()
+    })
+  </script>
+</body>
+</html>
