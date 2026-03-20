@@ -1,1 +1,1205 @@
-<!DOCTYPE html><!--RXZiUj5Mqa_YJTveMoeQy--><html data-inspector-line="37" data-inspector-column="4" data-inspector-relative-path="src\\app\\layout.tsx" lang="zh-CN"><head><meta charSet="utf-8"/><meta name="viewport" content="width=device-width, initial-scale=1"/><link rel="stylesheet" href="/html/imagetool/_next/static/chunks/3a3f4698dea8e390.css" data-precedence="next"/><link rel="stylesheet" href="/html/imagetool/_next/static/chunks/1c6a1ad0563fe908.css" data-precedence="next"/><link rel="preload" as="script" fetchPriority="low" href="/html/imagetool/_next/static/chunks/aeec55ee151357fd.js"/><script src="/html/imagetool/_next/static/chunks/c37677feb9a6b30a.js" async=""></script><script src="/html/imagetool/_next/static/chunks/9a0580c88b308b69.js" async=""></script><script src="/html/imagetool/_next/static/chunks/turbopack-103f3b6d01eb218b.js" async=""></script><script src="/html/imagetool/_next/static/chunks/66508dbee6082b3e.js" async=""></script><script src="/html/imagetool/_next/static/chunks/c5c7ae7e10ac7d00.js" async=""></script><script src="/html/imagetool/_next/static/chunks/113ade38908c843e.js" async=""></script><script src="/html/imagetool/_next/static/chunks/572470a093b5d185.js" async=""></script><title>图片格式转换与压缩工具</title><meta name="description" content="现代化、响应式、纯前端本地运行的图片格式转换与压缩工具，支持实时预览、一键下载"/><link rel="author" href="https://code.coze.cn"/><meta name="author" content="Coze Code Team"/><meta name="generator" content="Coze Code"/><meta name="keywords" content="图片转换,图片压缩,格式转换,WebP转换,AVIF转换,批量处理,本地处理,隐私保护"/><link rel="icon" href="/html/imagetool/favicon.ico?favicon.0b3bf435.ico" sizes="256x256" type="image/x-icon"/><script src="/html/imagetool/_next/static/chunks/a6dad97d9634a72d.js" noModule=""></script></head><body data-inspector-line="38" data-inspector-column="6" data-inspector-relative-path="src\\app\\layout.tsx" class="antialiased"><div hidden=""><!--$--><!--/$--></div><script>((a,b,c,d,e,f,g,h)=>{let i=document.documentElement,j=["light","dark"];function k(b){var c;(Array.isArray(a)?a:[a]).forEach(a=>{let c="class"===a,d=c&&f?e.map(a=>f[a]||a):e;c?(i.classList.remove(...d),i.classList.add(f&&f[b]?f[b]:b)):i.setAttribute(a,b)}),c=b,h&&j.includes(c)&&(i.style.colorScheme=c)}if(d)k(d);else try{let a=localStorage.getItem(b)||c,d=g&&"system"===a?window.matchMedia("(prefers-color-scheme: dark)").matches?"dark":"light":a;k(d)}catch(a){}})("class","theme","system",null,["light","dark"],null,true,true)</script><div data-inspector-line="13" data-inspector-column="4" data-inspector-relative-path="src\\app\\page.tsx" class="min-h-screen bg-background"><header data-inspector-line="11" data-inspector-column="4" data-inspector-relative-path="src\\components\\home-header.tsx" class="border-b border-border bg-card"><div data-inspector-line="12" data-inspector-column="6" data-inspector-relative-path="src\\components\\home-header.tsx" class="container mx-auto max-w-7xl px-4 py-4"><div data-inspector-line="13" data-inspector-column="8" data-inspector-relative-path="src\\components\\home-header.tsx" class="flex items-center justify-between"><div data-inspector-line="14" data-inspector-column="10" data-inspector-relative-path="src\\components\\home-header.tsx" class="flex items-center gap-3"><div data-inspector-line="15" data-inspector-column="12" data-inspector-relative-path="src\\components\\home-header.tsx" class="rounded-lg bg-primary/10 p-2"><svg data-inspector-line="16" data-inspector-column="14" data-inspector-relative-path="src\\components\\home-header.tsx" class="h-6 w-6 text-primary" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path data-inspector-line="22" data-inspector-column="16" data-inspector-relative-path="src\\components\\home-header.tsx" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z"></path></svg></div><div data-inspector-line="30" data-inspector-column="12" data-inspector-relative-path="src\\components\\home-header.tsx"><h1 data-inspector-line="31" data-inspector-column="14" data-inspector-relative-path="src\\components\\home-header.tsx" class="text-lg font-semibold">图片免费工具</h1><p data-inspector-line="32" data-inspector-column="14" data-inspector-relative-path="src\\components\\home-header.tsx" class="text-xs text-muted-foreground">本地处理 · 无需上传服务器</p></div></div><div data-inspector-line="35" data-inspector-column="10" data-inspector-relative-path="src\\components\\home-header.tsx" class="flex items-center gap-3"><button type="button" role="combobox" aria-controls="radix-_R_clflb_" aria-expanded="false" aria-autocomplete="none" dir="ltr" data-state="closed" data-inspector-line="11" data-inspector-column="6" data-inspector-relative-path="src\\components\\language-toggle.tsx" data-slot="select-trigger" data-size="default" class="border-input data-[placeholder]:text-muted-foreground [&amp;_svg:not([class*=&#x27;text-&#x27;])]:text-muted-foreground focus-visible:border-ring focus-visible:ring-ring/50 aria-invalid:ring-destructive/20 dark:aria-invalid:ring-destructive/40 aria-invalid:border-destructive dark:bg-input/30 dark:hover:bg-input/50 flex items-center justify-between gap-2 rounded-md border bg-transparent px-3 py-2 text-sm whitespace-nowrap shadow-xs transition-[color,box-shadow] outline-none focus-visible:ring-[3px] disabled:cursor-not-allowed disabled:opacity-50 data-[size=default]:h-9 data-[size=sm]:h-8 *:data-[slot=select-value]:line-clamp-1 *:data-[slot=select-value]:flex *:data-[slot=select-value]:items-center *:data-[slot=select-value]:gap-2 [&amp;_svg]:pointer-events-none [&amp;_svg]:shrink-0 [&amp;_svg:not([class*=&#x27;size-&#x27;])]:size-4 w-28"><span data-inspector-line="12" data-inspector-column="8" data-inspector-relative-path="src\\components\\language-toggle.tsx" data-slot="select-value" style="pointer-events:none"></span><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-chevron-down size-4 opacity-50" data-inspector-line="47" data-inspector-column="8" data-inspector-relative-path="src\\components\\ui\\select.tsx" aria-hidden="true"><path d="m6 9 6 6 6-6"></path></svg></button><select aria-hidden="true" tabindex="-1" style="position:absolute;border:0;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0, 0, 0, 0);white-space:nowrap;word-wrap:normal"></select><button data-inspector-line="19" data-inspector-column="6" data-inspector-relative-path="src\\components\\theme-toggle.tsx" data-slot="button" data-variant="ghost" data-size="icon" class="inline-flex items-center justify-center gap-2 whitespace-nowrap rounded-md text-sm font-medium transition-all disabled:pointer-events-none disabled:opacity-50 [&amp;_svg]:pointer-events-none [&amp;_svg:not([class*=&#x27;size-&#x27;])]:size-4 shrink-0 [&amp;_svg]:shrink-0 outline-none focus-visible:border-ring focus-visible:ring-ring/50 focus-visible:ring-[3px] aria-invalid:ring-destructive/20 dark:aria-invalid:ring-destructive/40 aria-invalid:border-destructive hover:bg-accent hover:text-accent-foreground dark:hover:bg-accent/50 size-9"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-sun h-[1.2rem] w-[1.2rem]" data-inspector-line="20" data-inspector-column="8" data-inspector-relative-path="src\\components\\theme-toggle.tsx"><circle cx="12" cy="12" r="4"></circle><path d="M12 2v2"></path><path d="M12 20v2"></path><path d="m4.93 4.93 1.41 1.41"></path><path d="m17.66 17.66 1.41 1.41"></path><path d="M2 12h2"></path><path d="M20 12h2"></path><path d="m6.34 17.66-1.41 1.41"></path><path d="m19.07 4.93-1.41 1.41"></path></svg></button></div></div></div></header><div data-inspector-line="215" data-inspector-column="4" data-inspector-relative-path="src\\components\\image-processor-app.tsx" class="min-h-screen bg-background"><main data-inspector-line="217" data-inspector-column="6" data-inspector-relative-path="src\\components\\image-processor-app.tsx" class="container mx-auto max-w-7xl px-4 py-8"><div data-inspector-line="218" data-inspector-column="8" data-inspector-relative-path="src\\components\\image-processor-app.tsx" class="grid gap-8 lg:grid-cols-[1fr_360px]"><div data-inspector-line="220" data-inspector-column="10" data-inspector-relative-path="src\\components\\image-processor-app.tsx" class="space-y-6"><div data-inspector-line="94" data-inspector-column="4" data-inspector-relative-path="src\\components\\image-uploader.tsx" class="relative border-2 border-dashed rounded-lg p-12 transition-all cursor-pointer hover:border-primary/50 hover:bg-muted/30 border-border"><input data-inspector-line="107" data-inspector-column="6" data-inspector-relative-path="src\\components\\image-uploader.tsx" type="file" accept="image/jpeg,image/png,image/webp,image/gif,image/svg+xml,image/bmp" multiple="" class="hidden"/><div data-inspector-line="116" data-inspector-column="6" data-inspector-relative-path="src\\components\\image-uploader.tsx" class="flex flex-col items-center justify-center gap-4 text-center"><div data-inspector-line="117" data-inspector-column="8" data-inspector-relative-path="src\\components\\image-uploader.tsx" class="flex items-center gap-4"><div data-inspector-line="118" data-inspector-column="10" data-inspector-relative-path="src\\components\\image-uploader.tsx" class="rounded-full bg-primary/10 p-4"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-upload h-8 w-8 text-primary" data-inspector-line="119" data-inspector-column="12" data-inspector-relative-path="src\\components\\image-uploader.tsx"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path><polyline points="17 8 12 3 7 8"></polyline><line x1="12" x2="12" y1="3" y2="15"></line></svg></div></div><div data-inspector-line="123" data-inspector-column="8" data-inspector-relative-path="src\\components\\image-uploader.tsx" class="space-y-2"><h3 data-inspector-line="124" data-inspector-column="10" data-inspector-relative-path="src\\components\\image-uploader.tsx" class="text-lg font-semibold">上传图片</h3><p data-inspector-line="125" data-inspector-column="10" data-inspector-relative-path="src\\components\\image-uploader.tsx" class="text-sm text-muted-foreground max-w-sm">拖拽图片到此处、点击上传或直接粘贴</p></div><div data-inspector-line="130" data-inspector-column="8" data-inspector-relative-path="src\\components\\image-uploader.tsx" class="flex items-center gap-2 text-xs text-muted-foreground"><span data-inspector-line="131" data-inspector-column="10" data-inspector-relative-path="src\\components\\image-uploader.tsx" class="flex items-center gap-1"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-image h-3 w-3" data-inspector-line="132" data-inspector-column="12" data-inspector-relative-path="src\\components\\image-uploader.tsx"><rect width="18" height="18" x="3" y="3" rx="2" ry="2"></rect><circle cx="9" cy="9" r="2"></circle><path d="m21 15-3.086-3.086a2 2 0 0 0-2.828 0L6 21"></path></svg>支持 JPG、PNG、WebP、GIF、SVG、BMP</span></div><div data-inspector-line="137" data-inspector-column="8" data-inspector-relative-path="src\\components\\image-uploader.tsx" class="flex items-center gap-2 text-xs text-muted-foreground"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-clipboard h-3 w-3" data-inspector-line="138" data-inspector-column="10" data-inspector-relative-path="src\\components\\image-uploader.tsx"><rect width="8" height="4" x="8" y="2" rx="1" ry="1"></rect><path d="M16 4h2a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h2"></path></svg><span data-inspector-line="139" data-inspector-column="10" data-inspector-relative-path="src\\components\\image-uploader.tsx">Ctrl+V 粘贴图片</span></div></div></div></div><div data-inspector-line="303" data-inspector-column="10" data-inspector-relative-path="src\\components\\image-processor-app.tsx" class="space-y-6"><div data-inspector-line="306" data-inspector-column="16" data-inspector-relative-path="src\\components\\image-processor-app.tsx" class="rounded-lg border border-border bg-card"><div dir="ltr" data-orientation="horizontal" data-inspector-line="307" data-inspector-column="18" data-inspector-relative-path="src\\components\\image-processor-app.tsx" data-slot="tabs" class="flex flex-col gap-2"><div role="tablist" aria-orientation="horizontal" data-inspector-line="314" data-inspector-column="20" data-inspector-relative-path="src\\components\\image-processor-app.tsx" data-slot="tabs-list" class="bg-muted text-muted-foreground h-9 items-center justify-center rounded-lg p-[3px] grid w-full grid-cols-4" tabindex="-1" data-orientation="horizontal" style="outline:none"><button type="button" role="tab" aria-selected="true" aria-controls="radix-_R_d5flb_-content-format" data-state="active" id="radix-_R_d5flb_-trigger-format" data-inspector-line="315" data-inspector-column="22" data-inspector-relative-path="src\\components\\image-processor-app.tsx" data-slot="tabs-trigger" class="data-[state=active]:bg-background dark:data-[state=active]:text-foreground focus-visible:border-ring focus-visible:ring-ring/50 focus-visible:outline-ring dark:data-[state=active]:border-input dark:data-[state=active]:bg-input/30 text-foreground dark:text-muted-foreground inline-flex h-[calc(100%-1px)] flex-1 items-center justify-center gap-1.5 rounded-md border border-transparent px-2 py-1 text-sm font-medium whitespace-nowrap transition-[color,box-shadow] focus-visible:ring-[3px] focus-visible:outline-1 disabled:pointer-events-none disabled:opacity-50 data-[state=active]:shadow-sm [&amp;_svg]:pointer-events-none [&amp;_svg]:shrink-0 [&amp;_svg:not([class*=&#x27;size-&#x27;])]:size-4" tabindex="-1" data-orientation="horizontal" data-radix-collection-item=""><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-settings mr-1.5 h-4 w-4" data-inspector-line="316" data-inspector-column="24" data-inspector-relative-path="src\\components\\image-processor-app.tsx"><path d="M12.22 2h-.44a2 2 0 0 0-2 2v.18a2 2 0 0 1-1 1.73l-.43.25a2 2 0 0 1-2 0l-.15-.08a2 2 0 0 0-2.73.73l-.22.38a2 2 0 0 0 .73 2.73l.15.1a2 2 0 0 1 1 1.72v.51a2 2 0 0 1-1 1.74l-.15.09a2 2 0 0 0-.73 2.73l.22.38a2 2 0 0 0 2.73.73l.15-.08a2 2 0 0 1 2 0l.43.25a2 2 0 0 1 1 1.73V20a2 2 0 0 0 2 2h.44a2 2 0 0 0 2-2v-.18a2 2 0 0 1 1-1.73l.43-.25a2 2 0 0 1 2 0l.15.08a2 2 0 0 0 2.73-.73l.22-.39a2 2 0 0 0-.73-2.73l-.15-.08a2 2 0 0 1-1-1.74v-.5a2 2 0 0 1 1-1.74l.15-.09a2 2 0 0 0 .73-2.73l-.22-.38a2 2 0 0 0-2.73-.73l-.15.08a2 2 0 0 1-2 0l-.43-.25a2 2 0 0 1-1-1.73V4a2 2 0 0 0-2-2z"></path><circle cx="12" cy="12" r="3"></circle></svg>格式</button><button type="button" role="tab" aria-selected="false" aria-controls="radix-_R_d5flb_-content-filter" data-state="inactive" id="radix-_R_d5flb_-trigger-filter" data-inspector-line="319" data-inspector-column="22" data-inspector-relative-path="src\\components\\image-processor-app.tsx" data-slot="tabs-trigger" class="data-[state=active]:bg-background dark:data-[state=active]:text-foreground focus-visible:border-ring focus-visible:ring-ring/50 focus-visible:outline-ring dark:data-[state=active]:border-input dark:data-[state=active]:bg-input/30 text-foreground dark:text-muted-foreground inline-flex h-[calc(100%-1px)] flex-1 items-center justify-center gap-1.5 rounded-md border border-transparent px-2 py-1 text-sm font-medium whitespace-nowrap transition-[color,box-shadow] focus-visible:ring-[3px] focus-visible:outline-1 disabled:pointer-events-none disabled:opacity-50 data-[state=active]:shadow-sm [&amp;_svg]:pointer-events-none [&amp;_svg]:shrink-0 [&amp;_svg:not([class*=&#x27;size-&#x27;])]:size-4" tabindex="-1" data-orientation="horizontal" data-radix-collection-item=""><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-sparkles mr-1.5 h-4 w-4" data-inspector-line="320" data-inspector-column="24" data-inspector-relative-path="src\\components\\image-processor-app.tsx"><path d="M9.937 15.5A2 2 0 0 0 8.5 14.063l-6.135-1.582a.5.5 0 0 1 0-.962L8.5 9.936A2 2 0 0 0 9.937 8.5l1.582-6.135a.5.5 0 0 1 .963 0L14.063 8.5A2 2 0 0 0 15.5 9.937l6.135 1.581a.5.5 0 0 1 0 .964L15.5 14.063a2 2 0 0 0-1.437 1.437l-1.582 6.135a.5.5 0 0 1-.963 0z"></path><path d="M20 3v4"></path><path d="M22 5h-4"></path><path d="M4 17v2"></path><path d="M5 18H3"></path></svg>滤镜</button><button type="button" role="tab" aria-selected="false" aria-controls="radix-_R_d5flb_-content-watermark" data-state="inactive" id="radix-_R_d5flb_-trigger-watermark" data-inspector-line="323" data-inspector-column="22" data-inspector-relative-path="src\\components\\image-processor-app.tsx" data-slot="tabs-trigger" class="data-[state=active]:bg-background dark:data-[state=active]:text-foreground focus-visible:border-ring focus-visible:ring-ring/50 focus-visible:outline-ring dark:data-[state=active]:border-input dark:data-[state=active]:bg-input/30 text-foreground dark:text-muted-foreground inline-flex h-[calc(100%-1px)] flex-1 items-center justify-center gap-1.5 rounded-md border border-transparent px-2 py-1 text-sm font-medium whitespace-nowrap transition-[color,box-shadow] focus-visible:ring-[3px] focus-visible:outline-1 disabled:pointer-events-none disabled:opacity-50 data-[state=active]:shadow-sm [&amp;_svg]:pointer-events-none [&amp;_svg]:shrink-0 [&amp;_svg:not([class*=&#x27;size-&#x27;])]:size-4" tabindex="-1" data-orientation="horizontal" data-radix-collection-item=""><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-droplet mr-1.5 h-4 w-4" data-inspector-line="324" data-inspector-column="24" data-inspector-relative-path="src\\components\\image-processor-app.tsx"><path d="M12 22a7 7 0 0 0 7-7c0-2-1-3.9-3-5.5s-3.5-4-4-6.5c-.5 2.5-2 4.9-4 6.5C6 11.1 5 13 5 15a7 7 0 0 0 7 7z"></path></svg>水印</button><button type="button" role="tab" aria-selected="false" aria-controls="radix-_R_d5flb_-content-crop" data-state="inactive" data-disabled="" disabled="" id="radix-_R_d5flb_-trigger-crop" data-inspector-line="327" data-inspector-column="22" data-inspector-relative-path="src\\components\\image-processor-app.tsx" data-slot="tabs-trigger" class="data-[state=active]:bg-background dark:data-[state=active]:text-foreground focus-visible:border-ring focus-visible:ring-ring/50 focus-visible:outline-ring dark:data-[state=active]:border-input dark:data-[state=active]:bg-input/30 text-foreground dark:text-muted-foreground inline-flex h-[calc(100%-1px)] flex-1 items-center justify-center gap-1.5 rounded-md border border-transparent px-2 py-1 text-sm font-medium whitespace-nowrap transition-[color,box-shadow] focus-visible:ring-[3px] focus-visible:outline-1 disabled:pointer-events-none disabled:opacity-50 data-[state=active]:shadow-sm [&amp;_svg]:pointer-events-none [&amp;_svg]:shrink-0 [&amp;_svg:not([class*=&#x27;size-&#x27;])]:size-4" tabindex="-1" data-orientation="horizontal" data-radix-collection-item=""><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-crop mr-1.5 h-4 w-4" data-inspector-line="328" data-inspector-column="24" data-inspector-relative-path="src\\components\\image-processor-app.tsx"><path d="M6 2v14a2 2 0 0 0 2 2h14"></path><path d="M18 22V8a2 2 0 0 0-2-2H2"></path></svg>裁剪</button></div><div data-inspector-line="333" data-inspector-column="20" data-inspector-relative-path="src\\components\\image-processor-app.tsx" class="p-6"><div data-state="active" data-orientation="horizontal" role="tabpanel" aria-labelledby="radix-_R_d5flb_-trigger-format" id="radix-_R_d5flb_-content-format" tabindex="0" data-inspector-line="334" data-inspector-column="22" data-inspector-relative-path="src\\components\\image-processor-app.tsx" data-slot="tabs-content" class="flex-1 outline-none mt-0" style="animation-duration:0s"><div data-inspector-line="72" data-inspector-column="4" data-inspector-relative-path="src\\components\\control-panel.tsx" class="space-y-6"><div data-inspector-line="73" data-inspector-column="6" data-inspector-relative-path="src\\components\\control-panel.tsx" class="space-y-3"><div data-inspector-line="74" data-inspector-column="8" data-inspector-relative-path="src\\components\\control-panel.tsx" class="flex items-center gap-2"><label data-inspector-line="75" data-inspector-column="10" data-inspector-relative-path="src\\components\\control-panel.tsx" data-slot="label" class="flex items-center gap-2 select-none group-data-[disabled=true]:pointer-events-none group-data-[disabled=true]:opacity-50 peer-disabled:cursor-not-allowed peer-disabled:opacity-50 text-sm font-medium">输出格式</label><button data-state="closed" data-inspector-line="79" data-inspector-column="16" data-inspector-relative-path="src\\components\\control-panel.tsx" data-slot="tooltip-trigger"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-info h-3.5 w-3.5 text-muted-foreground" data-inspector-line="80" data-inspector-column="18" data-inspector-relative-path="src\\components\\control-panel.tsx"><circle cx="12" cy="12" r="10"></circle><path d="M12 16v-4"></path><path d="M12 8h.01"></path></svg></button></div><button type="button" role="combobox" aria-controls="radix-_R_12dd5flb_" aria-expanded="false" aria-autocomplete="none" dir="ltr" data-state="closed" data-inspector-line="90" data-inspector-column="10" data-inspector-relative-path="src\\components\\control-panel.tsx" data-slot="select-trigger" data-size="default" class="border-input data-[placeholder]:text-muted-foreground [&amp;_svg:not([class*=&#x27;text-&#x27;])]:text-muted-foreground focus-visible:border-ring focus-visible:ring-ring/50 aria-invalid:ring-destructive/20 dark:aria-invalid:ring-destructive/40 aria-invalid:border-destructive dark:bg-input/30 dark:hover:bg-input/50 flex w-fit items-center justify-between gap-2 rounded-md border bg-transparent px-3 py-2 text-sm whitespace-nowrap shadow-xs transition-[color,box-shadow] outline-none focus-visible:ring-[3px] disabled:cursor-not-allowed disabled:opacity-50 data-[size=default]:h-9 data-[size=sm]:h-8 *:data-[slot=select-value]:line-clamp-1 *:data-[slot=select-value]:flex *:data-[slot=select-value]:items-center *:data-[slot=select-value]:gap-2 [&amp;_svg]:pointer-events-none [&amp;_svg]:shrink-0 [&amp;_svg:not([class*=&#x27;size-&#x27;])]:size-4"><span data-inspector-line="91" data-inspector-column="12" data-inspector-relative-path="src\\components\\control-panel.tsx" data-slot="select-value" style="pointer-events:none"></span><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-chevron-down size-4 opacity-50" data-inspector-line="47" data-inspector-column="8" data-inspector-relative-path="src\\components\\ui\\select.tsx" aria-hidden="true"><path d="m6 9 6 6 6-6"></path></svg></button><select aria-hidden="true" tabindex="-1" style="position:absolute;border:0;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0, 0, 0, 0);white-space:nowrap;word-wrap:normal"></select></div><div data-inspector-line="108" data-inspector-column="6" data-inspector-relative-path="src\\components\\control-panel.tsx" class="space-y-3"><div data-inspector-line="109" data-inspector-column="8" data-inspector-relative-path="src\\components\\control-panel.tsx" class="flex items-center justify-between"><label data-inspector-line="110" data-inspector-column="10" data-inspector-relative-path="src\\components\\control-panel.tsx" data-slot="label" class="flex items-center gap-2 select-none group-data-[disabled=true]:pointer-events-none group-data-[disabled=true]:opacity-50 peer-disabled:cursor-not-allowed peer-disabled:opacity-50 text-sm font-medium">压缩质量</label><span data-inspector-line="111" data-inspector-column="10" data-inspector-relative-path="src\\components\\control-panel.tsx" class="text-sm font-mono text-muted-foreground">85<!-- -->%</span></div><span dir="ltr" data-orientation="horizontal" aria-disabled="false" data-inspector-line="115" data-inspector-column="8" data-inspector-relative-path="src\\components\\control-panel.tsx" data-slot="slider" class="relative flex touch-none items-center select-none data-[disabled]:opacity-50 data-[orientation=vertical]:h-full data-[orientation=vertical]:min-h-44 data-[orientation=vertical]:w-auto data-[orientation=vertical]:flex-col w-full" style="--radix-slider-thumb-transform:translateX(-50%)"><span data-orientation="horizontal" data-inspector-line="39" data-inspector-column="6" data-inspector-relative-path="src\\components\\ui\\slider.tsx" data-slot="slider-track" class="bg-muted relative grow overflow-hidden rounded-full data-[orientation=horizontal]:h-1.5 data-[orientation=horizontal]:w-full data-[orientation=vertical]:h-full data-[orientation=vertical]:w-1.5"><span data-orientation="horizontal" data-inspector-line="45" data-inspector-column="8" data-inspector-relative-path="src\\components\\ui\\slider.tsx" data-slot="slider-range" class="bg-primary absolute data-[orientation=horizontal]:h-full data-[orientation=vertical]:w-full" style="left:0%;right:15%"></span></span><span style="transform:var(--radix-slider-thumb-transform);position:absolute;left:calc(0% + 0px)"><span role="slider" aria-valuemin="0" aria-valuemax="100" aria-orientation="horizontal" data-orientation="horizontal" tabindex="0" data-inspector-line="53" data-inspector-column="8" data-inspector-relative-path="src\\components\\ui\\slider.tsx" data-slot="slider-thumb" class="border-primary ring-ring/50 block size-4 shrink-0 rounded-full border bg-white shadow-sm transition-[color,box-shadow] hover:ring-4 focus-visible:ring-4 focus-visible:outline-hidden disabled:pointer-events-none disabled:opacity-50" style="display:none" data-radix-collection-item=""></span><input style="display:none"/></span></span><div data-inspector-line="123" data-inspector-column="8" data-inspector-relative-path="src\\components\\control-panel.tsx" class="flex items-center justify-between text-xs text-muted-foreground"><span data-inspector-line="124" data-inspector-column="10" data-inspector-relative-path="src\\components\\control-panel.tsx">最小文件大小</span><span data-inspector-line="125" data-inspector-column="10" data-inspector-relative-path="src\\components\\control-panel.tsx">最高质量</span></div></div><div data-inspector-line="129" data-inspector-column="6" data-inspector-relative-path="src\\components\\control-panel.tsx" class="space-y-3"><div data-inspector-line="130" data-inspector-column="8" data-inspector-relative-path="src\\components\\control-panel.tsx" class="flex items-center justify-between"><label data-inspector-line="131" data-inspector-column="10" data-inspector-relative-path="src\\components\\control-panel.tsx" data-slot="label" class="flex items-center gap-2 select-none group-data-[disabled=true]:pointer-events-none group-data-[disabled=true]:opacity-50 peer-disabled:cursor-not-allowed peer-disabled:opacity-50 text-sm font-medium">宽度缩放</label></div><input data-inspector-line="138" data-inspector-column="8" data-inspector-relative-path="src\\components\\control-panel.tsx" type="number" data-slot="input" class="file:text-foreground placeholder:text-muted-foreground selection:bg-primary selection:text-primary-foreground dark:bg-input/30 border-input h-9 w-full min-w-0 rounded-md border bg-transparent px-3 py-1 text-base shadow-xs transition-[color,box-shadow] outline-none file:inline-flex file:h-7 file:border-0 file:bg-transparent file:text-sm file:font-medium disabled:pointer-events-none disabled:cursor-not-allowed disabled:opacity-50 md:text-sm focus-visible:border-ring focus-visible:ring-ring/50 focus-visible:ring-[3px] aria-invalid:ring-destructive/20 dark:aria-invalid:ring-destructive/40 aria-invalid:border-destructive font-mono" placeholder="原始宽度" min="1" max="10000" value=""/><div data-inspector-line="148" data-inspector-column="8" data-inspector-relative-path="src\\components\\control-panel.tsx" class="flex items-center space-x-2"><button type="button" role="switch" aria-checked="true" data-state="checked" value="on" data-inspector-line="149" data-inspector-column="10" data-inspector-relative-path="src\\components\\control-panel.tsx" data-slot="switch" class="peer data-[state=checked]:bg-primary data-[state=unchecked]:bg-input focus-visible:border-ring focus-visible:ring-ring/50 dark:data-[state=unchecked]:bg-input/80 inline-flex h-[1.15rem] w-8 shrink-0 items-center rounded-full border border-transparent shadow-xs transition-all outline-none focus-visible:ring-[3px] disabled:cursor-not-allowed disabled:opacity-50" id="aspect-ratio"><span data-state="checked" data-inspector-line="21" data-inspector-column="6" data-inspector-relative-path="src\\components\\ui\\switch.tsx" data-slot="switch-thumb" class="bg-background dark:data-[state=unchecked]:bg-foreground dark:data-[state=checked]:bg-primary-foreground pointer-events-none block size-4 rounded-full ring-0 transition-transform data-[state=checked]:translate-x-[calc(100%-2px)] data-[state=unchecked]:translate-x-0"></span></button><input type="checkbox" aria-hidden="true" style="transform:translateX(-100%);position:absolute;pointer-events:none;opacity:0;margin:0" tabindex="-1" checked="" value="on"/><label data-inspector-line="154" data-inspector-column="10" data-inspector-relative-path="src\\components\\control-panel.tsx" data-slot="label" class="flex items-center gap-2 font-medium select-none group-data-[disabled=true]:pointer-events-none group-data-[disabled=true]:opacity-50 peer-disabled:cursor-not-allowed peer-disabled:opacity-50 text-sm cursor-pointer" for="aspect-ratio">保持宽高比</label></div></div><div data-inspector-line="160" data-inspector-column="6" data-inspector-relative-path="src\\components\\control-panel.tsx" class="space-y-3"><label data-inspector-line="161" data-inspector-column="8" data-inspector-relative-path="src\\components\\control-panel.tsx" data-slot="label" class="flex items-center gap-2 select-none group-data-[disabled=true]:pointer-events-none group-data-[disabled=true]:opacity-50 peer-disabled:cursor-not-allowed peer-disabled:opacity-50 text-sm font-medium">快捷预设</label><div data-inspector-line="162" data-inspector-column="8" data-inspector-relative-path="src\\components\\control-panel.tsx" class="grid grid-cols-2 gap-2"><button data-inspector-line="163" data-inspector-column="10" data-inspector-relative-path="src\\components\\control-panel.tsx" type="button" class="rounded-md border border-border px-3 py-2 text-sm hover:bg-muted/50 transition-colors">高质量</button><button data-inspector-line="172" data-inspector-column="10" data-inspector-relative-path="src\\components\\control-panel.tsx" type="button" class="rounded-md border border-border px-3 py-2 text-sm hover:bg-muted/50 transition-colors">平衡</button><button data-inspector-line="181" data-inspector-column="10" data-inspector-relative-path="src\\components\\control-panel.tsx" type="button" class="rounded-md border border-border px-3 py-2 text-sm hover:bg-muted/50 transition-colors">小文件</button><button data-inspector-line="190" data-inspector-column="10" data-inspector-relative-path="src\\components\\control-panel.tsx" type="button" class="rounded-md border border-border px-3 py-2 text-sm hover:bg-muted/50 transition-colors">缩小50%</button></div></div></div></div><div data-state="inactive" data-orientation="horizontal" role="tabpanel" aria-labelledby="radix-_R_d5flb_-trigger-filter" hidden="" id="radix-_R_d5flb_-content-filter" tabindex="0" data-inspector-line="342" data-inspector-column="22" data-inspector-relative-path="src\\components\\image-processor-app.tsx" data-slot="tabs-content" class="flex-1 outline-none mt-0"></div><div data-state="inactive" data-orientation="horizontal" role="tabpanel" aria-labelledby="radix-_R_d5flb_-trigger-watermark" hidden="" id="radix-_R_d5flb_-content-watermark" tabindex="0" data-inspector-line="349" data-inspector-column="22" data-inspector-relative-path="src\\components\\image-processor-app.tsx" data-slot="tabs-content" class="flex-1 outline-none mt-0"></div><div data-state="inactive" data-orientation="horizontal" role="tabpanel" aria-labelledby="radix-_R_d5flb_-trigger-crop" hidden="" id="radix-_R_d5flb_-content-crop" tabindex="0" data-inspector-line="358" data-inspector-column="22" data-inspector-relative-path="src\\components\\image-processor-app.tsx" data-slot="tabs-content" class="flex-1 outline-none mt-0 space-y-4"></div></div></div></div><div data-inspector-line="415" data-inspector-column="16" data-inspector-relative-path="src\\components\\image-processor-app.tsx" class="rounded-lg bg-muted/50 p-4 text-sm text-muted-foreground"><p data-inspector-line="416" data-inspector-column="18" data-inspector-relative-path="src\\components\\image-processor-app.tsx" class="font-medium text-foreground mb-2">隐私保护</p><p data-inspector-line="417" data-inspector-column="18" data-inspector-relative-path="src\\components\\image-processor-app.tsx">所有图片处理均在您的浏览器本地完成，不会上传到任何服务器。您的数据完全私密且安全。</p></div></div></div></main></div><footer data-inspector-line="9" data-inspector-column="4" data-inspector-relative-path="src\\components\\home-footer.tsx" class="border-t border-border bg-card"><div data-inspector-line="10" data-inspector-column="6" data-inspector-relative-path="src\\components\\home-footer.tsx" class="container mx-auto max-w-7xl px-4 py-6"><div data-inspector-line="11" data-inspector-column="8" data-inspector-relative-path="src\\components\\home-footer.tsx" class="flex flex-col items-center justify-between gap-4 sm:flex-row"><div data-inspector-line="12" data-inspector-column="10" data-inspector-relative-path="src\\components\\home-footer.tsx" class="text-center sm:text-left"><p data-inspector-line="13" data-inspector-column="12" data-inspector-relative-path="src\\components\\home-footer.tsx" class="text-sm text-muted-foreground">© 2024 图片免费工具</p><p data-inspector-line="16" data-inspector-column="12" data-inspector-relative-path="src\\components\\home-footer.tsx" class="text-xs text-muted-foreground">所有处理均在浏览器本地完成，保护您的隐私安全</p></div><div data-inspector-line="20" data-inspector-column="10" data-inspector-relative-path="src\\components\\home-footer.tsx" class="flex items-center gap-4 text-xs text-muted-foreground"><span data-inspector-line="21" data-inspector-column="12" data-inspector-relative-path="src\\components\\home-footer.tsx">支持格式: JPG, PNG, WebP, GIF, SVG, BMP</span><span data-inspector-line="22" data-inspector-column="12" data-inspector-relative-path="src\\components\\home-footer.tsx">•</span><span data-inspector-line="23" data-inspector-column="12" data-inspector-relative-path="src\\components\\home-footer.tsx">输出格式: JPG, PNG, WebP, AVIF, ICO</span></div></div></div></footer></div><!--$--><!--/$--><script src="/html/imagetool/_next/static/chunks/aeec55ee151357fd.js" id="_R_" async=""></script><script>(self.__next_f=self.__next_f||[]).push([0])</script><script>self.__next_f.push([1,"1:\"$Sreact.fragment\"\n2:I[27423,[\"/html/imagetool/_next/static/chunks/66508dbee6082b3e.js\"],\"ThemeProvider\"]\n3:I[11300,[\"/html/imagetool/_next/static/chunks/66508dbee6082b3e.js\"],\"I18nProvider\"]\n4:I[99041,[\"/html/imagetool/_next/static/chunks/c5c7ae7e10ac7d00.js\"],\"default\"]\n5:I[59683,[\"/html/imagetool/_next/static/chunks/c5c7ae7e10ac7d00.js\"],\"default\"]\n6:I[90174,[\"/html/imagetool/_next/static/chunks/66508dbee6082b3e.js\",\"/html/imagetool/_next/static/chunks/113ade38908c843e.js\",\"/html/imagetool/_next/static/chunks/572470a093b5d185.js\"],\"HomeHeader\"]\n7:I[91159,[\"/html/imagetool/_next/static/chunks/66508dbee6082b3e.js\",\"/html/imagetool/_next/static/chunks/113ade38908c843e.js\",\"/html/imagetool/_next/static/chunks/572470a093b5d185.js\"],\"ImageProcessorApp\"]\n8:I[12614,[\"/html/imagetool/_next/static/chunks/66508dbee6082b3e.js\",\"/html/imagetool/_next/static/chunks/113ade38908c843e.js\",\"/html/imagetool/_next/static/chunks/572470a093b5d185.js\"],\"HomeFooter\"]\n9:I[11282,[\"/html/imagetool/_next/static/chunks/c5c7ae7e10ac7d00.js\"],\"OutletBoundary\"]\na:\"$Sreact.suspense\"\nc:I[11282,[\"/html/imagetool/_next/static/chunks/c5c7ae7e10ac7d00.js\"],\"ViewportBoundary\"]\ne:I[11282,[\"/html/imagetool/_next/static/chunks/c5c7ae7e10ac7d00.js\"],\"MetadataBoundary\"]\n10:I[21585,[],\"default\"]\n:HL[\"/html/imagetool/_next/static/chunks/3a3f4698dea8e390.css\",\"style\"]\n:HL[\"/html/imagetool/_next/static/chunks/1c6a1ad0563fe908.css\",\"style\"]\n"])</script><script>self.__next_f.push([1,"0:{\"P\":null,\"b\":\"RXZiUj5Mqa_YJTveMoeQy\",\"c\":[\"\",\"\"],\"q\":\"\",\"i\":false,\"f\":[[[\"\",{\"children\":[\"__PAGE__\",{}]},\"$undefined\",\"$undefined\",true],[[\"$\",\"$1\",\"c\",{\"children\":[[[\"$\",\"link\",\"0\",{\"rel\":\"stylesheet\",\"href\":\"/html/imagetool/_next/static/chunks/3a3f4698dea8e390.css\",\"precedence\":\"next\",\"crossOrigin\":\"$undefined\",\"nonce\":\"$undefined\"}],[\"$\",\"script\",\"script-0\",{\"src\":\"/html/imagetool/_next/static/chunks/66508dbee6082b3e.js\",\"async\":true,\"nonce\":\"$undefined\"}]],[\"$\",\"html\",null,{\"data-inspector-line\":\"37\",\"data-inspector-column\":\"4\",\"data-inspector-relative-path\":\"src\\\\\\\\app\\\\\\\\layout.tsx\",\"lang\":\"zh-CN\",\"suppressHydrationWarning\":true,\"children\":[\"$\",\"body\",null,{\"data-inspector-line\":\"38\",\"data-inspector-column\":\"6\",\"data-inspector-relative-path\":\"src\\\\\\\\app\\\\\\\\layout.tsx\",\"className\":\"antialiased\",\"children\":[\"$\",\"$L2\",null,{\"data-inspector-line\":\"39\",\"data-inspector-column\":\"8\",\"data-inspector-relative-path\":\"src\\\\\\\\app\\\\\\\\layout.tsx\",\"attribute\":\"class\",\"defaultTheme\":\"system\",\"enableSystem\":true,\"disableTransitionOnChange\":true,\"children\":[\"$\",\"$L3\",null,{\"data-inspector-line\":\"45\",\"data-inspector-column\":\"10\",\"data-inspector-relative-path\":\"src\\\\\\\\app\\\\\\\\layout.tsx\",\"children\":[false,[\"$\",\"$L4\",null,{\"parallelRouterKey\":\"children\",\"error\":\"$undefined\",\"errorStyles\":\"$undefined\",\"errorScripts\":\"$undefined\",\"template\":[\"$\",\"$L5\",null,{}],\"templateStyles\":\"$undefined\",\"templateScripts\":\"$undefined\",\"notFound\":[[[\"$\",\"title\",null,{\"children\":\"404: This page could not be found.\"}],[\"$\",\"div\",null,{\"style\":{\"fontFamily\":\"system-ui,\\\"Segoe UI\\\",Roboto,Helvetica,Arial,sans-serif,\\\"Apple Color Emoji\\\",\\\"Segoe UI Emoji\\\"\",\"height\":\"100vh\",\"textAlign\":\"center\",\"display\":\"flex\",\"flexDirection\":\"column\",\"alignItems\":\"center\",\"justifyContent\":\"center\"},\"children\":[\"$\",\"div\",null,{\"children\":[[\"$\",\"style\",null,{\"dangerouslySetInnerHTML\":{\"__html\":\"body{color:#000;background:#fff;margin:0}.next-error-h1{border-right:1px solid rgba(0,0,0,.3)}@media (prefers-color-scheme:dark){body{color:#fff;background:#000}.next-error-h1{border-right:1px solid rgba(255,255,255,.3)}}\"}}],[\"$\",\"h1\",null,{\"className\":\"next-error-h1\",\"style\":{\"display\":\"inline-block\",\"margin\":\"0 20px 0 0\",\"padding\":\"0 23px 0 0\",\"fontSize\":24,\"fontWeight\":500,\"verticalAlign\":\"top\",\"lineHeight\":\"49px\"},\"children\":404}],[\"$\",\"div\",null,{\"style\":{\"display\":\"inline-block\"},\"children\":[\"$\",\"h2\",null,{\"style\":{\"fontSize\":14,\"fontWeight\":400,\"lineHeight\":\"49px\",\"margin\":0},\"children\":\"This page could not be found.\"}]}]]}]}]],[]],\"forbidden\":\"$undefined\",\"unauthorized\":\"$undefined\"}]]}]}]}]}]]}],{\"children\":[[\"$\",\"$1\",\"c\",{\"children\":[[\"$\",\"div\",null,{\"data-inspector-line\":\"13\",\"data-inspector-column\":\"4\",\"data-inspector-relative-path\":\"src\\\\\\\\app\\\\\\\\page.tsx\",\"className\":\"min-h-screen bg-background\",\"children\":[[\"$\",\"$L6\",null,{\"data-inspector-line\":\"14\",\"data-inspector-column\":\"6\",\"data-inspector-relative-path\":\"src\\\\\\\\app\\\\\\\\page.tsx\"}],[\"$\",\"$L7\",null,{\"data-inspector-line\":\"17\",\"data-inspector-column\":\"6\",\"data-inspector-relative-path\":\"src\\\\\\\\app\\\\\\\\page.tsx\"}],[\"$\",\"$L8\",null,{\"data-inspector-line\":\"19\",\"data-inspector-column\":\"6\",\"data-inspector-relative-path\":\"src\\\\\\\\app\\\\\\\\page.tsx\"}]]}],[[\"$\",\"link\",\"0\",{\"rel\":\"stylesheet\",\"href\":\"/html/imagetool/_next/static/chunks/1c6a1ad0563fe908.css\",\"precedence\":\"next\",\"crossOrigin\":\"$undefined\",\"nonce\":\"$undefined\"}],[\"$\",\"script\",\"script-0\",{\"src\":\"/html/imagetool/_next/static/chunks/113ade38908c843e.js\",\"async\":true,\"nonce\":\"$undefined\"}],[\"$\",\"script\",\"script-1\",{\"src\":\"/html/imagetool/_next/static/chunks/572470a093b5d185.js\",\"async\":true,\"nonce\":\"$undefined\"}]],[\"$\",\"$L9\",null,{\"children\":[\"$\",\"$a\",null,{\"name\":\"Next.MetadataOutlet\",\"children\":\"$@b\"}]}]]}],{},null,false,false]},null,false,false],[\"$\",\"$1\",\"h\",{\"children\":[null,[\"$\",\"$Lc\",null,{\"children\":\"$Ld\"}],[\"$\",\"div\",null,{\"hidden\":true,\"children\":[\"$\",\"$Le\",null,{\"children\":[\"$\",\"$a\",null,{\"name\":\"Next.Metadata\",\"children\":\"$Lf\"}]}]}],null]}],false]],\"m\":\"$undefined\",\"G\":[\"$10\",[]],\"S\":true}\n"])</script><script>self.__next_f.push([1,"d:[[\"$\",\"meta\",\"0\",{\"charSet\":\"utf-8\"}],[\"$\",\"meta\",\"1\",{\"name\":\"viewport\",\"content\":\"width=device-width, initial-scale=1\"}]]\n"])</script><script>self.__next_f.push([1,"11:I[37434,[\"/html/imagetool/_next/static/chunks/c5c7ae7e10ac7d00.js\"],\"IconMark\"]\nb:null\nf:[[\"$\",\"title\",\"0\",{\"children\":\"图片格式转换与压缩工具\"}],[\"$\",\"meta\",\"1\",{\"name\":\"description\",\"content\":\"现代化、响应式、纯前端本地运行的图片格式转换与压缩工具，支持实时预览、一键下载\"}],[\"$\",\"link\",\"2\",{\"rel\":\"author\",\"href\":\"https://code.coze.cn\"}],[\"$\",\"meta\",\"3\",{\"name\":\"author\",\"content\":\"Coze Code Team\"}],[\"$\",\"meta\",\"4\",{\"name\":\"generator\",\"content\":\"Coze Code\"}],[\"$\",\"meta\",\"5\",{\"name\":\"keywords\",\"content\":\"图片转换,图片压缩,格式转换,WebP转换,AVIF转换,批量处理,本地处理,隐私保护\"}],[\"$\",\"link\",\"6\",{\"rel\":\"icon\",\"href\":\"/html/imagetool/favicon.ico?favicon.0b3bf435.ico\",\"sizes\":\"256x256\",\"type\":\"image/x-icon\"}],[\"$\",\"$L11\",\"7\",{}]]\n"])</script></body></html>
+<!doctype html>
+<!--RXZiUj5Mqa_YJTveMoeQy-->
+<html
+  data-inspector-line="37"
+  data-inspector-column="4"
+  data-inspector-relative-path="src\\app\\layout.tsx"
+  lang="zh-CN"
+>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link
+      rel="stylesheet"
+      href="/html/imagetool/next/static/chunks/3a3f4698dea8e390.css"
+      data-precedence="next"
+    />
+    <link
+      rel="stylesheet"
+      href="/html/imagetool/next/static/chunks/1c6a1ad0563fe908.css"
+      data-precedence="next"
+    />
+    <link
+      rel="preload"
+      as="script"
+      fetchpriority="low"
+      href="/html/imagetool/next/static/chunks/aeec55ee151357fd.js"
+    />
+    <script
+      src="/html/imagetool/next/static/chunks/c37677feb9a6b30a.js"
+      async=""
+    ></script>
+    <script
+      src="/html/imagetool/next/static/chunks/9a0580c88b308b69.js"
+      async=""
+    ></script>
+    <script
+      src="/html/imagetool/next/static/chunks/turbopack-103f3b6d01eb218b.js"
+      async=""
+    ></script>
+    <script
+      src="/html/imagetool/next/static/chunks/66508dbee6082b3e.js"
+      async=""
+    ></script>
+    <script
+      src="/html/imagetool/next/static/chunks/c5c7ae7e10ac7d00.js"
+      async=""
+    ></script>
+    <script
+      src="/html/imagetool/next/static/chunks/113ade38908c843e.js"
+      async=""
+    ></script>
+    <script
+      src="/html/imagetool/next/static/chunks/572470a093b5d185.js"
+      async=""
+    ></script>
+    <title>图片格式转换与压缩工具</title>
+    <meta
+      name="description"
+      content="现代化、响应式、纯前端本地运行的图片格式转换与压缩工具，支持实时预览、一键下载"
+    />
+    <link rel="author" href="https://code.coze.cn" />
+    <meta name="author" content="Coze Code Team" />
+    <meta name="generator" content="Coze Code" />
+    <meta
+      name="keywords"
+      content="图片转换,图片压缩,格式转换,WebP转换,AVIF转换,批量处理,本地处理,隐私保护"
+    />
+    <link
+      rel="icon"
+      href="/html/imagetool/favicon.ico?favicon.0b3bf435.ico"
+      sizes="256x256"
+      type="image/x-icon"
+    />
+    <script
+      src="/html/imagetool/next/static/chunks/a6dad97d9634a72d.js"
+      nomodule=""
+    ></script>
+  </head>
+  <body
+    data-inspector-line="38"
+    data-inspector-column="6"
+    data-inspector-relative-path="src\\app\\layout.tsx"
+    class="antialiased"
+  >
+    <div hidden=""><!--$--><!--/$--></div>
+    <script>
+      ((a, b, c, d, e, f, g, h) => {
+        let i = document.documentElement,
+          j = ["light", "dark"];
+        function k(b) {
+          var c;
+          ((Array.isArray(a) ? a : [a]).forEach((a) => {
+            let c = "class" === a,
+              d = c && f ? e.map((a) => f[a] || a) : e;
+            c
+              ? (i.classList.remove(...d),
+                i.classList.add(f && f[b] ? f[b] : b))
+              : i.setAttribute(a, b);
+          }),
+            (c = b),
+            h && j.includes(c) && (i.style.colorScheme = c));
+        }
+        if (d) k(d);
+        else
+          try {
+            let a = localStorage.getItem(b) || c,
+              d =
+                g && "system" === a
+                  ? window.matchMedia("(prefers-color-scheme: dark)").matches
+                    ? "dark"
+                    : "light"
+                  : a;
+            k(d);
+          } catch (a) {}
+      })("class", "theme", "system", null, ["light", "dark"], null, true, true);
+    </script>
+    <div
+      data-inspector-line="13"
+      data-inspector-column="4"
+      data-inspector-relative-path="src\\app\\page.tsx"
+      class="min-h-screen bg-background"
+    >
+      <header
+        data-inspector-line="11"
+        data-inspector-column="4"
+        data-inspector-relative-path="src\\components\\home-header.tsx"
+        class="border-b border-border bg-card"
+      >
+        <div
+          data-inspector-line="12"
+          data-inspector-column="6"
+          data-inspector-relative-path="src\\components\\home-header.tsx"
+          class="container mx-auto max-w-7xl px-4 py-4"
+        >
+          <div
+            data-inspector-line="13"
+            data-inspector-column="8"
+            data-inspector-relative-path="src\\components\\home-header.tsx"
+            class="flex items-center justify-between"
+          >
+            <div
+              data-inspector-line="14"
+              data-inspector-column="10"
+              data-inspector-relative-path="src\\components\\home-header.tsx"
+              class="flex items-center gap-3"
+            >
+              <div
+                data-inspector-line="15"
+                data-inspector-column="12"
+                data-inspector-relative-path="src\\components\\home-header.tsx"
+                class="rounded-lg bg-primary/10 p-2"
+              >
+                <svg
+                  data-inspector-line="16"
+                  data-inspector-column="14"
+                  data-inspector-relative-path="src\\components\\home-header.tsx"
+                  class="h-6 w-6 text-primary"
+                  fill="none"
+                  stroke="currentColor"
+                  viewBox="0 0 24 24"
+                >
+                  <path
+                    data-inspector-line="22"
+                    data-inspector-column="16"
+                    data-inspector-relative-path="src\\components\\home-header.tsx"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    stroke-width="2"
+                    d="M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z"
+                  ></path>
+                </svg>
+              </div>
+              <div
+                data-inspector-line="30"
+                data-inspector-column="12"
+                data-inspector-relative-path="src\\components\\home-header.tsx"
+              >
+                <h1
+                  data-inspector-line="31"
+                  data-inspector-column="14"
+                  data-inspector-relative-path="src\\components\\home-header.tsx"
+                  class="text-lg font-semibold"
+                >
+                  图片免费工具
+                </h1>
+                <p
+                  data-inspector-line="32"
+                  data-inspector-column="14"
+                  data-inspector-relative-path="src\\components\\home-header.tsx"
+                  class="text-xs text-muted-foreground"
+                >
+                  本地处理 · 无需上传服务器
+                </p>
+              </div>
+            </div>
+            <div
+              data-inspector-line="35"
+              data-inspector-column="10"
+              data-inspector-relative-path="src\\components\\home-header.tsx"
+              class="flex items-center gap-3"
+            >
+              <button
+                type="button"
+                role="combobox"
+                aria-controls="radix-_R_clflb_"
+                aria-expanded="false"
+                aria-autocomplete="none"
+                dir="ltr"
+                data-state="closed"
+                data-inspector-line="11"
+                data-inspector-column="6"
+                data-inspector-relative-path="src\\components\\language-toggle.tsx"
+                data-slot="select-trigger"
+                data-size="default"
+                class="border-input data-[placeholder]:text-muted-foreground [&amp;_svg:not([class*=&#x27;text-&#x27;])]:text-muted-foreground focus-visible:border-ring focus-visible:ring-ring/50 aria-invalid:ring-destructive/20 dark:aria-invalid:ring-destructive/40 aria-invalid:border-destructive dark:bg-input/30 dark:hover:bg-input/50 flex items-center justify-between gap-2 rounded-md border bg-transparent px-3 py-2 text-sm whitespace-nowrap shadow-xs transition-[color,box-shadow] outline-none focus-visible:ring-[3px] disabled:cursor-not-allowed disabled:opacity-50 data-[size=default]:h-9 data-[size=sm]:h-8 *:data-[slot=select-value]:line-clamp-1 *:data-[slot=select-value]:flex *:data-[slot=select-value]:items-center *:data-[slot=select-value]:gap-2 [&amp;_svg]:pointer-events-none [&amp;_svg]:shrink-0 [&amp;_svg:not([class*=&#x27;size-&#x27;])]:size-4 w-28"
+              >
+                <span
+                  data-inspector-line="12"
+                  data-inspector-column="8"
+                  data-inspector-relative-path="src\\components\\language-toggle.tsx"
+                  data-slot="select-value"
+                  style="pointer-events: none"
+                ></span
+                ><svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  width="24"
+                  height="24"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="2"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  class="lucide lucide-chevron-down size-4 opacity-50"
+                  data-inspector-line="47"
+                  data-inspector-column="8"
+                  data-inspector-relative-path="src\\components\\ui\\select.tsx"
+                  aria-hidden="true"
+                >
+                  <path d="m6 9 6 6 6-6"></path>
+                </svg></button
+              ><select
+                aria-hidden="true"
+                tabindex="-1"
+                style="
+                  position: absolute;
+                  border: 0;
+                  width: 1px;
+                  height: 1px;
+                  padding: 0;
+                  margin: -1px;
+                  overflow: hidden;
+                  clip: rect(0, 0, 0, 0);
+                  white-space: nowrap;
+                  word-wrap: normal;
+                "
+              ></select
+              ><button
+                data-inspector-line="19"
+                data-inspector-column="6"
+                data-inspector-relative-path="src\\components\\theme-toggle.tsx"
+                data-slot="button"
+                data-variant="ghost"
+                data-size="icon"
+                class="inline-flex items-center justify-center gap-2 whitespace-nowrap rounded-md text-sm font-medium transition-all disabled:pointer-events-none disabled:opacity-50 [&amp;_svg]:pointer-events-none [&amp;_svg:not([class*=&#x27;size-&#x27;])]:size-4 shrink-0 [&amp;_svg]:shrink-0 outline-none focus-visible:border-ring focus-visible:ring-ring/50 focus-visible:ring-[3px] aria-invalid:ring-destructive/20 dark:aria-invalid:ring-destructive/40 aria-invalid:border-destructive hover:bg-accent hover:text-accent-foreground dark:hover:bg-accent/50 size-9"
+              >
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  width="24"
+                  height="24"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="2"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  class="lucide lucide-sun h-[1.2rem] w-[1.2rem]"
+                  data-inspector-line="20"
+                  data-inspector-column="8"
+                  data-inspector-relative-path="src\\components\\theme-toggle.tsx"
+                >
+                  <circle cx="12" cy="12" r="4"></circle>
+                  <path d="M12 2v2"></path>
+                  <path d="M12 20v2"></path>
+                  <path d="m4.93 4.93 1.41 1.41"></path>
+                  <path d="m17.66 17.66 1.41 1.41"></path>
+                  <path d="M2 12h2"></path>
+                  <path d="M20 12h2"></path>
+                  <path d="m6.34 17.66-1.41 1.41"></path>
+                  <path d="m19.07 4.93-1.41 1.41"></path>
+                </svg>
+              </button>
+            </div>
+          </div>
+        </div>
+      </header>
+      <div
+        data-inspector-line="215"
+        data-inspector-column="4"
+        data-inspector-relative-path="src\\components\\image-processor-app.tsx"
+        class="min-h-screen bg-background"
+      >
+        <main
+          data-inspector-line="217"
+          data-inspector-column="6"
+          data-inspector-relative-path="src\\components\\image-processor-app.tsx"
+          class="container mx-auto max-w-7xl px-4 py-8"
+        >
+          <div
+            data-inspector-line="218"
+            data-inspector-column="8"
+            data-inspector-relative-path="src\\components\\image-processor-app.tsx"
+            class="grid gap-8 lg:grid-cols-[1fr_360px]"
+          >
+            <div
+              data-inspector-line="220"
+              data-inspector-column="10"
+              data-inspector-relative-path="src\\components\\image-processor-app.tsx"
+              class="space-y-6"
+            >
+              <div
+                data-inspector-line="94"
+                data-inspector-column="4"
+                data-inspector-relative-path="src\\components\\image-uploader.tsx"
+                class="relative border-2 border-dashed rounded-lg p-12 transition-all cursor-pointer hover:border-primary/50 hover:bg-muted/30 border-border"
+              >
+                <input
+                  data-inspector-line="107"
+                  data-inspector-column="6"
+                  data-inspector-relative-path="src\\components\\image-uploader.tsx"
+                  type="file"
+                  accept="image/jpeg,image/png,image/webp,image/gif,image/svg+xml,image/bmp"
+                  multiple=""
+                  class="hidden"
+                />
+                <div
+                  data-inspector-line="116"
+                  data-inspector-column="6"
+                  data-inspector-relative-path="src\\components\\image-uploader.tsx"
+                  class="flex flex-col items-center justify-center gap-4 text-center"
+                >
+                  <div
+                    data-inspector-line="117"
+                    data-inspector-column="8"
+                    data-inspector-relative-path="src\\components\\image-uploader.tsx"
+                    class="flex items-center gap-4"
+                  >
+                    <div
+                      data-inspector-line="118"
+                      data-inspector-column="10"
+                      data-inspector-relative-path="src\\components\\image-uploader.tsx"
+                      class="rounded-full bg-primary/10 p-4"
+                    >
+                      <svg
+                        xmlns="http://www.w3.org/2000/svg"
+                        width="24"
+                        height="24"
+                        viewBox="0 0 24 24"
+                        fill="none"
+                        stroke="currentColor"
+                        stroke-width="2"
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                        class="lucide lucide-upload h-8 w-8 text-primary"
+                        data-inspector-line="119"
+                        data-inspector-column="12"
+                        data-inspector-relative-path="src\\components\\image-uploader.tsx"
+                      >
+                        <path
+                          d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"
+                        ></path>
+                        <polyline points="17 8 12 3 7 8"></polyline>
+                        <line x1="12" x2="12" y1="3" y2="15"></line>
+                      </svg>
+                    </div>
+                  </div>
+                  <div
+                    data-inspector-line="123"
+                    data-inspector-column="8"
+                    data-inspector-relative-path="src\\components\\image-uploader.tsx"
+                    class="space-y-2"
+                  >
+                    <h3
+                      data-inspector-line="124"
+                      data-inspector-column="10"
+                      data-inspector-relative-path="src\\components\\image-uploader.tsx"
+                      class="text-lg font-semibold"
+                    >
+                      上传图片
+                    </h3>
+                    <p
+                      data-inspector-line="125"
+                      data-inspector-column="10"
+                      data-inspector-relative-path="src\\components\\image-uploader.tsx"
+                      class="text-sm text-muted-foreground max-w-sm"
+                    >
+                      拖拽图片到此处、点击上传或直接粘贴
+                    </p>
+                  </div>
+                  <div
+                    data-inspector-line="130"
+                    data-inspector-column="8"
+                    data-inspector-relative-path="src\\components\\image-uploader.tsx"
+                    class="flex items-center gap-2 text-xs text-muted-foreground"
+                  >
+                    <span
+                      data-inspector-line="131"
+                      data-inspector-column="10"
+                      data-inspector-relative-path="src\\components\\image-uploader.tsx"
+                      class="flex items-center gap-1"
+                      ><svg
+                        xmlns="http://www.w3.org/2000/svg"
+                        width="24"
+                        height="24"
+                        viewBox="0 0 24 24"
+                        fill="none"
+                        stroke="currentColor"
+                        stroke-width="2"
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                        class="lucide lucide-image h-3 w-3"
+                        data-inspector-line="132"
+                        data-inspector-column="12"
+                        data-inspector-relative-path="src\\components\\image-uploader.tsx"
+                      >
+                        <rect
+                          width="18"
+                          height="18"
+                          x="3"
+                          y="3"
+                          rx="2"
+                          ry="2"
+                        ></rect>
+                        <circle cx="9" cy="9" r="2"></circle>
+                        <path
+                          d="m21 15-3.086-3.086a2 2 0 0 0-2.828 0L6 21"
+                        ></path></svg
+                      >支持 JPG、PNG、WebP、GIF、SVG、BMP</span
+                    >
+                  </div>
+                  <div
+                    data-inspector-line="137"
+                    data-inspector-column="8"
+                    data-inspector-relative-path="src\\components\\image-uploader.tsx"
+                    class="flex items-center gap-2 text-xs text-muted-foreground"
+                  >
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      width="24"
+                      height="24"
+                      viewBox="0 0 24 24"
+                      fill="none"
+                      stroke="currentColor"
+                      stroke-width="2"
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                      class="lucide lucide-clipboard h-3 w-3"
+                      data-inspector-line="138"
+                      data-inspector-column="10"
+                      data-inspector-relative-path="src\\components\\image-uploader.tsx"
+                    >
+                      <rect
+                        width="8"
+                        height="4"
+                        x="8"
+                        y="2"
+                        rx="1"
+                        ry="1"
+                      ></rect>
+                      <path
+                        d="M16 4h2a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h2"
+                      ></path></svg
+                    ><span
+                      data-inspector-line="139"
+                      data-inspector-column="10"
+                      data-inspector-relative-path="src\\components\\image-uploader.tsx"
+                      >Ctrl+V 粘贴图片</span
+                    >
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div
+              data-inspector-line="303"
+              data-inspector-column="10"
+              data-inspector-relative-path="src\\components\\image-processor-app.tsx"
+              class="space-y-6"
+            >
+              <div
+                data-inspector-line="306"
+                data-inspector-column="16"
+                data-inspector-relative-path="src\\components\\image-processor-app.tsx"
+                class="rounded-lg border border-border bg-card"
+              >
+                <div
+                  dir="ltr"
+                  data-orientation="horizontal"
+                  data-inspector-line="307"
+                  data-inspector-column="18"
+                  data-inspector-relative-path="src\\components\\image-processor-app.tsx"
+                  data-slot="tabs"
+                  class="flex flex-col gap-2"
+                >
+                  <div
+                    role="tablist"
+                    aria-orientation="horizontal"
+                    data-inspector-line="314"
+                    data-inspector-column="20"
+                    data-inspector-relative-path="src\\components\\image-processor-app.tsx"
+                    data-slot="tabs-list"
+                    class="bg-muted text-muted-foreground h-9 items-center justify-center rounded-lg p-[3px] grid w-full grid-cols-4"
+                    tabindex="-1"
+                    data-orientation="horizontal"
+                    style="outline: none"
+                  >
+                    <button
+                      type="button"
+                      role="tab"
+                      aria-selected="true"
+                      aria-controls="radix-_R_d5flb_-content-format"
+                      data-state="active"
+                      id="radix-_R_d5flb_-trigger-format"
+                      data-inspector-line="315"
+                      data-inspector-column="22"
+                      data-inspector-relative-path="src\\components\\image-processor-app.tsx"
+                      data-slot="tabs-trigger"
+                      class="data-[state=active]:bg-background dark:data-[state=active]:text-foreground focus-visible:border-ring focus-visible:ring-ring/50 focus-visible:outline-ring dark:data-[state=active]:border-input dark:data-[state=active]:bg-input/30 text-foreground dark:text-muted-foreground inline-flex h-[calc(100%-1px)] flex-1 items-center justify-center gap-1.5 rounded-md border border-transparent px-2 py-1 text-sm font-medium whitespace-nowrap transition-[color,box-shadow] focus-visible:ring-[3px] focus-visible:outline-1 disabled:pointer-events-none disabled:opacity-50 data-[state=active]:shadow-sm [&amp;_svg]:pointer-events-none [&amp;_svg]:shrink-0 [&amp;_svg:not([class*=&#x27;size-&#x27;])]:size-4"
+                      tabindex="-1"
+                      data-orientation="horizontal"
+                      data-radix-collection-item=""
+                    >
+                      <svg
+                        xmlns="http://www.w3.org/2000/svg"
+                        width="24"
+                        height="24"
+                        viewBox="0 0 24 24"
+                        fill="none"
+                        stroke="currentColor"
+                        stroke-width="2"
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                        class="lucide lucide-settings mr-1.5 h-4 w-4"
+                        data-inspector-line="316"
+                        data-inspector-column="24"
+                        data-inspector-relative-path="src\\components\\image-processor-app.tsx"
+                      >
+                        <path
+                          d="M12.22 2h-.44a2 2 0 0 0-2 2v.18a2 2 0 0 1-1 1.73l-.43.25a2 2 0 0 1-2 0l-.15-.08a2 2 0 0 0-2.73.73l-.22.38a2 2 0 0 0 .73 2.73l.15.1a2 2 0 0 1 1 1.72v.51a2 2 0 0 1-1 1.74l-.15.09a2 2 0 0 0-.73 2.73l.22.38a2 2 0 0 0 2.73.73l.15-.08a2 2 0 0 1 2 0l.43.25a2 2 0 0 1 1 1.73V20a2 2 0 0 0 2 2h.44a2 2 0 0 0 2-2v-.18a2 2 0 0 1 1-1.73l.43-.25a2 2 0 0 1 2 0l.15.08a2 2 0 0 0 2.73-.73l.22-.39a2 2 0 0 0-.73-2.73l-.15-.08a2 2 0 0 1-1-1.74v-.5a2 2 0 0 1 1-1.74l.15-.09a2 2 0 0 0 .73-2.73l-.22-.38a2 2 0 0 0-2.73-.73l-.15.08a2 2 0 0 1-2 0l-.43-.25a2 2 0 0 1-1-1.73V4a2 2 0 0 0-2-2z"
+                        ></path>
+                        <circle cx="12" cy="12" r="3"></circle></svg
+                      >格式</button
+                    ><button
+                      type="button"
+                      role="tab"
+                      aria-selected="false"
+                      aria-controls="radix-_R_d5flb_-content-filter"
+                      data-state="inactive"
+                      id="radix-_R_d5flb_-trigger-filter"
+                      data-inspector-line="319"
+                      data-inspector-column="22"
+                      data-inspector-relative-path="src\\components\\image-processor-app.tsx"
+                      data-slot="tabs-trigger"
+                      class="data-[state=active]:bg-background dark:data-[state=active]:text-foreground focus-visible:border-ring focus-visible:ring-ring/50 focus-visible:outline-ring dark:data-[state=active]:border-input dark:data-[state=active]:bg-input/30 text-foreground dark:text-muted-foreground inline-flex h-[calc(100%-1px)] flex-1 items-center justify-center gap-1.5 rounded-md border border-transparent px-2 py-1 text-sm font-medium whitespace-nowrap transition-[color,box-shadow] focus-visible:ring-[3px] focus-visible:outline-1 disabled:pointer-events-none disabled:opacity-50 data-[state=active]:shadow-sm [&amp;_svg]:pointer-events-none [&amp;_svg]:shrink-0 [&amp;_svg:not([class*=&#x27;size-&#x27;])]:size-4"
+                      tabindex="-1"
+                      data-orientation="horizontal"
+                      data-radix-collection-item=""
+                    >
+                      <svg
+                        xmlns="http://www.w3.org/2000/svg"
+                        width="24"
+                        height="24"
+                        viewBox="0 0 24 24"
+                        fill="none"
+                        stroke="currentColor"
+                        stroke-width="2"
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                        class="lucide lucide-sparkles mr-1.5 h-4 w-4"
+                        data-inspector-line="320"
+                        data-inspector-column="24"
+                        data-inspector-relative-path="src\\components\\image-processor-app.tsx"
+                      >
+                        <path
+                          d="M9.937 15.5A2 2 0 0 0 8.5 14.063l-6.135-1.582a.5.5 0 0 1 0-.962L8.5 9.936A2 2 0 0 0 9.937 8.5l1.582-6.135a.5.5 0 0 1 .963 0L14.063 8.5A2 2 0 0 0 15.5 9.937l6.135 1.581a.5.5 0 0 1 0 .964L15.5 14.063a2 2 0 0 0-1.437 1.437l-1.582 6.135a.5.5 0 0 1-.963 0z"
+                        ></path>
+                        <path d="M20 3v4"></path>
+                        <path d="M22 5h-4"></path>
+                        <path d="M4 17v2"></path>
+                        <path d="M5 18H3"></path></svg
+                      >滤镜</button
+                    ><button
+                      type="button"
+                      role="tab"
+                      aria-selected="false"
+                      aria-controls="radix-_R_d5flb_-content-watermark"
+                      data-state="inactive"
+                      id="radix-_R_d5flb_-trigger-watermark"
+                      data-inspector-line="323"
+                      data-inspector-column="22"
+                      data-inspector-relative-path="src\\components\\image-processor-app.tsx"
+                      data-slot="tabs-trigger"
+                      class="data-[state=active]:bg-background dark:data-[state=active]:text-foreground focus-visible:border-ring focus-visible:ring-ring/50 focus-visible:outline-ring dark:data-[state=active]:border-input dark:data-[state=active]:bg-input/30 text-foreground dark:text-muted-foreground inline-flex h-[calc(100%-1px)] flex-1 items-center justify-center gap-1.5 rounded-md border border-transparent px-2 py-1 text-sm font-medium whitespace-nowrap transition-[color,box-shadow] focus-visible:ring-[3px] focus-visible:outline-1 disabled:pointer-events-none disabled:opacity-50 data-[state=active]:shadow-sm [&amp;_svg]:pointer-events-none [&amp;_svg]:shrink-0 [&amp;_svg:not([class*=&#x27;size-&#x27;])]:size-4"
+                      tabindex="-1"
+                      data-orientation="horizontal"
+                      data-radix-collection-item=""
+                    >
+                      <svg
+                        xmlns="http://www.w3.org/2000/svg"
+                        width="24"
+                        height="24"
+                        viewBox="0 0 24 24"
+                        fill="none"
+                        stroke="currentColor"
+                        stroke-width="2"
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                        class="lucide lucide-droplet mr-1.5 h-4 w-4"
+                        data-inspector-line="324"
+                        data-inspector-column="24"
+                        data-inspector-relative-path="src\\components\\image-processor-app.tsx"
+                      >
+                        <path
+                          d="M12 22a7 7 0 0 0 7-7c0-2-1-3.9-3-5.5s-3.5-4-4-6.5c-.5 2.5-2 4.9-4 6.5C6 11.1 5 13 5 15a7 7 0 0 0 7 7z"
+                        ></path></svg
+                      >水印</button
+                    ><button
+                      type="button"
+                      role="tab"
+                      aria-selected="false"
+                      aria-controls="radix-_R_d5flb_-content-crop"
+                      data-state="inactive"
+                      data-disabled=""
+                      disabled=""
+                      id="radix-_R_d5flb_-trigger-crop"
+                      data-inspector-line="327"
+                      data-inspector-column="22"
+                      data-inspector-relative-path="src\\components\\image-processor-app.tsx"
+                      data-slot="tabs-trigger"
+                      class="data-[state=active]:bg-background dark:data-[state=active]:text-foreground focus-visible:border-ring focus-visible:ring-ring/50 focus-visible:outline-ring dark:data-[state=active]:border-input dark:data-[state=active]:bg-input/30 text-foreground dark:text-muted-foreground inline-flex h-[calc(100%-1px)] flex-1 items-center justify-center gap-1.5 rounded-md border border-transparent px-2 py-1 text-sm font-medium whitespace-nowrap transition-[color,box-shadow] focus-visible:ring-[3px] focus-visible:outline-1 disabled:pointer-events-none disabled:opacity-50 data-[state=active]:shadow-sm [&amp;_svg]:pointer-events-none [&amp;_svg]:shrink-0 [&amp;_svg:not([class*=&#x27;size-&#x27;])]:size-4"
+                      tabindex="-1"
+                      data-orientation="horizontal"
+                      data-radix-collection-item=""
+                    >
+                      <svg
+                        xmlns="http://www.w3.org/2000/svg"
+                        width="24"
+                        height="24"
+                        viewBox="0 0 24 24"
+                        fill="none"
+                        stroke="currentColor"
+                        stroke-width="2"
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                        class="lucide lucide-crop mr-1.5 h-4 w-4"
+                        data-inspector-line="328"
+                        data-inspector-column="24"
+                        data-inspector-relative-path="src\\components\\image-processor-app.tsx"
+                      >
+                        <path d="M6 2v14a2 2 0 0 0 2 2h14"></path>
+                        <path d="M18 22V8a2 2 0 0 0-2-2H2"></path></svg
+                      >裁剪
+                    </button>
+                  </div>
+                  <div
+                    data-inspector-line="333"
+                    data-inspector-column="20"
+                    data-inspector-relative-path="src\\components\\image-processor-app.tsx"
+                    class="p-6"
+                  >
+                    <div
+                      data-state="active"
+                      data-orientation="horizontal"
+                      role="tabpanel"
+                      aria-labelledby="radix-_R_d5flb_-trigger-format"
+                      id="radix-_R_d5flb_-content-format"
+                      tabindex="0"
+                      data-inspector-line="334"
+                      data-inspector-column="22"
+                      data-inspector-relative-path="src\\components\\image-processor-app.tsx"
+                      data-slot="tabs-content"
+                      class="flex-1 outline-none mt-0"
+                      style="animation-duration: 0s"
+                    >
+                      <div
+                        data-inspector-line="72"
+                        data-inspector-column="4"
+                        data-inspector-relative-path="src\\components\\control-panel.tsx"
+                        class="space-y-6"
+                      >
+                        <div
+                          data-inspector-line="73"
+                          data-inspector-column="6"
+                          data-inspector-relative-path="src\\components\\control-panel.tsx"
+                          class="space-y-3"
+                        >
+                          <div
+                            data-inspector-line="74"
+                            data-inspector-column="8"
+                            data-inspector-relative-path="src\\components\\control-panel.tsx"
+                            class="flex items-center gap-2"
+                          >
+                            <label
+                              data-inspector-line="75"
+                              data-inspector-column="10"
+                              data-inspector-relative-path="src\\components\\control-panel.tsx"
+                              data-slot="label"
+                              class="flex items-center gap-2 select-none group-data-[disabled=true]:pointer-events-none group-data-[disabled=true]:opacity-50 peer-disabled:cursor-not-allowed peer-disabled:opacity-50 text-sm font-medium"
+                              >输出格式</label
+                            ><button
+                              data-state="closed"
+                              data-inspector-line="79"
+                              data-inspector-column="16"
+                              data-inspector-relative-path="src\\components\\control-panel.tsx"
+                              data-slot="tooltip-trigger"
+                            >
+                              <svg
+                                xmlns="http://www.w3.org/2000/svg"
+                                width="24"
+                                height="24"
+                                viewBox="0 0 24 24"
+                                fill="none"
+                                stroke="currentColor"
+                                stroke-width="2"
+                                stroke-linecap="round"
+                                stroke-linejoin="round"
+                                class="lucide lucide-info h-3.5 w-3.5 text-muted-foreground"
+                                data-inspector-line="80"
+                                data-inspector-column="18"
+                                data-inspector-relative-path="src\\components\\control-panel.tsx"
+                              >
+                                <circle cx="12" cy="12" r="10"></circle>
+                                <path d="M12 16v-4"></path>
+                                <path d="M12 8h.01"></path>
+                              </svg>
+                            </button>
+                          </div>
+                          <button
+                            type="button"
+                            role="combobox"
+                            aria-controls="radix-_R_12dd5flb_"
+                            aria-expanded="false"
+                            aria-autocomplete="none"
+                            dir="ltr"
+                            data-state="closed"
+                            data-inspector-line="90"
+                            data-inspector-column="10"
+                            data-inspector-relative-path="src\\components\\control-panel.tsx"
+                            data-slot="select-trigger"
+                            data-size="default"
+                            class="border-input data-[placeholder]:text-muted-foreground [&amp;_svg:not([class*=&#x27;text-&#x27;])]:text-muted-foreground focus-visible:border-ring focus-visible:ring-ring/50 aria-invalid:ring-destructive/20 dark:aria-invalid:ring-destructive/40 aria-invalid:border-destructive dark:bg-input/30 dark:hover:bg-input/50 flex w-fit items-center justify-between gap-2 rounded-md border bg-transparent px-3 py-2 text-sm whitespace-nowrap shadow-xs transition-[color,box-shadow] outline-none focus-visible:ring-[3px] disabled:cursor-not-allowed disabled:opacity-50 data-[size=default]:h-9 data-[size=sm]:h-8 *:data-[slot=select-value]:line-clamp-1 *:data-[slot=select-value]:flex *:data-[slot=select-value]:items-center *:data-[slot=select-value]:gap-2 [&amp;_svg]:pointer-events-none [&amp;_svg]:shrink-0 [&amp;_svg:not([class*=&#x27;size-&#x27;])]:size-4"
+                          >
+                            <span
+                              data-inspector-line="91"
+                              data-inspector-column="12"
+                              data-inspector-relative-path="src\\components\\control-panel.tsx"
+                              data-slot="select-value"
+                              style="pointer-events: none"
+                            ></span
+                            ><svg
+                              xmlns="http://www.w3.org/2000/svg"
+                              width="24"
+                              height="24"
+                              viewBox="0 0 24 24"
+                              fill="none"
+                              stroke="currentColor"
+                              stroke-width="2"
+                              stroke-linecap="round"
+                              stroke-linejoin="round"
+                              class="lucide lucide-chevron-down size-4 opacity-50"
+                              data-inspector-line="47"
+                              data-inspector-column="8"
+                              data-inspector-relative-path="src\\components\\ui\\select.tsx"
+                              aria-hidden="true"
+                            >
+                              <path d="m6 9 6 6 6-6"></path>
+                            </svg></button
+                          ><select
+                            aria-hidden="true"
+                            tabindex="-1"
+                            style="
+                              position: absolute;
+                              border: 0;
+                              width: 1px;
+                              height: 1px;
+                              padding: 0;
+                              margin: -1px;
+                              overflow: hidden;
+                              clip: rect(0, 0, 0, 0);
+                              white-space: nowrap;
+                              word-wrap: normal;
+                            "
+                          ></select>
+                        </div>
+                        <div
+                          data-inspector-line="108"
+                          data-inspector-column="6"
+                          data-inspector-relative-path="src\\components\\control-panel.tsx"
+                          class="space-y-3"
+                        >
+                          <div
+                            data-inspector-line="109"
+                            data-inspector-column="8"
+                            data-inspector-relative-path="src\\components\\control-panel.tsx"
+                            class="flex items-center justify-between"
+                          >
+                            <label
+                              data-inspector-line="110"
+                              data-inspector-column="10"
+                              data-inspector-relative-path="src\\components\\control-panel.tsx"
+                              data-slot="label"
+                              class="flex items-center gap-2 select-none group-data-[disabled=true]:pointer-events-none group-data-[disabled=true]:opacity-50 peer-disabled:cursor-not-allowed peer-disabled:opacity-50 text-sm font-medium"
+                              >压缩质量</label
+                            ><span
+                              data-inspector-line="111"
+                              data-inspector-column="10"
+                              data-inspector-relative-path="src\\components\\control-panel.tsx"
+                              class="text-sm font-mono text-muted-foreground"
+                              >85<!-- -->%</span
+                            >
+                          </div>
+                          <span
+                            dir="ltr"
+                            data-orientation="horizontal"
+                            aria-disabled="false"
+                            data-inspector-line="115"
+                            data-inspector-column="8"
+                            data-inspector-relative-path="src\\components\\control-panel.tsx"
+                            data-slot="slider"
+                            class="relative flex touch-none items-center select-none data-[disabled]:opacity-50 data-[orientation=vertical]:h-full data-[orientation=vertical]:min-h-44 data-[orientation=vertical]:w-auto data-[orientation=vertical]:flex-col w-full"
+                            style="
+                              --radix-slider-thumb-transform: translateX(-50%);
+                            "
+                            ><span
+                              data-orientation="horizontal"
+                              data-inspector-line="39"
+                              data-inspector-column="6"
+                              data-inspector-relative-path="src\\components\\ui\\slider.tsx"
+                              data-slot="slider-track"
+                              class="bg-muted relative grow overflow-hidden rounded-full data-[orientation=horizontal]:h-1.5 data-[orientation=horizontal]:w-full data-[orientation=vertical]:h-full data-[orientation=vertical]:w-1.5"
+                              ><span
+                                data-orientation="horizontal"
+                                data-inspector-line="45"
+                                data-inspector-column="8"
+                                data-inspector-relative-path="src\\components\\ui\\slider.tsx"
+                                data-slot="slider-range"
+                                class="bg-primary absolute data-[orientation=horizontal]:h-full data-[orientation=vertical]:w-full"
+                                style="left: 0%; right: 15%"
+                              ></span></span
+                            ><span
+                              style="
+                                transform: var(--radix-slider-thumb-transform);
+                                position: absolute;
+                                left: calc(0% + 0px);
+                              "
+                              ><span
+                                role="slider"
+                                aria-valuemin="0"
+                                aria-valuemax="100"
+                                aria-orientation="horizontal"
+                                data-orientation="horizontal"
+                                tabindex="0"
+                                data-inspector-line="53"
+                                data-inspector-column="8"
+                                data-inspector-relative-path="src\\components\\ui\\slider.tsx"
+                                data-slot="slider-thumb"
+                                class="border-primary ring-ring/50 block size-4 shrink-0 rounded-full border bg-white shadow-sm transition-[color,box-shadow] hover:ring-4 focus-visible:ring-4 focus-visible:outline-hidden disabled:pointer-events-none disabled:opacity-50"
+                                style="display: none"
+                                data-radix-collection-item=""
+                              ></span
+                              ><input style="display: none" /></span
+                          ></span>
+                          <div
+                            data-inspector-line="123"
+                            data-inspector-column="8"
+                            data-inspector-relative-path="src\\components\\control-panel.tsx"
+                            class="flex items-center justify-between text-xs text-muted-foreground"
+                          >
+                            <span
+                              data-inspector-line="124"
+                              data-inspector-column="10"
+                              data-inspector-relative-path="src\\components\\control-panel.tsx"
+                              >最小文件大小</span
+                            ><span
+                              data-inspector-line="125"
+                              data-inspector-column="10"
+                              data-inspector-relative-path="src\\components\\control-panel.tsx"
+                              >最高质量</span
+                            >
+                          </div>
+                        </div>
+                        <div
+                          data-inspector-line="129"
+                          data-inspector-column="6"
+                          data-inspector-relative-path="src\\components\\control-panel.tsx"
+                          class="space-y-3"
+                        >
+                          <div
+                            data-inspector-line="130"
+                            data-inspector-column="8"
+                            data-inspector-relative-path="src\\components\\control-panel.tsx"
+                            class="flex items-center justify-between"
+                          >
+                            <label
+                              data-inspector-line="131"
+                              data-inspector-column="10"
+                              data-inspector-relative-path="src\\components\\control-panel.tsx"
+                              data-slot="label"
+                              class="flex items-center gap-2 select-none group-data-[disabled=true]:pointer-events-none group-data-[disabled=true]:opacity-50 peer-disabled:cursor-not-allowed peer-disabled:opacity-50 text-sm font-medium"
+                              >宽度缩放</label
+                            >
+                          </div>
+                          <input
+                            data-inspector-line="138"
+                            data-inspector-column="8"
+                            data-inspector-relative-path="src\\components\\control-panel.tsx"
+                            type="number"
+                            data-slot="input"
+                            class="file:text-foreground placeholder:text-muted-foreground selection:bg-primary selection:text-primary-foreground dark:bg-input/30 border-input h-9 w-full min-w-0 rounded-md border bg-transparent px-3 py-1 text-base shadow-xs transition-[color,box-shadow] outline-none file:inline-flex file:h-7 file:border-0 file:bg-transparent file:text-sm file:font-medium disabled:pointer-events-none disabled:cursor-not-allowed disabled:opacity-50 md:text-sm focus-visible:border-ring focus-visible:ring-ring/50 focus-visible:ring-[3px] aria-invalid:ring-destructive/20 dark:aria-invalid:ring-destructive/40 aria-invalid:border-destructive font-mono"
+                            placeholder="原始宽度"
+                            min="1"
+                            max="10000"
+                            value=""
+                          />
+                          <div
+                            data-inspector-line="148"
+                            data-inspector-column="8"
+                            data-inspector-relative-path="src\\components\\control-panel.tsx"
+                            class="flex items-center space-x-2"
+                          >
+                            <button
+                              type="button"
+                              role="switch"
+                              aria-checked="true"
+                              data-state="checked"
+                              value="on"
+                              data-inspector-line="149"
+                              data-inspector-column="10"
+                              data-inspector-relative-path="src\\components\\control-panel.tsx"
+                              data-slot="switch"
+                              class="peer data-[state=checked]:bg-primary data-[state=unchecked]:bg-input focus-visible:border-ring focus-visible:ring-ring/50 dark:data-[state=unchecked]:bg-input/80 inline-flex h-[1.15rem] w-8 shrink-0 items-center rounded-full border border-transparent shadow-xs transition-all outline-none focus-visible:ring-[3px] disabled:cursor-not-allowed disabled:opacity-50"
+                              id="aspect-ratio"
+                            >
+                              <span
+                                data-state="checked"
+                                data-inspector-line="21"
+                                data-inspector-column="6"
+                                data-inspector-relative-path="src\\components\\ui\\switch.tsx"
+                                data-slot="switch-thumb"
+                                class="bg-background dark:data-[state=unchecked]:bg-foreground dark:data-[state=checked]:bg-primary-foreground pointer-events-none block size-4 rounded-full ring-0 transition-transform data-[state=checked]:translate-x-[calc(100%-2px)] data-[state=unchecked]:translate-x-0"
+                              ></span></button
+                            ><input
+                              type="checkbox"
+                              aria-hidden="true"
+                              style="
+                                transform: translateX(-100%);
+                                position: absolute;
+                                pointer-events: none;
+                                opacity: 0;
+                                margin: 0;
+                              "
+                              tabindex="-1"
+                              checked=""
+                              value="on"
+                            /><label
+                              data-inspector-line="154"
+                              data-inspector-column="10"
+                              data-inspector-relative-path="src\\components\\control-panel.tsx"
+                              data-slot="label"
+                              class="flex items-center gap-2 font-medium select-none group-data-[disabled=true]:pointer-events-none group-data-[disabled=true]:opacity-50 peer-disabled:cursor-not-allowed peer-disabled:opacity-50 text-sm cursor-pointer"
+                              for="aspect-ratio"
+                              >保持宽高比</label
+                            >
+                          </div>
+                        </div>
+                        <div
+                          data-inspector-line="160"
+                          data-inspector-column="6"
+                          data-inspector-relative-path="src\\components\\control-panel.tsx"
+                          class="space-y-3"
+                        >
+                          <label
+                            data-inspector-line="161"
+                            data-inspector-column="8"
+                            data-inspector-relative-path="src\\components\\control-panel.tsx"
+                            data-slot="label"
+                            class="flex items-center gap-2 select-none group-data-[disabled=true]:pointer-events-none group-data-[disabled=true]:opacity-50 peer-disabled:cursor-not-allowed peer-disabled:opacity-50 text-sm font-medium"
+                            >快捷预设</label
+                          >
+                          <div
+                            data-inspector-line="162"
+                            data-inspector-column="8"
+                            data-inspector-relative-path="src\\components\\control-panel.tsx"
+                            class="grid grid-cols-2 gap-2"
+                          >
+                            <button
+                              data-inspector-line="163"
+                              data-inspector-column="10"
+                              data-inspector-relative-path="src\\components\\control-panel.tsx"
+                              type="button"
+                              class="rounded-md border border-border px-3 py-2 text-sm hover:bg-muted/50 transition-colors"
+                            >
+                              高质量</button
+                            ><button
+                              data-inspector-line="172"
+                              data-inspector-column="10"
+                              data-inspector-relative-path="src\\components\\control-panel.tsx"
+                              type="button"
+                              class="rounded-md border border-border px-3 py-2 text-sm hover:bg-muted/50 transition-colors"
+                            >
+                              平衡</button
+                            ><button
+                              data-inspector-line="181"
+                              data-inspector-column="10"
+                              data-inspector-relative-path="src\\components\\control-panel.tsx"
+                              type="button"
+                              class="rounded-md border border-border px-3 py-2 text-sm hover:bg-muted/50 transition-colors"
+                            >
+                              小文件</button
+                            ><button
+                              data-inspector-line="190"
+                              data-inspector-column="10"
+                              data-inspector-relative-path="src\\components\\control-panel.tsx"
+                              type="button"
+                              class="rounded-md border border-border px-3 py-2 text-sm hover:bg-muted/50 transition-colors"
+                            >
+                              缩小50%
+                            </button>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                    <div
+                      data-state="inactive"
+                      data-orientation="horizontal"
+                      role="tabpanel"
+                      aria-labelledby="radix-_R_d5flb_-trigger-filter"
+                      hidden=""
+                      id="radix-_R_d5flb_-content-filter"
+                      tabindex="0"
+                      data-inspector-line="342"
+                      data-inspector-column="22"
+                      data-inspector-relative-path="src\\components\\image-processor-app.tsx"
+                      data-slot="tabs-content"
+                      class="flex-1 outline-none mt-0"
+                    ></div>
+                    <div
+                      data-state="inactive"
+                      data-orientation="horizontal"
+                      role="tabpanel"
+                      aria-labelledby="radix-_R_d5flb_-trigger-watermark"
+                      hidden=""
+                      id="radix-_R_d5flb_-content-watermark"
+                      tabindex="0"
+                      data-inspector-line="349"
+                      data-inspector-column="22"
+                      data-inspector-relative-path="src\\components\\image-processor-app.tsx"
+                      data-slot="tabs-content"
+                      class="flex-1 outline-none mt-0"
+                    ></div>
+                    <div
+                      data-state="inactive"
+                      data-orientation="horizontal"
+                      role="tabpanel"
+                      aria-labelledby="radix-_R_d5flb_-trigger-crop"
+                      hidden=""
+                      id="radix-_R_d5flb_-content-crop"
+                      tabindex="0"
+                      data-inspector-line="358"
+                      data-inspector-column="22"
+                      data-inspector-relative-path="src\\components\\image-processor-app.tsx"
+                      data-slot="tabs-content"
+                      class="flex-1 outline-none mt-0 space-y-4"
+                    ></div>
+                  </div>
+                </div>
+              </div>
+              <div
+                data-inspector-line="415"
+                data-inspector-column="16"
+                data-inspector-relative-path="src\\components\\image-processor-app.tsx"
+                class="rounded-lg bg-muted/50 p-4 text-sm text-muted-foreground"
+              >
+                <p
+                  data-inspector-line="416"
+                  data-inspector-column="18"
+                  data-inspector-relative-path="src\\components\\image-processor-app.tsx"
+                  class="font-medium text-foreground mb-2"
+                >
+                  隐私保护
+                </p>
+                <p
+                  data-inspector-line="417"
+                  data-inspector-column="18"
+                  data-inspector-relative-path="src\\components\\image-processor-app.tsx"
+                >
+                  所有图片处理均在您的浏览器本地完成，不会上传到任何服务器。您的数据完全私密且安全。
+                </p>
+              </div>
+            </div>
+          </div>
+        </main>
+      </div>
+      <footer
+        data-inspector-line="9"
+        data-inspector-column="4"
+        data-inspector-relative-path="src\\components\\home-footer.tsx"
+        class="border-t border-border bg-card"
+      >
+        <div
+          data-inspector-line="10"
+          data-inspector-column="6"
+          data-inspector-relative-path="src\\components\\home-footer.tsx"
+          class="container mx-auto max-w-7xl px-4 py-6"
+        >
+          <div
+            data-inspector-line="11"
+            data-inspector-column="8"
+            data-inspector-relative-path="src\\components\\home-footer.tsx"
+            class="flex flex-col items-center justify-between gap-4 sm:flex-row"
+          >
+            <div
+              data-inspector-line="12"
+              data-inspector-column="10"
+              data-inspector-relative-path="src\\components\\home-footer.tsx"
+              class="text-center sm:text-left"
+            >
+              <p
+                data-inspector-line="13"
+                data-inspector-column="12"
+                data-inspector-relative-path="src\\components\\home-footer.tsx"
+                class="text-sm text-muted-foreground"
+              >
+                © 2024 图片免费工具
+              </p>
+              <p
+                data-inspector-line="16"
+                data-inspector-column="12"
+                data-inspector-relative-path="src\\components\\home-footer.tsx"
+                class="text-xs text-muted-foreground"
+              >
+                所有处理均在浏览器本地完成，保护您的隐私安全
+              </p>
+            </div>
+            <div
+              data-inspector-line="20"
+              data-inspector-column="10"
+              data-inspector-relative-path="src\\components\\home-footer.tsx"
+              class="flex items-center gap-4 text-xs text-muted-foreground"
+            >
+              <span
+                data-inspector-line="21"
+                data-inspector-column="12"
+                data-inspector-relative-path="src\\components\\home-footer.tsx"
+                >支持格式: JPG, PNG, WebP, GIF, SVG, BMP</span
+              ><span
+                data-inspector-line="22"
+                data-inspector-column="12"
+                data-inspector-relative-path="src\\components\\home-footer.tsx"
+                >•</span
+              ><span
+                data-inspector-line="23"
+                data-inspector-column="12"
+                data-inspector-relative-path="src\\components\\home-footer.tsx"
+                >输出格式: JPG, PNG, WebP, AVIF, ICO</span
+              >
+            </div>
+          </div>
+        </div>
+      </footer>
+    </div>
+    <!--$--><!--/$-->
+    <script
+      src="/html/imagetool/next/static/chunks/aeec55ee151357fd.js"
+      id="_R_"
+      async=""
+    ></script>
+    <script>
+      (self.__next_f = self.__next_f || []).push([0]);
+    </script>
+    <script>
+      self.__next_f.push([
+        1,
+        '1:"$Sreact.fragment"\n2:I[27423,["/html/imagetool/next/static/chunks/66508dbee6082b3e.js"],"ThemeProvider"]\n3:I[11300,["/html/imagetool/next/static/chunks/66508dbee6082b3e.js"],"I18nProvider"]\n4:I[99041,["/html/imagetool/next/static/chunks/c5c7ae7e10ac7d00.js"],"default"]\n5:I[59683,["/html/imagetool/next/static/chunks/c5c7ae7e10ac7d00.js"],"default"]\n6:I[90174,["/html/imagetool/next/static/chunks/66508dbee6082b3e.js","/html/imagetool/next/static/chunks/113ade38908c843e.js","/html/imagetool/next/static/chunks/572470a093b5d185.js"],"HomeHeader"]\n7:I[91159,["/html/imagetool/next/static/chunks/66508dbee6082b3e.js","/html/imagetool/next/static/chunks/113ade38908c843e.js","/html/imagetool/next/static/chunks/572470a093b5d185.js"],"ImageProcessorApp"]\n8:I[12614,["/html/imagetool/next/static/chunks/66508dbee6082b3e.js","/html/imagetool/next/static/chunks/113ade38908c843e.js","/html/imagetool/next/static/chunks/572470a093b5d185.js"],"HomeFooter"]\n9:I[11282,["/html/imagetool/next/static/chunks/c5c7ae7e10ac7d00.js"],"OutletBoundary"]\na:"$Sreact.suspense"\nc:I[11282,["/html/imagetool/next/static/chunks/c5c7ae7e10ac7d00.js"],"ViewportBoundary"]\ne:I[11282,["/html/imagetool/next/static/chunks/c5c7ae7e10ac7d00.js"],"MetadataBoundary"]\n10:I[21585,[],"default"]\n:HL["/html/imagetool/next/static/chunks/3a3f4698dea8e390.css","style"]\n:HL["/html/imagetool/next/static/chunks/1c6a1ad0563fe908.css","style"]\n',
+      ]);
+    </script>
+    <script>
+      self.__next_f.push([
+        1,
+        '0:{"P":null,"b":"RXZiUj5Mqa_YJTveMoeQy","c":["",""],"q":"","i":false,"f":[[["",{"children":["__PAGE__",{}]},"$undefined","$undefined",true],[["$","$1","c",{"children":[[["$","link","0",{"rel":"stylesheet","href":"/html/imagetool/next/static/chunks/3a3f4698dea8e390.css","precedence":"next","crossOrigin":"$undefined","nonce":"$undefined"}],["$","script","script-0",{"src":"/html/imagetool/next/static/chunks/66508dbee6082b3e.js","async":true,"nonce":"$undefined"}]],["$","html",null,{"data-inspector-line":"37","data-inspector-column":"4","data-inspector-relative-path":"src\\\\\\\\app\\\\\\\\layout.tsx","lang":"zh-CN","suppressHydrationWarning":true,"children":["$","body",null,{"data-inspector-line":"38","data-inspector-column":"6","data-inspector-relative-path":"src\\\\\\\\app\\\\\\\\layout.tsx","className":"antialiased","children":["$","$L2",null,{"data-inspector-line":"39","data-inspector-column":"8","data-inspector-relative-path":"src\\\\\\\\app\\\\\\\\layout.tsx","attribute":"class","defaultTheme":"system","enableSystem":true,"disableTransitionOnChange":true,"children":["$","$L3",null,{"data-inspector-line":"45","data-inspector-column":"10","data-inspector-relative-path":"src\\\\\\\\app\\\\\\\\layout.tsx","children":[false,["$","$L4",null,{"parallelRouterKey":"children","error":"$undefined","errorStyles":"$undefined","errorScripts":"$undefined","template":["$","$L5",null,{}],"templateStyles":"$undefined","templateScripts":"$undefined","notFound":[[["$","title",null,{"children":"404: This page could not be found."}],["$","div",null,{"style":{"fontFamily":"system-ui,\\"Segoe UI\\",Roboto,Helvetica,Arial,sans-serif,\\"Apple Color Emoji\\",\\"Segoe UI Emoji\\"","height":"100vh","textAlign":"center","display":"flex","flexDirection":"column","alignItems":"center","justifyContent":"center"},"children":["$","div",null,{"children":[["$","style",null,{"dangerouslySetInnerHTML":{"__html":"body{color:#000;background:#fff;margin:0}.next-error-h1{border-right:1px solid rgba(0,0,0,.3)}@media (prefers-color-scheme:dark){body{color:#fff;background:#000}.next-error-h1{border-right:1px solid rgba(255,255,255,.3)}}"}}],["$","h1",null,{"className":"next-error-h1","style":{"display":"inline-block","margin":"0 20px 0 0","padding":"0 23px 0 0","fontSize":24,"fontWeight":500,"verticalAlign":"top","lineHeight":"49px"},"children":404}],["$","div",null,{"style":{"display":"inline-block"},"children":["$","h2",null,{"style":{"fontSize":14,"fontWeight":400,"lineHeight":"49px","margin":0},"children":"This page could not be found."}]}]]}]}]],[]],"forbidden":"$undefined","unauthorized":"$undefined"}]]}]}]}]}]]}],{"children":[["$","$1","c",{"children":[["$","div",null,{"data-inspector-line":"13","data-inspector-column":"4","data-inspector-relative-path":"src\\\\\\\\app\\\\\\\\page.tsx","className":"min-h-screen bg-background","children":[["$","$L6",null,{"data-inspector-line":"14","data-inspector-column":"6","data-inspector-relative-path":"src\\\\\\\\app\\\\\\\\page.tsx"}],["$","$L7",null,{"data-inspector-line":"17","data-inspector-column":"6","data-inspector-relative-path":"src\\\\\\\\app\\\\\\\\page.tsx"}],["$","$L8",null,{"data-inspector-line":"19","data-inspector-column":"6","data-inspector-relative-path":"src\\\\\\\\app\\\\\\\\page.tsx"}]]}],[["$","link","0",{"rel":"stylesheet","href":"/html/imagetool/next/static/chunks/1c6a1ad0563fe908.css","precedence":"next","crossOrigin":"$undefined","nonce":"$undefined"}],["$","script","script-0",{"src":"/html/imagetool/next/static/chunks/113ade38908c843e.js","async":true,"nonce":"$undefined"}],["$","script","script-1",{"src":"/html/imagetool/next/static/chunks/572470a093b5d185.js","async":true,"nonce":"$undefined"}]],["$","$L9",null,{"children":["$","$a",null,{"name":"Next.MetadataOutlet","children":"$@b"}]}]]}],{},null,false,false]},null,false,false],["$","$1","h",{"children":[null,["$","$Lc",null,{"children":"$Ld"}],["$","div",null,{"hidden":true,"children":["$","$Le",null,{"children":["$","$a",null,{"name":"Next.Metadata","children":"$Lf"}]}]}],null]}],false]],"m":"$undefined","G":["$10",[]],"S":true}\n',
+      ]);
+    </script>
+    <script>
+      self.__next_f.push([
+        1,
+        'd:[["$","meta","0",{"charSet":"utf-8"}],["$","meta","1",{"name":"viewport","content":"width=device-width, initial-scale=1"}]]\n',
+      ]);
+    </script>
+    <script>
+      self.__next_f.push([
+        1,
+        '11:I[37434,["/html/imagetool/next/static/chunks/c5c7ae7e10ac7d00.js"],"IconMark"]\nb:null\nf:[["$","title","0",{"children":"图片格式转换与压缩工具"}],["$","meta","1",{"name":"description","content":"现代化、响应式、纯前端本地运行的图片格式转换与压缩工具，支持实时预览、一键下载"}],["$","link","2",{"rel":"author","href":"https://code.coze.cn"}],["$","meta","3",{"name":"author","content":"Coze Code Team"}],["$","meta","4",{"name":"generator","content":"Coze Code"}],["$","meta","5",{"name":"keywords","content":"图片转换,图片压缩,格式转换,WebP转换,AVIF转换,批量处理,本地处理,隐私保护"}],["$","link","6",{"rel":"icon","href":"/html/imagetool/favicon.ico?favicon.0b3bf435.ico","sizes":"256x256","type":"image/x-icon"}],["$","$L11","7",{}]]\n',
+      ]);
+    </script>
+  </body>
+</html>
